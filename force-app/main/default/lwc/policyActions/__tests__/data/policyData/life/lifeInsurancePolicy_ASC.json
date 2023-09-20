@@ -1,0 +1,151 @@
+{
+    "apiName": "InsurancePolicy",
+    "childRelationships": {},
+    "id": "0YTR00000004DmYOAU",
+    "lastModifiedById": "005R0000005P7kyIAC",
+    "lastModifiedDate": "2021-02-17T22:25:34.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2021-02-17T22:25:34.000Z",
+    "fields": {
+        "AgreAccessKey__c": {
+            "displayValue": null,
+            "value": "A235168901"
+        },
+        "AgreSourceSysCd__c": {
+            "displayValue": null,
+            "value": "1"
+        },
+        "CoCd__c": {
+            "displayValue": null,
+            "value": "0002"
+        },
+        "MasterDataLocationCd__c": {
+            "displayValue": null,
+            "value": "80"
+        },
+        "NI_RoleNameCd__c": {
+            "displayValue": null,
+            "value": "22"
+        },
+        "NI_SecondaryRoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "SL-3516-8901"
+        },
+        "NameInsured": {
+            "displayValue": "REINA D SCOTT",
+            "value": {
+                "apiName": "Account",
+                "childRelationships": {},
+                "id": "001R000001u1pr0IAA",
+                "lastModifiedById": "005R0000005P7kyIAC",
+                "lastModifiedDate": "2021-02-17T22:24:00.000Z",
+                "recordTypeId": "012o0000000qlF7AAI",
+                "recordTypeInfo": {
+                    "available": true,
+                    "defaultRecordTypeMapping": true,
+                    "master": false,
+                    "name": "Individual",
+                    "recordTypeId": "012o0000000qlF7AAI"
+                },
+                "systemModstamp": "2021-02-17T22:24:00.000Z",
+                "fields": {
+                    "ClientIdentifier__c": {
+                        "displayValue": null,
+                        "value": "FQNVD4TD007"
+                    },
+                    "Name": {
+                        "displayValue": null,
+                        "value": "REINA D SCOTT"
+                    },
+                    "PersonEmail": {
+                        "displayValue": null,
+                        "value": null
+                    }
+                }
+            }
+        },
+        "NameInsuredId": {
+            "displayValue": null,
+            "value": "001R000001u1pr0IAA"
+        },
+        "Pilot_User_2__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PlcyTypeCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PolicyDescription": {
+            "displayValue": null,
+            "value": "Life Income With Cash Refund: Scott, Reina D"
+        },
+        "PolicyName": {
+            "displayValue": null,
+            "value": "Life Income with Cash Refund"
+        },
+        "ProdLineCd__c": {
+            "displayValue": null,
+            "value": "L"
+        },
+        "Profile": {
+            "displayValue": "Developer System Administrator",
+            "value": {
+                "apiName": "Profile",
+                "childRelationships": {},
+                "id": "00e46000000HtmqAAC",
+                "lastModifiedById": "00546000000QXu5AAG",
+                "lastModifiedDate": "2021-02-04T17:42:36.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2021-02-04T17:42:36.000Z",
+                "fields": {
+                    "Name": {
+                        "displayValue": null,
+                        "value": "Developer System Administrator"
+                    }
+                }
+            }
+        },
+        "Servicing_Agent_Associate_ID__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Servicing_Agent__r": {
+            "displayValue": "Mike Shoffner, CP52, 33-6238",
+            "value": {
+                "apiName": "User",
+                "childRelationships": {},
+                "id": "005o0000003J8ONAA0",
+                "lastModifiedById": "00546000001eLXBAA2",
+                "lastModifiedDate": "2019-09-13T01:45:51.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2019-09-13T01:45:51.000Z",
+                "fields": {
+                    "Associate_ID__c": {
+                        "displayValue": null,
+                        "value": "P1KNH1YS000"
+                    },
+                    "State_Agent_Code__c": {
+                        "displayValue": null,
+                        "value": "33-6238"
+                    }
+                }
+            }
+        },
+        "SourceSystemIdentifier": {
+            "displayValue": null,
+            "value": "389748657"
+        },
+        "Status": {
+            "displayValue": "In Force",
+            "value": "In Force"
+        }
+    }
+}

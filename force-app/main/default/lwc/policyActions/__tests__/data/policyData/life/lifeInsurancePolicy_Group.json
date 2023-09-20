@@ -1,0 +1,151 @@
+{
+    "apiName": "InsurancePolicy",
+    "childRelationships": {},
+    "id": "0YTR00000004DqxOAE",
+    "lastModifiedById": "005R0000005P7kyIAC",
+    "lastModifiedDate": "2021-02-26T22:29:10.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2021-02-26T22:29:10.000Z",
+    "fields": {
+        "AgreAccessKey__c": {
+            "displayValue": null,
+            "value": "G235567942"
+        },
+        "AgreSourceSysCd__c": {
+            "displayValue": null,
+            "value": "1"
+        },
+        "CoCd__c": {
+            "displayValue": null,
+            "value": "0002"
+        },
+        "MasterDataLocationCd__c": {
+            "displayValue": null,
+            "value": "80"
+        },
+        "NI_RoleNameCd__c": {
+            "displayValue": null,
+            "value": "22"
+        },
+        "NI_SecondaryRoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "GL-3556-7942"
+        },
+        "NameInsured": {
+            "displayValue": "PATZNER INSURANCE INC.",
+            "value": {
+                "apiName": "Account",
+                "childRelationships": {},
+                "id": "001R000001vhdaUIAQ",
+                "lastModifiedById": "005R0000005P7kyIAC",
+                "lastModifiedDate": "2021-02-26T22:28:01.000Z",
+                "recordTypeId": "012o0000000qlFCAAY",
+                "recordTypeInfo": {
+                    "available": true,
+                    "defaultRecordTypeMapping": false,
+                    "master": false,
+                    "name": "Organization",
+                    "recordTypeId": "012o0000000qlFCAAY"
+                },
+                "systemModstamp": "2021-02-26T22:28:01.000Z",
+                "fields": {
+                    "ClientIdentifier__c": {
+                        "displayValue": null,
+                        "value": "MHRKB6FP006"
+                    },
+                    "Name": {
+                        "displayValue": null,
+                        "value": "PATZNER INSURANCE INC."
+                    },
+                    "PersonEmail": {
+                        "displayValue": null,
+                        "value": null
+                    }
+                }
+            }
+        },
+        "NameInsuredId": {
+            "displayValue": null,
+            "value": "001R000001vhdaUIAQ"
+        },
+        "Pilot_User_2__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PlcyTypeCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PolicyDescription": {
+            "displayValue": null,
+            "value": "Commercial Group"
+        },
+        "PolicyName": {
+            "displayValue": null,
+            "value": "Commercial Group"
+        },
+        "ProdLineCd__c": {
+            "displayValue": null,
+            "value": "L"
+        },
+        "Profile": {
+            "displayValue": "Developer System Administrator",
+            "value": {
+                "apiName": "Profile",
+                "childRelationships": {},
+                "id": "00e46000000HtmqAAC",
+                "lastModifiedById": "00546000000QXu5AAG",
+                "lastModifiedDate": "2021-02-04T17:42:36.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2021-02-04T17:42:36.000Z",
+                "fields": {
+                    "Name": {
+                        "displayValue": null,
+                        "value": "Developer System Administrator"
+                    }
+                }
+            }
+        },
+        "Servicing_Agent_Associate_ID__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Servicing_Agent__r": {
+            "displayValue": "Tanya Patzner, REAR, 27-9A36",
+            "value": {
+                "apiName": "User",
+                "childRelationships": {},
+                "id": "005o0000003JEw6AAG",
+                "lastModifiedById": "00546000001eLXBAA2",
+                "lastModifiedDate": "2019-09-12T21:31:07.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2019-09-12T21:31:07.000Z",
+                "fields": {
+                    "Associate_ID__c": {
+                        "displayValue": null,
+                        "value": "VSGW51YS000"
+                    },
+                    "State_Agent_Code__c": {
+                        "displayValue": null,
+                        "value": "27-9A36"
+                    }
+                }
+            }
+        },
+        "SourceSystemIdentifier": {
+            "displayValue": null,
+            "value": "381889874"
+        },
+        "Status": {
+            "displayValue": "In Force",
+            "value": "In Force"
+        }
+    }
+}

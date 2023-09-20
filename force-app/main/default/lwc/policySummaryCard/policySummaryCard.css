@@ -1,0 +1,111 @@
+@import 'c/policyDetailsCommonCSS';
+
+.card-border {
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
+}
+
+.label {
+    color: #666666;
+    font-weight: bold;
+}
+
+.policyNum {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.policyNi {
+    font-weight: normal;
+    font-size: 0.8em;
+}
+
+.justify-right {
+    text-align: right;
+}
+
+.policy-number {
+    font-weight: normal;
+    font-size: 0.9em;
+}
+
+.policy-name {
+    margin-left: 10px;
+    font-weight: normal;
+    font-size: 0.9em;
+}
+
+.grey-bg {
+    background-color: #f3f2f2;
+}
+
+.header-field-label {
+    color: #777777;
+}
+
+.risk-title-parent {
+    font-weight: bold;
+    font-size: 1.3em;
+    border: 1px 0px 0px 0px;
+    border-style: solid hidden hidden hidden;
+    border-width: 1px;
+    width: 100%;
+    border-color: #dddddd;
+}
+
+.risk-title {
+    color: black;
+}
+
+.indicator-box {
+    width: 25%
+}
+
+.full-width {
+    width: 100%;
+}
+
+.risk-box {
+    float: left; 
+    width: 100%;
+}
+
+.bg-red {
+    color: red;
+}
+
+.bg-green {
+    color: green;
+}
+
+.red-text {
+    color: red;
+}
+
+.risk-modal {
+    width: 40%;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    min-width: 250px;
+}
+
+.overflow {
+    overflow-wrap: break-word;
+}
+
+.no-wrap {
+    white-space: nowrap;
+}
+
+.lob-icon {
+    min-width: 8%
+}
+
+.flex-div {
+    display: flex
+}

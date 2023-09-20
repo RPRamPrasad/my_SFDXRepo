@@ -1,0 +1,30 @@
+<template>
+    <div class="slds-p-bottom_small">
+        <div class="slds-card slds-card_boundary">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <strong>Rating</strong>
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <div data-id="ratings-detail" class="slds-card__body slds-card__body_inner">
+                <template if:true={hasFullAccess}>
+                    <template if:true={auto}>
+                        <c-policy-details-rating-auto data-id="auto-ratings" details={details} has-full-access={hasFullAccess}>
+                        </c-policy-details-rating-auto>
+                    </template>
+                    <template if:true={fire}>
+                        <c-policy-details-rating-fire data-id="fire-ratings" details={details} has-full-access={hasFullAccess}>
+                        </c-policy-details-rating-fire>
+                    </template>
+                </template>
+                <template if:false={hasFullAccess}>
+                    <h1>Simple Details View: This information is not available.</h1>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

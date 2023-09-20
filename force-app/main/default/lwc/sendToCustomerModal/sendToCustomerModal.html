@@ -1,0 +1,37 @@
+<template>
+    <template if:true={isModalOpen}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small" aria-labelledby="modal-heading-01" aria-modal="true">
+            <div class="slds-modal__container" style="width: 200px;">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+            <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+            <span class="slds-assistive-text">Close</span>
+            </button>
+            <div class="slds-modal__header">
+            <h4 id="" class="slds-modal__title slds-hyphenate" style="font-size:16px;font-weight:760;">Send ID Card</h4>
+            </div>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                
+                <h3 style="color:rgb(68 68 68); font-weight:600;">Verify the email address and click 'Send' to send the Auto ID Card.</h3><br/>
+                <h3 style="color:rgb(68 68 68); font-weight:600;">Entering a new email address or modifying will not update the customer account.</h3>
+                <hr>
+                <template if:true={showEmptyEmailError}>
+                
+                <h3 data-id="noEmail" style="color:#ea001e; font-weight:600">There is no email address for this customer. Please ask the customer to provide a valid email.</h3>
+                
+             </template>   
+                <lightning-input type = "text" label="Email Address" value={customerEmail} onchange={handleEmailChange} style="width: 415px; padding-bottom:20px; font-weight:600; padding-top:2px;" required="true"></lightning-input>  <br/>
+                 
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" style="width:110px;" data-id="cancelButton" onclick={closeModal}><b>Cancel</b></button>
+                <button class="slds-button slds-button_brand" style="width:110px;" data-id="saveButton" onclick={handleSend} disabled={showEmptyEmailError}><b>Send</b></button>
+                    
+            </div>
+            </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+</template>
+</template>

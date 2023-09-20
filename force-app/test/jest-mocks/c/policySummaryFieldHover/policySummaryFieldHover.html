@@ -1,0 +1,18 @@
+<template>
+    <lightning-icon data-id="hover" icon-name={iconName} size="x-small" onmouseover={handleHoverOpen} onmouseout={handleHoverClose}></lightning-icon>
+    <template if:true={showHover}>
+        <section aria-describedby="dialog-body-id-111" aria-labelledby="dialog-heading-id-116" class="slds-popover slds-nubbin_bottom fix-position" role="dialog">
+            <div class="slds-popover__body" id="dialog-body-id-111">
+                <div class="slds-media">
+                    <div class="slds-media__body">
+                        <header class="slds-popover__header">
+                            <h2 class="slds-text-heading_small" id="dialog-heading-id-116" data-id="popover-title">
+                                <strong>{popoverTitle}</strong></h2>
+                        </header>
+                        <p data-id="popover-body">{popoverBody}</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+</template>

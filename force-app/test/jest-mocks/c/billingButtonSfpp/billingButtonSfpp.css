@@ -1,0 +1,17 @@
+.mock-link {
+    padding-left: 5px;
+    --sds-c-button-shadow-focus: none;
+    --sds-c-button-inverse-shadow-focus: none;
+}
+
+.mock-link:hover {
+    text-decoration: underline;
+    --sds-c-button-shadow-focus: none;
+    --sds-c-button-inverse-shadow-focus: none;
+}
+
+.mock-link:active {
+    text-decoration: underline;
+    --sds-c-button-shadow-focus: none;
+    --sds-c-button-inverse-shadow-focus: none;
+}

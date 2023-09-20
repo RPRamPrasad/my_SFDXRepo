@@ -1,0 +1,8 @@
+<template>
+    <template if:true={isClassicClaim}>
+        <lightning-formatted-url data-id="classic-claim-link" value={url} label={label} target="_blank"></lightning-formatted-url>
+    </template>
+    <template if:false={isClassicClaim}>
+        <lightning-formatted-url data-id="claim-link" value={url} label={label} target="_self"></lightning-formatted-url>
+    </template>
+</template>

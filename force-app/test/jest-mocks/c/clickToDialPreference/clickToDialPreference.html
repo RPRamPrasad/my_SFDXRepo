@@ -1,0 +1,77 @@
+<template>
+    <div style="z-index: 1; position: relative">
+        <lightning-spinner alternative-text="Loading" size="medium" variant="brand" if:true={displaySpinner}>
+        </lightning-spinner>
+        <div class="slds-var-p-left_small slds-var-p-top_medium" if:true={displayClickToDialPreference}>
+            <div class="slds-var-p-left_small">
+                <strong>Please choose your Click to Dial settings </strong>
+                <span style="position: relative; top: -2px">
+                    <lightning-helptext
+                        content="Click to Dial Preference can be set based on the phone number format your telephone company requires. Select a 10-digit or 11-digit phone number format.">
+                    </lightning-helptext>
+                </span>
+            </div>
+            <lightning-layout multiple-rows>
+                <lightning-layout-item size="6" padding="around-small">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-border_right slds-border_left">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th scope="col">
+                                    <div>1-With area code and phone number</div>
+                                </th>
+                                <th scope="col">
+                                    <div>Area code and phone number</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="slds-form-element__control">
+                                <td>
+                                    <label class="slds-radio" for="preference1">
+                                        <input type="radio" name="clickToDialOptions" id="preference1"
+                                            onchange={handleSelectedClickToDialPreferences} value="11"
+                                            checked={defaultPreferenceOption1} data-id="preferenceOption1"/>
+                                        <span class="slds-radio_faux"></span>
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="slds-radio" for="preference2">
+                                        <input type="radio" name="clickToDialOptions" id="preference2"
+                                            onchange={handleSelectedClickToDialPreferences} value="10"
+                                            checked={defaultPreferenceOption2} data-id="preferenceOption2"/>
+                                        <span class="slds-radio_faux"></span>
+                                    </label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="slds-var-p-top_medium slds-align_absolute-center">
+                        <lightning-button variant="brand" label="Save" title="Save" data-id="saveClickToDial"
+                            class="slds-var-p-right_xx-small" disabled={isSaveButtonDisabled}
+                            onclick={handleSaveClickToDialPreference}>
+                        </lightning-button>
+                    </div>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+
+        <div if:true={displayNoClickToDialEnabled}>
+            <div class="slds-box slds-theme_shade slds-text-heading_small slds-var-p-around_xxx-small"
+                style="margin-left: 20px; display: inline-block" data-id="noClickToDialErrorSection">
+                <div class="slds-text-heading_small slds-text-color_destructive">
+                    <p>
+                        Unfortunately, Click To Dial is not enabled for your user profile.
+                    </p>
+                    <p>
+                        To make Click To Dial enabled, Please contact your normal support channel for assistance.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div if:true={displayErrorMessage} style="display: inline-block; margin-top: 10px; margin-left: 20px"
+            class="slds-text-heading_small slds-var-p-around_small slds-theme_error" data-id="errorSection">
+            An unexpected error has occurred. Please contact your normal support channel for assistance.
+        </div>
+    </div>
+</template>

@@ -1,0 +1,26 @@
+<template>
+    <lightning-card icon-name={iconName} >
+        <h2 slot="title" class={titleClass} style="font-weight:bold;" if:true={enableHeader}>{tableTitle}</h2>
+          <div class="slds-text-body_regular">
+              <c-campaign-member-datatable
+                          key-field="id"
+                          data-id={customId}
+                          data={tableContents}
+                          columns={headers}
+                          hide-checkbox-column=true
+                          sorted-direction={sortedDirection}
+                          sorted-by={sortedBy}
+                          onsort={handleSort}
+                          disable-default-sort-handling={disableDefaultSortHandling} >
+              </c-campaign-member-datatable>
+          </div>
+             <c-lwc-paginator 
+             show-page-input={showPageInput}
+             page-placeholder={currentPage}
+             onpaginationchanged={handlePagination}
+             max-per-page={maxPerPage}
+             total-data-size={totalDataSize} 
+             current-page={currentPage}>
+            </c-lwc-paginator>
+      </lightning-card>
+</template>

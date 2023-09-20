@@ -1,0 +1,46 @@
+<template>
+    <span if:true={hasAlertLength} class="alert-length" data-id="alertLength">{alertLength}</span>
+    <lightning-icon data-id="hover" icon-name="utility:warning" size="small" class="warning-icon" title="Click to open alert(s)" onclick={handleClickToggle}></lightning-icon>
+    <template if:true={showHover}>
+        <section aria-describedby="dialog-body-id-109" aria-label="Bill Past Due" class="slds-popover slds-nubbin_top-right fix-position slds-popover_warning" role="dialog">
+            <lightning-button data-id = "closeButton" variant="base" icon-name="utility:close" onclick={handleClickToggle} class="slds-float_right slds-popover__close"></lightning-button>
+            <header class="slds-popover__header">
+                <div class="slds-media slds-media_center slds-has-flexi-truncate ">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-utility-warning">
+                            <lightning-icon icon-name="utility:warning" size="x-small"></lightning-icon>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <h2 data-id="popoverHeader" class="slds-truncate slds-text-heading_medium" id="dialog-heading-id-2" title="Alert">{popoverHeader}</h2>
+                    </div>
+                </div>
+            </header>
+            <div class="slds-popover__body" id="dialog-body-id-109">
+                <div class="slds-media">
+                    <div>
+                        <template for:each={alerts} for:item="alert">
+                            <div class="slds-grid" key={alert.billRecordId} data-id="divdataid">
+                                <div class="slds-m-right_small">
+                                    <strong>{alert.type}</strong>
+                                </div>
+                                <div class="slds-m-right_small">
+                                    <span class={alert.alertClass}>{alert.message}</span>
+                                    <a onclick={navigateToBillingAccount} data-id={alert.recordId}>{alert.accountNumber}</a>
+                                </div>
+                                <a data-id="launchPayBills" onclick={navigateToPayBills} target="_blank"> Pay Bill(s)</a>
+                            </div>
+                            <lightning-menu-divider key={alert.billRecordId}></lightning-menu-divider>
+                            
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+    <template if:true={showAccountPickerModal}>
+        <c-list-picker-modal data-id="listPicker" title="Select an Account" list={accountList} page-size="10"
+            onitemclick={onAccountSelect} onclose={onCloseModal}>
+        </c-list-picker-modal>
+    </template>
+</template>

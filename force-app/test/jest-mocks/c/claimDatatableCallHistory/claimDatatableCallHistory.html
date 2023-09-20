@@ -1,0 +1,32 @@
+<template>
+    <div class="outside">
+        <template if:true={isCallHistory}>
+            <strong>Call log</strong>
+            <div class="c-container">
+                <lightning-layout>
+                    <lightning-layout-item size="2">
+                        <div class="header-column">
+                            <p class="field-title">Type</p>
+                            <p><lightning-formatted-text data-id="type" value={type}></lightning-formatted-text></p>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="6">
+                        <div class="header-column">
+                            <p class="field-title">Participant(s)</p>
+                            <p class="field-value"><lightning-formatted-text data-id="participants" value={participants}></lightning-formatted-text></p>
+                        </div>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="4">
+                        <div class="header-column">
+                            <p class="field-title">Handler</p>
+                            <p><lightning-formatted-text data-id="handler" value={handler}></lightning-formatted-text></p>
+                        </div>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </template>
+        <template if:false={isCallHistory}>
+            <lightning-formatted-text data-id="description" value={description}></lightning-formatted-text>
+        </template>
+    </div>
+</template>

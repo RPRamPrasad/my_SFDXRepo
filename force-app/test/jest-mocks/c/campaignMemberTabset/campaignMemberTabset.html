@@ -1,0 +1,34 @@
+<template>
+    <lightning-tabset>
+        <lightning-tab label="Opportunities">
+            <c-opportunity-row-display
+            account-id={accountId}
+            number-of-rows={numberOfRows}>
+            </c-opportunity-row-display>
+        </lightning-tab>
+        <lightning-tab label="Cases">
+            <c-case-row-display
+            account-id={accountId}
+            number-of-rows={numberOfRows}>
+            </c-case-row-display>
+        </lightning-tab>
+        <lightning-tab  label="Tasks">
+            <c-task-row-display
+            account-id={accountId}
+            number-of-rows={numberOfRows}>
+            </c-task-row-display>
+        </lightning-tab>
+        <lightning-tab label="Alerts">
+            <c-account-alert-row-display
+            account-id={accountId}
+            number-of-rows={numberOfRows}>
+            </c-account-alert-row-display>
+        </lightning-tab>
+        <lightning-tab label="Simple Conversation">
+            <c-simple-conversation-row-display
+            account-id={accountId}
+            number-of-rows={numberOfRows}>
+            </c-simple-conversation-row-display>
+        </lightning-tab>
+    </lightning-tabset>
+</template>

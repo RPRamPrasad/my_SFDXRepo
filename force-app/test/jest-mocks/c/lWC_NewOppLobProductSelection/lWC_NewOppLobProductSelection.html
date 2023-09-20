@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-border_top">
+        <ul class="slds-list_horizontal slds-m-around_xx-small slds-align_absolute-left">
+            <li class="firstColumn">
+                <div class="slds-checkbox">
+                    <input type="checkbox" name={lobItem.value} data-id="lobCheckbox" id={lobItem.value}
+                        onchange={handleLOBChange} value={lobItem.value} tabindex="0" checked={lobItem.isSelected}/>
+                    <label class="slds-checkbox__label" for={lobItem.value}>
+                        <span class="slds-checkbox_faux"></span>
+                        <span class="slds-form-element__label slds-assistive-text"
+                            style={CssforMobileText}>{lobItem.value}</span>
+                    </label>
+                </div>
+            </li>
+            <li class="secondColumn">
+                <div class="slds-truncate" data-id="lobName">{lobItem.label}</div>
+            </li>
+            <li class="thirdColumn">
+                <lightning-combobox style={CssforMobileText} data-id="productDropdown" disabled={isProdComboDisabled}
+                    options={options} onchange={handleProductSelection} variant="label-hidden" value={defaultProduct}
+                    placeholder="Select Product" dropdown-alignment="auto">
+                </lightning-combobox>
+            </li>
+        </ul>
+    </div>
+</template>

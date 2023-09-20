@@ -1,0 +1,24 @@
+<template>
+        <lightning-tabset variant="horizontal" active-tab-value="sfcom">
+            <lightning-tab label="Statefarm.com Opportunities" value="sfcom">
+                <c-checkbox-group-reusable onchange={handleSelectAllSFCOM} options={selectAllOptions}>
+                </c-checkbox-group-reusable>
+                <c-checkbox-group-reusable label="I want to be notified by:" value={notificationChannelValueSFCom}
+                    options={notificationChannelOptionsSFCom} data-id="sfcom">
+                </c-checkbox-group-reusable>
+                <c-checkbox-group-reusable label="I want to be notified for the following temperatures:" 
+                    value={temperatureValue} options={temperatureOptions} data-id="sfcom">
+                </c-checkbox-group-reusable>
+                <c-checkbox-group-reusable hidden label="I want to be notified of Online Browsing opportunities:"
+                    value={onlineBrowsingValue} options={onlineBrowsingOption} data-id="sfcom">
+                </c-checkbox-group-reusable>
+            </lightning-tab>
+            <lightning-tab label="Internet Lead Provider Opportunities" value="ilp">
+                <c-checkbox-group-reusable onchange={handleSelectAllILP} options={selectAllOptions}>
+                </c-checkbox-group-reusable>
+                <c-checkbox-group-reusable label="I want to be notified by:" value={notificationChannelValueILP}
+                    options={notificationChannelOptionsILP} data-id="ilp">
+                </c-checkbox-group-reusable>
+            </lightning-tab>
+        </lightning-tabset>
+</template>

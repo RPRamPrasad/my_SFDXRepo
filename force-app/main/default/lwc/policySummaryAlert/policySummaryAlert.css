@@ -1,0 +1,45 @@
+.fix-position {
+    position: absolute; 
+    margin-top: 36px; 
+    margin-left: -372px;
+    width: 385px;
+}
+
+.weak-font {
+    font-size: 10pt;
+    font-weight: normal;
+}
+
+.nohover-red {
+    background-color: red;
+    color: white;
+}
+
+.hover-darkred {
+    background-color: firebrick;
+    color: white;
+}
+
+.nohover-yellow {
+    background-color: gold;
+    color: dimgrey;
+}
+
+.hover-darkyellow {
+    background-color: goldenrod;
+    color: dimgrey;
+}
+
+.warning-icon {
+    --sds-c-icon-color-foreground-default: orange;
+    cursor: pointer;
+}
+
+.past-due-red {
+    color: firebrick;
+    font-weight: bold;
+}
+
+.alert-length {
+    font-size: 1.2em;
+}

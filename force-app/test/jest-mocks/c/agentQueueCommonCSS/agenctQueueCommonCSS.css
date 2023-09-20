@@ -1,0 +1,96 @@
+.button-container:hover {
+    background-color: #E8F3FD;
+    cursor: pointer;
+}
+
+.agent-queue-container {
+    background-color: rgb(255,255,255);
+    border-radius: 15px;
+}
+
+.queue-column-headers {
+    display: flex;
+    background-color: #F3F3F3;
+}
+
+.title-container {
+    border-bottom: 1px solid #DDDBDA;
+    background-color: #F3F3F3;
+    border-radius: 15px 15px 0 0;
+}
+
+.left-separator {
+    width: 18px;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-grow-1 {
+    flex: 1
+}
+
+.flex-grow-2 {
+    flex: 2
+}
+
+.flex-grow-4 {
+    flex: 4
+}
+
+.flex-grow-8 {
+    flex: 8
+}
+
+.flex-grow-10 {
+    flex: 10
+}
+
+.flex-grow-50 {
+    flex: 50
+}
+
+.no-wrap-content {
+    white-space: nowrap;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.vertically-pad {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.padded {
+    padding: 5px;
+}
+
+.min-height-10 {
+    min-height: 10px;
+}
+
+.header {
+    font-size: 10pt;
+}
+
+.header-large {
+    font-size: 12pt;
+}
+
+.header-underline {
+    border-top: 3px solid #0070D2;
+    min-height: 1px;
+}
+
+.underline {
+    border-top: 1px solid #DDDBDA;
+    min-height: 1px;
+}

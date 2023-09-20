@@ -1,0 +1,155 @@
+{
+    "apiName": "InsurancePolicy",
+    "childRelationships": {},
+    "id": "0YTR00000004CgwOAE",
+    "lastModifiedById": "005R0000005P7kyIAC",
+    "lastModifiedDate": "2020-12-16T06:29:23.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2020-12-16T06:29:23.000Z",
+    "fields": {
+        "AgreAccessKey__c": {
+            "displayValue": null,
+            "value": "7563035126"
+        },
+        "AgreSourceSysCd__c": {
+            "displayValue": null,
+            "value": "24"
+        },
+        "CoCd__c": {
+            "displayValue": null,
+            "value": "0001"
+        },
+        "MasterDataLocationCd__c": {
+            "displayValue": null,
+            "value": "24"
+        },
+        "NI_RoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "NI_SecondaryRoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "011 7968-E19-03L"
+        },
+        "NameInsured": {
+            "displayValue": "JOHN D FILLINGIM",
+            "value": {
+                "apiName": "Account",
+                "childRelationships": {},
+                "id": "001R000001kro3uIAA",
+                "lastModifiedById": "005R00000045FlCIAU",
+                "lastModifiedDate": "2020-09-16T21:43:46.000Z",
+                "recordTypeId": "012o0000000qlF7AAI",
+                "recordTypeInfo": {
+                    "available": true,
+                    "defaultRecordTypeMapping": true,
+                    "master": false,
+                    "name": "Individual",
+                    "recordTypeId": "012o0000000qlF7AAI"
+                },
+                "systemModstamp": "2020-11-30T21:20:22.000Z",
+                "fields": {
+                    "ClientIdentifier__c": {
+                        "displayValue": null,
+                        "value": "Z376R0D300S"
+                    },
+                    "Name": {
+                        "displayValue": null,
+                        "value": "JOHN D FILLINGIM"
+                    },
+                    "PersonEmail": {
+                        "displayValue": null,
+                        "value": "xajcrfxtzgcb2mm@sf.org"
+                    }
+                }
+            }
+        },
+        "NameInsuredId": {
+            "displayValue": null,
+            "value": "001R000001kro3uIAA"
+        },
+        "PhysicalObjectId__c":{
+            "displayValue": null,
+            "value": "98765"
+        },
+        "Pilot_User_2__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PlcyTypeCd__c": {
+            "displayValue": null,
+            "value": "0"
+        },
+        "PolicyDescription": {
+            "displayValue": null,
+            "value": "2004 CHEVROLET K2500 PICKUP"
+        },
+        "PolicyName": {
+            "displayValue": null,
+            "value": "PRIVATE PASSENGER"
+        },
+        "ProdLineCd__c": {
+            "displayValue": null,
+            "value": "A"
+        },
+        "Profile": {
+            "displayValue": "Developer System Administrator",
+            "value": {
+            "apiName": "Profile",
+            "childRelationships": {},
+            "id": "00e46000000HtmqAAC",
+            "lastModifiedById": "00546000000QXu5AAG",
+            "lastModifiedDate": "2021-02-04T17:42:36.000Z",
+            "recordTypeId": null,
+            "recordTypeInfo": null,
+            "systemModstamp": "2021-02-04T17:42:36.000Z",
+            "fields": {
+                "Name": {
+                "displayValue": null,
+                "value": "Developer System Administrator"
+                }
+            }
+            }
+        },
+        "Servicing_Agent_Associate_ID__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Servicing_Agent__r": {
+            "displayValue": "Jill Tinkel, RHC9, 03-1455",
+            "value": {
+                "apiName": "User",
+                "childRelationships": {},
+                "id": "005o0000003JF10AAG",
+                "lastModifiedById": "00546000001eLXBAA2",
+                "lastModifiedDate": "2019-09-13T03:05:32.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2019-09-13T03:05:32.000Z",
+                "fields": {
+                    "Associate_ID__c": {
+                        "displayValue": null,
+                        "value": "D51WM4NTKAK"
+                    },
+                    "State_Agent_Code__c": {
+                        "displayValue": null,
+                        "value": "03-1455"
+                    }
+                }
+            }
+        },
+        "SourceSystemIdentifier": {
+            "displayValue": null,
+            "value": "1915"
+        },
+        "Status": {
+            "displayValue": "In Force",
+            "value": "In Force"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<template>
+	<div data-id='statusMessage' title={cancellationTooltip}>
+		{billingStatus}
+		<template if:true={isSfpp}>
+			<template if:true={cancellationDate}>
+				<lightning-icon data-id='statusInfo' icon-name="utility:info" style="padding-left: 5px;" size="x-small"
+				alternative-text={cancellationTooltip} title={cancellationTooltip}>
+				</lightning-icon>
+			</template>
+		</template>
+	</div>
+</template>
+
+

@@ -1,0 +1,151 @@
+{
+    "apiName": "InsurancePolicy",
+    "childRelationships": {},
+    "id": "0YTR00000004D4ROAU",
+    "lastModifiedById": "005R00000045FlCIAU",
+    "lastModifiedDate": "2020-09-29T15:16:11.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2020-09-29T15:16:11.000Z",
+    "fields": {
+        "AgreAccessKey__c": {
+            "displayValue": null,
+            "value": "6976"
+        },
+        "AgreSourceSysCd__c": {
+            "displayValue": null,
+            "value": "1"
+        },
+        "CoCd__c": {
+            "displayValue": null,
+            "value": "1"
+        },
+        "MasterDataLocationCd__c": {
+            "displayValue": null,
+            "value": "7"
+        },
+        "NI_RoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "NI_SecondaryRoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "3333"
+        },
+        "NameInsured": {
+            "displayValue": "LEON R HARDEE",
+            "value": {
+                "apiName": "Account",
+                "childRelationships": {},
+                "id": "001R000001mOe07IAC",
+                "lastModifiedById": "005R00000045FlCIAU",
+                "lastModifiedDate": "2020-09-29T15:15:13.000Z",
+                "recordTypeId": "012o0000000qlF7AAI",
+                "recordTypeInfo": {
+                    "available": true,
+                    "defaultRecordTypeMapping": true,
+                    "master": false,
+                    "name": "Individual",
+                    "recordTypeId": "012o0000000qlF7AAI"
+                },
+                "systemModstamp": "2020-09-29T15:15:13.000Z",
+                "fields": {
+                    "ClientIdentifier__c": {
+                        "displayValue": null,
+                        "value": "4FTZ00DF007"
+                    },
+                    "Name": {
+                        "displayValue": null,
+                        "value": "LEON R HARDEE"
+                    },
+                    "PersonEmail": {
+                        "displayValue": null,
+                        "value": null
+                    }
+                }
+            }
+        },
+        "NameInsuredId": {
+            "displayValue": null,
+            "value": "001R000001mOe07IAC"
+        },
+        "Pilot_User_2__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PlcyTypeCd__c": {
+            "displayValue": null,
+            "value": "DX"
+        },
+        "PolicyDescription": {
+            "displayValue": null,
+            "value": "BASIC HOSPITAL INCOME\\nHARDEE LEON R\\nHARDEE LEON R"
+        },
+        "PolicyName": {
+            "displayValue": null,
+            "value": "BASIC HOSPITAL INCOME"
+        },
+        "ProdLineCd__c": {
+            "displayValue": null,
+            "value": "H"
+        },
+        "Profile": {
+            "displayValue": "Developer System Administrator",
+            "value": {
+                "apiName": "Profile",
+                "childRelationships": {},
+                "id": "00e46000000HtmqAAC",
+                "lastModifiedById": "00546000000QXu5AAG",
+                "lastModifiedDate": "2021-02-04T17:42:36.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2021-02-04T17:42:36.000Z",
+                "fields": {
+                    "Name": {
+                        "displayValue": null,
+                        "value": "Developer System Administrator"
+                    }
+                }
+            }
+        },
+        "Servicing_Agent_Associate_ID__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Servicing_Agent__r": {
+            "displayValue": "Jill Gibson, ELY7, 33-6985",
+            "value": {
+                "apiName": "User",
+                "childRelationships": {},
+                "id": "005o0000003JHaqAAG",
+                "lastModifiedById": "00546000001eLXBAA2",
+                "lastModifiedDate": "2019-09-13T00:58:26.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2019-09-13T00:58:26.000Z",
+                "fields": {
+                    "Associate_ID__c": {
+                        "displayValue": null,
+                        "value": "VMHRY57VMAL"
+                    },
+                    "State_Agent_Code__c": {
+                        "displayValue": null,
+                        "value": "33-6985"
+                    }
+                }
+            }
+        },
+        "SourceSystemIdentifier": {
+            "displayValue": null,
+            "value": "198861359"
+        },
+        "Status": {
+            "displayValue": "In Force",
+            "value": "In Force"
+        }
+    }
+}

@@ -1,0 +1,80 @@
+<template>
+    <template if:true={isDssVisible}>
+        <div class="slds-p-bottom_small" data-id="dss-container">
+            <div class="slds-card slds-card_boundary">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <strong>Drive Safe &amp; Save&trade;</strong>
+                            </h2>
+                        </div>
+                    </header>
+                </div>
+                <div class="slds-card__body slds-card__body_inner">
+                    <div class="slds-grid slds-gutters_medium slds-wrap">
+                        <template if:true={dssDiscountVisible}>
+                            <div class="slds-col slds-size_1-of-2">
+                                    <c-policy-details-labeled-field label="Drive Safe &amp; Save Discount"
+                                        value={dssDiscountAmount} data-id="dss-discount-amount" value-border="true"
+                                        help="Discount displayed is the most recent discount amount available for this vehicle. If displaying information for a prior term, the discount may not be accurate.">
+                                    </c-policy-details-labeled-field>
+                            </div>
+                        </template>
+
+                        <template if:true={dssOptionVisibility}>
+                            <div class="slds-col slds-size_1-of-2">
+                                    <c-policy-details-labeled-field label="Product Option"
+                                        value={productOption} data-id="dss-product-option" value-border="true">
+                                    </c-policy-details-labeled-field>
+                            </div>
+                        </template>
+
+                        <template if:true={dssEnrollmentVisibility}>
+                            <div class="slds-col slds-size_1-of-2">
+                                <c-policy-details-labeled-field label="Enrollment"
+                                    value={dssEnrollmentText} data-id="dss-enrollment-text" value-border="true"
+                                    help={dssEnrollmentHelpText}
+                                    >
+                                </c-policy-details-labeled-field>
+                            </div>
+                        </template>
+
+                        <template if:true={dssSetupVisibility}>
+                            <div class="slds-col slds-size_1-of-2">
+                                <c-policy-details-labeled-field label="Setup"
+                                    value={dssSetupText} data-id="dss-setup-text" value-border="true"
+                                    help="To complete setup, the customer must complete all setup requirements for their enrolled product option"
+                                    >
+                                </c-policy-details-labeled-field>
+                            </div>
+                        </template>
+
+                        <template if:true={dssMileageVisibility}>
+                            <div class="slds-col slds-size_1-of-2">
+                                <c-policy-details-labeled-field label="Calculated Annual Mileage"
+                                    value={calcAnnualMileageValue} data-id="dss-annual-mileage" value-border="true"
+                                    help={calcAnnualMileageHelpText}>
+                                </c-policy-details-labeled-field>
+                            </div>
+                        </template>
+
+                        <template if:true={dssOdometerVisibility}>
+                            <div class="slds-col slds-size_1-of-1">
+                                <h2 class="slds-m-vertical_small slds-card__header-title">
+                                    <strong>Recent Odometer Readings Received</strong>
+                                    <lightning-helptext content="Last four odometer readings received (shown real-time, when possible). Customers have the ability to report an odometer reading once per day. Not all readings shown may be used to determine the discount.">
+                                    </lightning-helptext>
+                                </h2>
+                                <lightning-datatable class="slds-table--striped" data-id="dss-odometer-table" data={odometersDisplayed}
+                                columns={odometerColumns} key-field="id" hide-checkbox-column="true"
+                                resize-column-disabled="true">
+                                </lightning-datatable>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

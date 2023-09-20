@@ -1,0 +1,147 @@
+{
+    "apiName": "InsurancePolicy",
+    "childRelationships": {},
+    "fields": {
+        "AgreAccessKey__c": {
+            "displayValue": null,
+            "value": "13P8005554"
+        },
+        "AgreSourceSysCd__c": {
+            "displayValue": null,
+            "value": "28"
+        },
+        "CoCd__c": {
+            "displayValue": null,
+            "value": "0098"
+        },
+        "MasterDataLocationCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "NI_RoleNameCd__c": {
+            "displayValue": null,
+            "value": "18"
+        },
+        "NI_SecondaryRoleNameCd__c": {
+            "displayValue": null,
+            "value": "28"
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "8005554-SCP-13"
+        },
+        "NameInsured": {
+            "displayValue": "HAN SOLO",
+            "value": {
+                "apiName": "Account",
+                "childRelationships": {},
+                "fields": {
+                    "ClientIdentifier__c": {
+                        "displayValue": null,
+                        "value": "Z7S45B4GCWE"
+                    },
+                    "Name": {
+                        "displayValue": null,
+                        "value": "HAN SOLO"
+                    },
+                    "PersonEmail": {
+                        "displayValue": null,
+                        "value": "han.solo@testcentersimprod.statefarm.com"
+                    }
+                },
+                "id": "001R000002AOjmdIAD",
+                "lastModifiedById": "005R0000005P7kyIAC",
+                "lastModifiedDate": "2021-12-21T22:36:54.000Z",
+                "recordTypeId": "012o0000000qlF7AAI",
+                "recordTypeInfo": {
+                    "available": true,
+                    "defaultRecordTypeMapping": true,
+                    "master": false,
+                    "name": "Individual",
+                    "recordTypeId": "012o0000000qlF7AAI"
+                },
+                "systemModstamp": "2021-12-21T22:36:54.000Z"
+            }
+        },
+        "NameInsuredId": {
+            "displayValue": null,
+            "value": "001R000002AOjmdIAD"
+        },
+        "PlcyTypeCd__c": {
+            "displayValue": null,
+            "value": "0"
+        },
+        "PolicyDescription": {
+            "displayValue": null,
+            "value": "Antique Classic:\n1963 Aston Martin Db4 Vantage\n1963 Aston Martin Db4 Vantage"
+        },
+        "PolicyName": {
+            "displayValue": null,
+            "value": "Antique Classic"
+        },
+        "ProdLineCd__c": {
+            "displayValue": null,
+            "value": "A"
+        },
+        "Profile": {
+            "displayValue": "Developer System Administrator",
+            "value": {
+                "apiName": "Profile",
+                "childRelationships": {},
+                "id": "00e46000000HtmqAAC",
+                "lastModifiedById": "00546000000QXu5AAG",
+                "lastModifiedDate": "2021-02-04T17:42:36.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2021-02-04T17:42:36.000Z",
+                "fields": {
+                    "Name": {
+                        "displayValue": null,
+                        "value": "Developer System Administrator"
+                    }
+                }
+            }
+        },
+        "SFDCPolicyNumberSearchKey__c": {
+            "displayValue": null,
+            "value": "8005554SCP13"
+        },
+        "Servicing_Agent__r": {
+            "displayValue": "Rob Isringhausen, ERUD, 13-022F",
+            "value": {
+                "apiName": "User",
+                "childRelationships": {},
+                "fields": {
+                    "Associate_ID__c": {
+                        "displayValue": null,
+                        "value": "M73DJ7ZCCGE"
+                    },
+                    "State_Agent_Code__c": {
+                        "displayValue": null,
+                        "value": "13-022F"
+                    }
+                },
+                "id": "005o0000003bZxmAAE",
+                "lastModifiedById": "00546000001eLXBAA2",
+                "lastModifiedDate": "2019-09-12T23:09:22.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2019-09-12T23:09:22.000Z"
+            }
+        },
+        "SourceSystemIdentifier": {
+            "displayValue": null,
+            "value": "452952543"
+        },
+        "Status": {
+            "displayValue": "In Force",
+            "value": "In Force"
+        }
+    },
+    "id": "0YTR00000004FFZOA2",
+    "lastModifiedById": "005R0000005P7kyIAC",
+    "lastModifiedDate": "2021-12-21T22:38:15.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2021-12-21T22:38:15.000Z"
+}

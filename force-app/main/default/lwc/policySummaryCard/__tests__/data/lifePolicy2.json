@@ -1,0 +1,42 @@
+{
+    "Servicing_Agent__c": "005o0000003J8eCAAS",
+    "MasterDataLocationCd__c": "80",
+    "ServicingAgentExternal__c": "<a href=\"/apex/VFP_ExternalLink?LinkId=26&amp;primaryStateCode=25&amp;primaryAgentCode=123B\" target=\"_blank\">Mike Heitman</a>",
+    "NI_RoleNameCd__c": "18",
+    "ProdLineCd__c": "L",
+    "Name": "LF-3348-1872",
+    "Servicing_Agent__r": {
+        "Associate_ID__c": "ZKYH31YS000",
+        "Id": "005o0000003J8eCAAS",
+        "Name": "Mike Heitman, QUJ6, 25-123B",
+        "State_Agent_Code__c": "25-123B"
+    },
+    "PolicyDescription": "Universal Life-Option 1: Benson, Charles",
+    "SourceSystemIdentifier": "341448257",
+    "NameInsuredId": "0012C00000h2hkYQAQ",
+    "CoCd__c": "0002",
+    "NameInsured": {
+        "ClientIdentifier__c": "DTN155N100G",
+        "Id": "0012C00000h2hkYQAQ",
+        "PersonEmail": "fbcydqld64ux@sf.org",
+        "Name": "CHARLES BENSON"
+    },
+    "Status": "In Force",
+    "PolicyType": "Life",
+    "SFDCPolicyNumberSearchKey__c": "LF33481872",
+    "AgreAccessKey__c": "P233481872",
+    "AgreDisplayPartyName__c": "BENSON, CHARLES",
+    "InsurancePolicyAssets": [
+        {
+            "Description__c": "Benson, Charles",
+            "RiskNumber__c": "00001",
+            "Id": "0YW2C0000004E5rWAE",
+            "RiskStatusText__c": "In Force",
+            "AssetName": "Benson, Charles"
+        }
+    ],
+    "AgreSourceSysCd__c": "1",
+    "PolicyName": "Universal Life-Option 1",
+    "Id": "0YT2C0000008QW6WAM",
+    "EffectiveDate": "2014-02-01T12:00:00.000Z"
+}

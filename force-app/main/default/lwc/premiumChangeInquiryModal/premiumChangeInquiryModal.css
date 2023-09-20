@@ -1,0 +1,19 @@
+.slds-spinner_container{
+    background-color:transparent !important;
+}
+.sf-bullet li {
+   list-style-type: circle;
+}
+
+.sf-m-pcs{
+    margin-left: -1rem;
+}
+.sf-premium-lbl{
+    display:block;
+}
+.sf-error-msg{
+    font-size: 1.2em;
+}
+.sf-m-nopremiumchange{
+    margin-left: -3.7em
+}

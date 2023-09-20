@@ -1,0 +1,10 @@
+[
+    {
+        "type":"Billing",
+        "recordId":"c1",
+        "accountNumber":"1227350151",
+        "message":"There is a past due balance on this SF Billing account: ",
+        "billingDetailsLink":"/1234",
+        "alertClass":"past-due-red"
+    }
+]

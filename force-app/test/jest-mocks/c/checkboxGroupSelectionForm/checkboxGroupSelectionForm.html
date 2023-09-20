@@ -1,0 +1,41 @@
+<template>
+    <c-checkbox-group-form
+        checkbox-group-label={checkboxGroupLabel}
+        submit-button-text={submitButtonText}
+        pre-selected-options={preSelectedCheckboxOptions}
+        options={checkboxOptions}
+        submit-event-name={firstSubmitEventName}
+        onsubmit={handleSubmit}
+        checkbox-column-count={checkboxColumnCount}
+        disable-checkboxes={disableCheckboxes}
+    >
+    <div slot="contentBelowCheckboxGroup" if:true={showCombobox}>
+        <slot name="contentAboveCombobox"></slot>
+        <lightning-layout vertical-align='end'>
+            <lightning-layout-item style='width:100%;'>
+                <lightning-combobox
+                    dropdown-alignment="auto"
+                    label={comboboxLabel}
+                    options={comboboxOptions}
+                    value={comboboxValue}
+                    onchange={handleOnChange}
+                    disabled={disableCombobox}>
+                </lightning-combobox>
+            </lightning-layout-item>
+            <lightning-layout-item class='slds-m-left_x-small'>
+                <lightning-button-icon 
+                    onclick={dispatchRefresh} 
+                    icon-name="utility:refresh"
+                    variant="brand" 
+                    name="refreshButton" 
+                    alternative-text="Refresh" 
+                    data-id="refreshButton"
+                    class="forceRefreshButton rotate slds-button slds-button_icon slds-button_icon-border-filled">
+                </lightning-button-icon>
+            </lightning-layout-item>
+        </lightning-layout>
+        <slot name="contentBelowCombobox"></slot>
+    </div>
+</c-checkbox-group-form>
+
+</template>

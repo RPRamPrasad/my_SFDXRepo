@@ -1,0 +1,18 @@
+.small-badge {
+    font-weight: normal;
+    font-size: 10px;
+    color: white;
+    background: green;
+    border-radius: 0.8em;
+    padding-left: 1.5px;
+    padding-right: 2px;
+    cursor: default;
+    text-align: center;
+    justify-content: center;
+}
+
+.inline {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}

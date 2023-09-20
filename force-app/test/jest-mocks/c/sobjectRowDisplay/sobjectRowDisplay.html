@@ -1,0 +1,28 @@
+<template>
+    <lightning-spinner if:true={showSpinner} alternative-text="Assigning Records"></lightning-spinner>
+    <div if:true={rowsFound}>
+        <lightning-card>
+            <div slot="title">
+                <lightning-icon data-id="titleIcon" icon-name={titleIconName} size={titleIconSize}>
+                </lightning-icon>
+                <span data-id="title" class="slds-text-heading_small">&nbsp;&nbsp;{title}</span>
+            </div>
+            <template for:each={displayData} for:item="item">
+                <template for:each={item.holder} for:item="subItem">
+                    <c-s-object-row-display-row key={subItem.id} label={subItem.fieldLabel} value={subItem.fieldValue}
+                        sobjectid={subItem.linkId}>
+                    </c-s-object-row-display-row>
+                </template>
+                <br key={item.id}>
+            </template>
+        </lightning-card>
+        <span data-id="viewAll" class="slds-float_right link" onclick={handleViewAll} if:true={displayViewAll}>View
+            All</span>
+    </div>
+    <div if:false={rowsFound} style="height:200px;">
+        <div data-id="warningPanel" class="slds-box slds-theme_shade slds-theme_alert-texture"
+            style="display:inline-block;text-align:left;line-height:1.0;">
+            <p><strong>{noRowsFoundDisplay}</strong></p>
+        </div>
+    </div>
+</template>

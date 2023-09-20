@@ -1,0 +1,113 @@
+<template>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_small"
+        aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1">
+        <div class="slds-modal__container">
+            <header class="slds-modal__header">
+                <button data-id="close" class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                    title="Close" onblur={closeFocus} onclick={handleclose}>
+                    <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small">
+                    </lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Privacy Option Word Track
+                </h2>
+            </header>
+            <div class="slds-scrollable class">
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <p><b>Please read the following word track to the customer(s) </b></p>
+                </br>
+                <p><b>For all U.S. states except VT: </b></p>
+                </br>
+                <p> We value your privacy. When you apply for insurance or an account, we gather information about you.
+                    This information may include your driving record, claim history with other companies, and credit
+                    information. </p>
+                </br>
+                <p> We share this information within our State Farm family of companies so, for example, we do not have
+                    to ask you for the same information again. </p>
+                </br>
+                <p> If you prefer to limit sharing this information within our State Farm family of companies, here are
+                    your Options to change your preference: </p>
+                <ul class="slds-list_horizontal slds-has-inline-block-space slds-list_dotted">
+                    <li>Let me know now <lightning-icon icon-name="utility:forward" alternative-text="Approved"
+                            title="Approved" size='small'></lightning-icon>
+                    </li>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <template if:false={isDonotSharecheck}>
+                        <lightning-input  data-id ="DoNotShare"  tabindex="-1" type="checkbox" name="checkboxinput" label="  Do Not Share-USA"
+                            onchange={handledoNotShare}>
+                        </lightning-input>
+                    </template>
+                    <template if:true={isDonotSharecheck}>
+                        <lightning-input data-id="dnscheck"  tabindex="-1" type="checkbox" class="slds-p-bottom_medium" name="checkboxinput"
+                            label="Do Not Share-USA" onchange={handledoNotShare} checked>
+                        </lightning-input>
+                    </template>
+                </ul>
+                <ul class="slds-list_dotted">
+                    <li> Or you can also call our toll free number anytime at 1-800-865-6035 </li>
+                    <template if:true={isCCCUser}>
+                        <li> Or you can call your agent at anytime </li>
+                    </template>
+                    <template if:false={isCCCUser}>
+                        <li> Or you can call me back anytime </li>
+                    </template>
+                </ul>
+                </br>
+                <p>State Farm has a Notice of Privacy Policy that describes how we protect, collect, use, and share
+                    customer information. It will be mailed to you once a new policy is issued and can also be viewed
+                    online at statefarm.com </p>
+                </br>
+                <p>If they would like to proceed, continue. </p>
+                </br>
+                <p> Otherwise, if they would like to review the Notice of Privacy Policy first, ask: Would you like to:
+                </p>
+                <ul class="slds-list_dotted slds-is-nested">
+                    </br>
+                    <li> Review it on statefarm.com </li>
+                    <li> Receive an email with a link to it </li>
+                    <li> Receive a copy of it in the mail </li>
+                </ul>
+                After you have the opportunity to review, please call us back or contact a State Farm agent to complete
+                your transaction.
+                </br></br>
+                <p><b>In addition, for California residents: </b></p>
+                <p>The information you provide will be used for our business purposes including assessing your application, providing you a quote, and providing you products and services.</p>
+                <p>For California residents only, to opt-out of the sale of your personal information, go to www.statefarm.com and click on the Do Not Sell My Personal Information link.</p>
+                <p>For more information, please go to www.statefarm.com/privacy.</p>
+                </br>
+                <p><b>For VT only: </b></p>
+                <p>State Farm will not share personal information across our State Farm family of companies unless
+                    authorized by you. This does not limit State Farm from sharing certain information about your
+                    transactions with us (such as your payment history) or your experience with us (such as your claim
+                    history) as permitted by law.
+                </p>
+                </br>
+                <template if:false={isDonotSharecheck}>
+                    <p>
+                        <lightning-input type="checkbox" tabindex="0" class="slds-p-bottom_medium" name="checkboxinput"
+                            label="Do Not Share-USA" onchange={handledoNotShare} data-id='donot-share'>
+                        </lightning-input>
+                    </p>
+                </template>
+                <template if:true={isDonotSharecheck}>
+                    <p>
+                        <lightning-input type="checkbox" tabindex="0" class="slds-p-bottom_medium" name="checkboxinput"
+                            label="Do Not Share-USA" onchange={handledoNotShare} checked data-id='donot-share'>
+                        </lightning-input>
+                    </p>
+                </template>
+            </div>
+            </div>
+            <footer class="slds-modal__footer">
+                <center>
+                    <b data-id='customLabel'>{label.ppoPopup}</b>
+                    <lightning-button data-id="No" label="No" title="No"  onblur={agreeFocus}  onclick={handlePPO}
+                        class="slds-m-left_x-small"></lightning-button>
+                    <lightning-button data-id="Yes" variant="brand" label="Yes" title="Yes" onblur={disAgreeFocus}  onclick={handlePPO}
+                        class="slds-m-left_x-small"></lightning-button>
+                </center>
+            </footer>
+        </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+</template>

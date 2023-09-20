@@ -1,0 +1,22 @@
+.account-textbox {
+    width: 65%;
+}
+
+.reorder-reasons-padding {
+    padding-left: 10px;
+}
+
+.hr-break {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.modal-body-pages {
+    height: 255px;
+}
+
+.dss-spinner {
+    position: relative;
+    top: 50%;
+    left: 50%;
+}

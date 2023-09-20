@@ -1,0 +1,571 @@
+<template>
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open" data-id="beacon-modal">
+            <div class="slds-modal__container">
+                <!-- Modal/Popup Box LWC header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={closeModal} data-id="closeButton">
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Premium Change at Renewal</h2>
+                </header>
+                <!-- Modal/Popup Box LWC body starts here -->
+                <div class="slds-modal__content slds-p-top_xxx-small">
+                    <template if:true={shouldShowSpinner}>
+                        <lightning-spinner class="slds-spinner slds-spinner_brand slds-spinner_delayed"
+                            alternative-text="Loading" size="medium" data-id="loading-spinner"></lightning-spinner>
+                    </template>
+
+                    <template if:true={isModalOpen}>
+                        <div class="slds-p-around_medium">                           
+                            <template if:false={shouldShowSpinner}>                              
+                                <!-- PL Auto response status either true or false-->                              
+                                <template if:true={isPLAuto}>                                   
+                                    <template if:true={responseStatus}>                                        
+                                        <label class="slds-p-bottom_medium sf-premium-lbl"> Find details below on why
+                                            the
+                                            premium changed at renewal:</label>
+
+                                        <template for:each={premiumChangeResponse} for:item="premiumChangeItem">
+                                            <ul class="" key={premiumChangeItem.vehicleName}>
+                                                <template for:each={premiumChangeItem.vehicleName}
+                                                    for:item="vehicleNameItem">
+                                                    <li key={vehicleNameItem}>{vehicleNameItem}</li>
+                                                </template>
+                                            </ul>
+
+                                            <ul class="slds-m-left_xx-large sf-bullet" key={premiumChangeItem.ratingChanges}>
+                                                <template for:each={premiumChangeItem.ratingChanges}
+                                                    for:item="ratingChangeItem">
+                                                    <li key={ratingChangeItem}>{ratingChangeItem}</li>
+                                                </template>
+
+                                                <template for:each={premiumChangeItem.inflationDesc}
+                                                    for:item="inflationDescItem">
+                                                    <li key={inflationDescItem}>{inflationDescItem}</li>
+                                                </template>
+
+                                                <template if:true={premiumChangeItem.classCode}> 
+                                                    <template for:each={premiumChangeItem.classCode}
+                                                        for:item="classCodeItem">
+                                                        <li key={classCodeItem}>{classCodeItem}</li>
+                                                    </template>
+                                                </template>
+
+
+                                                <!--dss1-->
+                                                <template if:true={premiumChangeItem.dss1}>                                                    
+                                                    <ul>
+                                                        <li>Drive Safe &amp; Save ™ Discount </li>
+
+                                                        <template if:false={isDssShowHide}>
+                                                            <a onclick={dssViewMore}
+                                                                title="View Additional Drive Safe &amp; Save Information" data-id="dssViewMore1">View
+                                                                Additional Drive Safe &amp; Save Information</a>
+                                                        </template>
+
+                                                        <template if:true={isDssShowHide}>
+                                                        <li class="slds-m-left_medium sf-view-more-content">The Drive Safe &amp; Save ™
+                                                            Discount has trended downward from the prior renewal causing an impact to the
+                                                            premium.</li>
+
+                                                        <li class="slds-m-left_xx-large"> The specific factors
+                                                            impacting
+                                                            the
+                                                            discount are unknown to underwriting. Please reference
+                                                            <a href="https://sfnet.opr.statefarm.org/agency/training/rollout/drive_safe_save/discount_grades.shtml"
+                                                                target="_blank" rel="noopener"
+                                                                class="slds-p-left_x-small slds-p-right_x-small">
+                                                                Discount Decrease Points to Consider
+                                                            </a>
+                                                            for additional information.
+                                                        </li>
+                                                        <li class="slds-m-left_xx-large"> The rate with Drive Safe
+                                                            &amp;
+                                                            Save
+                                                            ™ for participating customers is always lower than the
+                                                            otherwise
+                                                            applicable rate without the discount. </li>
+                                                        <li class="slds-m-left_xx-large"> If you need additional
+                                                            assistance
+                                                            regarding Drive Safe &amp; Save ™ then what is provided
+                                                            in
+                                                            Auto
+                                                            Answers/ABS, please see your Agency Field Specialist.
+                                                        </li>
+
+                                                        <!--Other not WA/NY-->
+                                                        <template if:true={premiumChangeItem.isOther}>
+                                                            <p class="slds-m-left_medium"> If the odometer reading
+                                                                isn't
+                                                                reported before the renewal billing date, the
+                                                                discount
+                                                                is
+                                                                reduced. If the customer reports another odometer
+                                                                reading after
+                                                                the renewal billing date, it will not be used in the
+                                                                calculation
+                                                                until their next renewal. For more information click
+                                                                <a href="http://sfnet.opr.statefarm.org/agency/answers/auto/privatePassenger/discounts/dssMobile.shtml#41-767646_Tab"
+                                                                    target="_blank" rel="noopener"
+                                                                    class="slds-p-left_xx-small slds-p-right_xx-small">here
+                                                                </a> and review the Report
+                                                                Odometer at
+                                                                Renewal section.
+                                                            </p>
+                                                        </template>
+
+                                                        <!--NY-->
+                                                        <template if:true={premiumChangeItem.isNY}>
+                                                            <p> Click <a
+                                                                    href="http://sfnet.opr.statefarm.org/agency/answers/auto/privatePassenger/discounts/dssMobile.shtml?role=agent&state=NY#41-767646_Tab"
+                                                                    target="_blank" rel="noopener">here</a> and review
+                                                                the Report
+                                                                Odometer at Renewal section.</p>
+                                                        </template>
+
+                                                        <!--WA-->
+                                                        <template if:true={premiumChangeItem.isWA}>
+                                                            <p> If the odometer reading isn't reported before the
+                                                                renewal billing date, the discount is reduced. If
+                                                                the
+                                                                customer reports another odometer reading after the
+                                                                renewal billing date, it will not be used in the
+                                                                calculation until their next renewal. For more
+                                                                information click <a
+                                                                    href="http://sfnet.opr.statefarm.org/agency/answers/auto/privatePassenger/discounts/dssMobile.shtml?role=agent&state=WA#41-767646_Tab"
+                                                                    target="_blank" rel="noopener">here</a> and review
+                                                                the Report
+                                                                Odometer at Renewal section.</p>
+                                                        </template>
+                                                        <a onclick={dssViewLess}
+                                                        title="View Less Drive Safe &amp; Save Information" data-id="dssViewLess1">View
+                                                        Less Drive Safe &amp; Save Information</a>
+
+                                                </template>
+                                                    </ul>
+                                                </template>
+                                                <!--/dss1-->
+
+                                                <!--dss2-->
+                                                <template if:true={premiumChangeItem.dss2}>
+                                                    <ul>
+                                                        <li>Drive Safe &amp; Save ™ Discount </li>
+                                                        <template if:false={isDssShowHide}>
+                                                            <a onclick={dssViewMore}
+                                                                title="View Additional Drive Safe &amp; Save Information" data-id="dssViewMore2">View
+                                                                Additional Drive Safe &amp; Save Information</a>
+                                                        </template>
+
+                                                        <template if:true={isDssShowHide}>
+                                                        <li class="slds-m-left_medium"> The Drive Safe &amp; Save ™
+                                                            Discount
+                                                            has trended downward, along with an annual mileage
+                                                            increase, from the prior renewal causing an
+                                                            impact to
+                                                            the premium.</li>
+                                                        <li class="slds-m-left_xx-large"> The specific factors
+                                                            impacting
+                                                            the
+                                                            discount are unknown to underwriting. Please reference
+                                                            <a href="https://sfnet.opr.statefarm.org/agency/training/rollout/drive_safe_save/discount_grades.shtml"
+                                                                target="_blank" rel="noopener"
+                                                                class="slds-p-left_x-small slds-p-right_x-small">Discount
+                                                                Decrease Points to
+                                                                Consider</a>
+                                                            for
+                                                            additional information.
+                                                        </li>
+                                                        <li class="slds-m-left_xx-large"> The rate with Drive Safe
+                                                            &amp;
+                                                            Save
+                                                            ™ for participating customers is always lower than the
+                                                            otherwise
+                                                            applicable rate without the discount.
+                                                        </li>
+                                                        <li class="slds-m-left_xx-large"> If you need additional
+                                                            assistance
+                                                            regarding Drive Safe &amp; Save ™ then what is provided
+                                                            in
+                                                            Auto
+                                                            Answers/ABS, please see your Agency Field Specialist.
+                                                        </li>
+
+                                                        <!--Other not WA/NY-->
+                                                        <template if:true={premiumChangeItem.isOther}>
+                                                            <p class="slds-m-left_medium slds-m-top_medium"> If the
+                                                                odometer reading isn't
+                                                                reported before the renewal billing date, the
+                                                                discount
+                                                                is
+                                                                reduced. If the customer reports another odometer
+                                                                reading after
+                                                                the renewal billing date, it will not be used in the
+                                                                calculation
+                                                                until their next renewal. For more information click
+                                                                <a href="http://sfnet.opr.statefarm.org/agency/answers/auto/privatePassenger/discounts/dssMobile.shtml#41-767646_Tab"
+                                                                    target="_blank" rel="noopener"> here </a> and review
+                                                                the Report
+                                                                Odometer at
+                                                                Renewal section.
+                                                            </p>
+                                                        </template>
+
+                                                        <!--NY-->
+                                                        <template if:true={premiumChangeItem.isNY}>
+                                                            <p> Click <a
+                                                                    href="http://sfnet.opr.statefarm.org/agency/answers/auto/privatePassenger/discounts/dssMobile.shtml?role=agent&state=NY#41-767646_Tab"
+                                                                    target="_blank" rel="noopener"> here</a> and review
+                                                                the Report
+                                                                Odometer at Renewal section.</p>
+                                                        </template>
+
+                                                        <!--WA-->
+                                                        <template if:true={premiumChangeItem.isWA}>
+                                                            <p> If the odometer reading isn't reported before the
+                                                                renewal billing date, the discount is reduced. If
+                                                                the
+                                                                customer reports another odometer reading after the
+                                                                renewal billing date, it will not be used in the
+                                                                calculation until their next renewal. For more
+                                                                information click <a
+                                                                    href="http://sfnet.opr.statefarm.org/agency/answers/auto/privatePassenger/discounts/dssMobile.shtml?role=agent&state=WA#41-767646_Tab"
+                                                                    target="_blank" rel="noopener">here</a> and review
+                                                                the Report
+                                                                Odometer at Renewal section.</p>
+                                                        </template>
+                                                        <a onclick={dssViewLess}
+                                                                title="View Less Drive Safe &amp; Save Information" data-id="dssViewLess2">View
+                                                                Less Drive Safe &amp; Save Information</a>
+
+                                                        </template>
+
+                                                    </ul>
+                                                </template>
+                                                <!--/dss2-->
+
+                                                <!--dss3-->
+                                                <template if:true={premiumChangeItem.dss3}>
+                                                    <ul>
+                                                        <li>Drive Safe &amp; Save ™ Discount </li>
+
+                                                        <template if:false={isDssShowHide}>
+                                                            <a onclick={dssViewMore}
+                                                                title="View Additional Drive Safe &amp; Save Information" data-id="dssViewMore3">View
+                                                                Additional Drive Safe &amp; Save Information</a>
+                                                        </template>
+
+                                                        <template if:true={isDssShowHide}>
+                                                        <li class="slds-m-left_medium"> An annual mileage increase
+                                                            from
+                                                            the
+                                                            prior renewal may have caused an impact to the premium.
+                                                        </li>
+
+                                                        <!--Other not WA/NY-->
+                                                        <template if:true={premiumChangeItem.isOther}>
+                                                            <p class="slds-m-left_medium"> If the odometer reading
+                                                                isn't
+                                                                reported before the renewal billing date, the
+                                                                discount
+                                                                is
+                                                                reduced. If the customer reports another odometer
+                                                                reading after
+                                                                the renewal billing date, it will not be used in the
+                                                                calculation
+                                                                until their next renewal. For more information click
+                                                                <a href="http://sfnet.opr.statefarm.org/agency/answers/auto/privatePassenger/discounts/dssMobile.shtml#41-767646_Tab"
+                                                                    target="_blank" rel="noopener">here</a> and review
+                                                                the Report
+                                                                Odometer at
+                                                                Renewal section.
+                                                            </p>
+                                                        </template>
+
+                                                        <!--NY-->
+                                                        <template if:true={premiumChangeItem.isNY}>
+                                                            <p> Click <a
+                                                                    href="http://sfnet.opr.statefarm.org/agency/answers/auto/privatePassenger/discounts/dssMobile.shtml?role=agent&state=NY#41-767646_Tab"
+                                                                    target="_blank" rel="noopener"> here</a> and review
+                                                                the Report
+                                                                Odometer at Renewal section.</p>
+                                                        </template>
+
+                                                        <!--WA-->
+                                                        <template if:true={premiumChangeItem.isWA}>
+                                                            <p> If the odometer reading isn't reported before the
+                                                                renewal billing date, the discount is reduced. If
+                                                                the
+                                                                customer reports another odometer reading after the
+                                                                renewal billing date, it will not be used in the
+                                                                calculation until their next renewal. For more
+                                                                information click <a
+                                                                    href="http://sfnet.opr.statefarm.org/agency/answers/auto/privatePassenger/discounts/dssMobile.shtml?role=agent&state=WA#41-767646_Tab"
+                                                                    target="_blank" rel="noopener">here</a> and review
+                                                                the Report
+                                                                Odometer at Renewal section.</p>
+                                                        </template>
+
+                                                        <a onclick={dssViewLess}
+                                                        title="View Less Drive Safe &amp; Save Information" data-id="dssViewLess3">View
+                                                        Less Drive Safe &amp; Save Information</a>
+
+                                                </template>
+
+                                                    </ul>
+                                                </template>
+
+                                                <!--/dss3-->
+                                                <template for:each={premiumChangeItem.mileageChanged}
+                                                    for:item="mileageChangedItem">
+                                                    <li class="" key={mileageChangedItem}>
+                                                        {mileageChangedItem}</li>
+                                                </template>
+
+                                                <template for:each={premiumChangeItem.premiumChangeStatement}
+                                                    for:item="premiumChangeStatementItem">
+                                                    <p class="slds-p-top_medium sf-m-pcs slds-m-bottom_medium"
+                                                        key={premiumChangeStatementItem}>
+                                                        {premiumChangeStatementItem}</p>
+                                                </template>
+
+                                                <template if:true={premiumChangeItem.noPremiumChange}>
+                                                    <p>We were unable to determine why the premium changed at renewal.
+                                                        The <a
+                                                            href="http://sfnet.opr.statefarm.org/agency/manuals/customer_retention/auto_renewal_premium_increase_checklist.shtml"
+                                                            target="_blank" rel="noopener">Auto Renewal Premium Increase
+                                                            Activities</a>
+                                                        can help
+                                                        determine changes or events that may have impacted the auto
+                                                        renewal premium.</p>
+                                                </template>
+
+                                                <template if:false={premiumChangeItem.noPremiumChange}>
+                                                    <p class="slds-m-bottom_medium sf-m-nopremiumchange"> Verify if a <a
+                                                            href="http://sfnet.opr.statefarm.org/agency/manuals/autochanges/statelist.shtml"
+                                                            target="_blank" rel="noopener">rate change</a> to your state
+                                                        contributed to the premium
+                                                        change. </p>
+                                                </template>
+                                            </ul>
+                                        </template>
+                                    </template>
+                                    <!--responseStatus:false Service failed / policy in force-->
+                                    <template if:false={responseStatus}>
+                                        <template if:true={unableToLocatePolicy}>
+                                            <p class="sf-pl-auto-no-response">We were unable to locate your policy to review why the premium changed at
+                                                renewal. The <a
+                                                    href="http://sfnet.opr.statefarm.org/agency/manuals/customer_retention/auto_renewal_premium_increase_checklist.shtml"
+                                                    target="_blank" class="pl-auto-no-respone-lnk">Auto Renewal Premium Increase Activities</a> can
+                                                help
+                                                determine changes or events that may have impacted the auto renewal
+                                                premium.</p>
+                                        </template>
+                                    </template>
+                                    <!--/responseStatus:false, Service failed / policy in force -->
+                                </template>
+                                <!--End of the PL auto response status either true or false-->
+
+                                <!-- PL Fire response status either true or false-->
+                                <template if:true={isPLFire}>
+                                    <template if:true={responseStatus}>
+                                        <label class="slds-p-bottom_medium sf-premium-lbl">Find details below on why
+                                            the premium changed at renewal:</label>
+
+                                        <template for:each={premiumChangeResponse} for:item="premiumChangeItem">
+                                            <ul class="slds-m-left_xx-large sf-bullet" key={premiumChangeItem.ratingChanges}>
+                                                <template for:each={premiumChangeItem.ratingChanges}
+                                                    for:item="ratingChangeItem">
+                                                    <li key={ratingChangeItem}>{ratingChangeItem}</li>
+                                                </template>
+
+                                                <template for:each={premiumChangeItem.inflationDesc}
+                                                for:item="inflationDescItem">
+                                                <li key={inflationDescItem}>{inflationDescItem}</li>
+                                            </template>
+
+                                                <template for:each={premiumChangeItem.premiumChangeStatement}
+                                                    for:item="premiumChangeStatementItem">
+                                                    <p class="slds-p-top_medium sf-m-pcs slds-m-bottom_medium"
+                                                        key={premiumChangeStatementItem}>
+                                                        {premiumChangeStatementItem}</p>
+                                                </template>
+
+                                                <template if:true={premiumChangeItem.noPremiumChange}>
+                                                    <p>We were unable to determine why the premium changed at renewal.
+                                                        Review <a
+                                                            href="http://sfnet.opr.statefarm.org/agency/manuals/firechanges/statelist.shtml"
+                                                            target="_blank">Fire Rate Changes</a> to see if there was a
+                                                        state increase and consider using tactics from <a
+                                                            href="http://sfnet.opr.statefarm.org/agency/manuals/customer_retention/rate_increase_customer_contact_strategy.shtml#horatechanges"
+                                                            target="_blank">Rate Increase &amp; Decrease - Customer
+                                                            Contact
+                                                            Approach.</a></p>
+                                                </template>
+                                                <template if:false={premiumChangeItem.noPremiumChange}>
+                                                    <p class="slds-m-bottom_medium sf-m-nopremiumchange"> Verify if a <a
+                                                            href="http://sfnet.opr.statefarm.org/agency/manuals/firechanges/statelist.shtml"
+                                                            target="_blank">rate change</a> to your state contributed to
+                                                        the premium
+                                                        change.</p>
+                                                </template>
+                                            </ul>
+                                        </template>
+                                    </template>
+                                    <!--responseStatus:false, Service failed / policy in force-->
+                                    <template if:false={responseStatus}>
+                                        <template if:true={unableToLocatePolicy}>
+                                            <p class="sf-pl-fire-no-response">We were unable to locate your policy to review why the premium changed at
+                                                renewal. Review <a
+                                                    href="http://sfnet.opr.statefarm.org/agency/manuals/firechanges/statelist.shtml"
+                                                    target="_blank" class="pl-fire-no-respone-lnk">Fire Rate Changes</a> to see if there was a state
+                                                increase and consider using tactics from <a
+                                                    href="http://sfnet.opr.statefarm.org/agency/manuals/customer_retention/rate_increase_customer_contact_strategy.shtml#horatechanges"
+                                                    target="_blank">Rate Increase &amp; Decrease - Customer Contact
+                                                    Approach</a></p>
+                                        </template>
+                                    </template>
+                                    <!--/responseStatus:false, Service failed / policy in force -->
+                                </template>
+                                <!--End of the PL Fire response status either true or false-->
+
+                                <!-- BL Auto response status either true or false-->
+                                <template if:true={isBLAuto}>
+                                    <template if:true={responseStatus}>
+                                        <label class="slds-p-bottom_medium sf-premium-lbl"> Find details below on why
+                                            the
+                                            premium changed at renewal:</label>
+
+                                        <template for:each={premiumChangeResponse} for:item="premiumChangeItem">
+
+                                            <ul class="" key={premiumChangeItem.vehicleName}>
+                                                <template for:each={premiumChangeItem.vehicleName}
+                                                    for:item="vehicleNameItem">
+                                                    <li key={vehicleNameItem}>{vehicleNameItem}</li>
+                                                </template>
+                                            </ul>
+
+                                            <ul class="slds-m-left_xx-large sf-bullet" key={premiumChangeItem.ratingChanges}>
+                                                <template for:each={premiumChangeItem.ratingChanges}
+                                                    for:item="ratingChangeItem">
+                                                    <li key={ratingChangeItem}>{ratingChangeItem}</li>
+                                                </template>
+                                                
+                                                <template for:each={premiumChangeItem.inflationDesc}
+                                                for:item="inflationDescItem">
+                                                <li key={inflationDescItem}>{inflationDescItem}</li>
+                                                </template>
+                                                
+                                                <template for:each={premiumChangeItem.mileageChanged}
+                                                    for:item="mileageChangedItem">
+                                                    <li class="" key={mileageChangedItem}>
+                                                        {mileageChangedItem}</li>
+                                                </template>
+
+                                                <template for:each={premiumChangeItem.premiumChangeStatement}
+                                                    for:item="premiumChangeStatementItem">
+                                                    <p class="slds-p-top_medium sf-m-pcs slds-m-bottom_medium"
+                                                        key={premiumChangeStatementItem.premiumChangeStatement}>
+                                                        {premiumChangeStatementItem}</p>
+                                                </template>
+
+                                                <template if:true={premiumChangeItem.noPremiumChange}>
+                                                    <p class="slds-p-bottom_medium"> We were unable to determine why the
+                                                        premium changed at renewal. Verify if a rate change to your
+                                                        state contributed to the premium change.To locate this
+                                                        information click <a
+                                                            href="http://sfeuc.opr.statefarm.org/EUCNET01048/Default.aspx"
+                                                            target="_blank">here, </a>select the state, and review
+                                                        "Business Auto Announcements".</p>
+                                                </template>
+                                            </ul>
+                                            <template if:false={premiumChangeItem.noPremiumChange}>
+                                                <p class="" key={premiumChangeStatementItem}> Verify if a rate change to
+                                                    your state contributed to the premium change. To locate this
+                                                    information click <a
+                                                        href="http://sfeuc.opr.statefarm.org/EUCNET01048/Default.aspx"
+                                                        target="_blank">here, </a> select the state, and review
+                                                    "Business Auto Announcements" change.</p>
+                                            </template>
+                                        </template>
+                                    </template>
+                                    <!--responseStatus:false, Service failed / policy in force -->
+                                    <template if:false={responseStatus}>
+                                        <template if:true={unableToLocatePolicy}>
+                                            <p class="sf-bl-auto-no-response">We were unable to locate your policy to review why the premium changed at
+                                                renewal.Verify if a rate change to your state contributed to the premium
+                                                change. To locate this information click <a
+                                                    href="http://sfeuc.opr.statefarm.org/EUCNET01048/Default.aspx"
+                                                    target="_blank" class="bl-auto-no-respone-lnk">here,</a> select the state, and review "Business
+                                                Auto Announcements".</p>
+                                        </template>
+
+                                    </template>
+                                    <!--/responseStatus:false, Service failed / policy in force -->
+                                </template>
+                                <!--End of the BL Auto response status either true or false-->
+
+                                <!-- BL Fire response status either true or false-->
+                                <template if:true={isBLFire}>
+                                    <template if:true={responseStatus}>
+                                        <p class="slds-m-top_xxx-small">
+                                            Fire Rate Revisions can be located <a
+                                                href="http://sfeuc.opr.statefarm.org/EUCNET01048/Default.aspx"
+                                                target="_blank" class="bl-fire-no-respone-lnk"> here</a> under the "Business Fire Announcements"
+                                            section located towards the bottom of the page. You may also find useful
+                                            information on the <a
+                                                href="https://collab.sfcollab.org/sites/WSS003629/SharedTraining_AgtsTM/QRBLG.pdf"
+                                                target="_blank" class="bl-fire-no-respone-lnk-2">Quick Resource for Business Lines Grown</a>.
+                                        </p>
+                                    </template>
+                                    <!--responseStatus:false, Service failed / policy in force -->
+                                    <template if:false={responseStatus}>
+                                        <p class="slds-m-top_xxx-small sf-error-msg">We were unable to locate your
+                                            policy to review why the
+                                            premium changed at renewal.</p>
+                                    </template>
+                                    <!--/responseStatus:false, Service failed / policy in force -->
+                                </template>
+                                <!--End of the BL Fire response status either true or false-->
+
+                                <!--No policy available,responseStatus:false, Service failed-->
+                                <template if:false={responseStatus}>
+                                    <template if:false={isError}>                                         
+                                       <!-- IF all Lob comes as false then this will activate-->
+                                       <template if:false={isPLAuto}>
+                                           <template if:false={isPLFire}>
+                                               <template if:false={isBLAuto}>
+                                                   <template if:false={isBLFire}>
+                                                       <p class="slds-m-top_xxx-small sf-error-msg sf-no-response-no-policy" data-id="error-msg-no-response">We were unable to locate your
+                                                           policy to review why the
+                                                           premium changed at renewal.</p> 
+                                                   </template>
+                                               </template>
+                                           </template>                               
+                                       </template>
+                                   </template>
+                               </template>
+
+                                <!--/No policy available,responseStatus:false, Service failed-->  
+                                
+                                <!-- Server Error-->                        
+                                <template if:true={isError}>                                    
+                                         <p class="slds-m-top_xxx-small sf-error-msg sf-no-response-status" data-id="err-msg-no-response">We were unable to locate your
+                                            policy to review why the
+                                            premium changed at renewal.</p>                              
+                                </template>                       
+                                <!-- /Server Error-->
+                            </template>                         
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" data-id="modal-backdrop"></div>
+    </template>
+</template>

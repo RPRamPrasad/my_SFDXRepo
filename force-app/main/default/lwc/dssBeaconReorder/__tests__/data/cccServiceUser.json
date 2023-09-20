@@ -1,0 +1,16 @@
+{
+    "apiName": "User",
+    "childRelationships": {},
+    "fields": {
+        "SubUserType__c": {
+            "displayValue": "CCC Service",
+            "value": "CCC Service"
+        }
+    },
+    "id": "005030000027wwfAAA",
+    "lastModifiedById": "005030000027wwfAAA",
+    "lastModifiedDate": "2023-06-19T17:49:17.000Z",
+    "recordTypeId": null,
+    "recordTypeInfo": null,
+    "systemModstamp": "2023-07-06T03:15:25.000Z"
+}

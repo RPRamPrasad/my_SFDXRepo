@@ -1,0 +1,35 @@
+<template>
+    <div class="slds-p-bottom_small">
+        <div class="slds-card slds-card_boundary">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title slds-grid_vertical-align-center">
+                            <strong>Item Schedule {personalArticlesCountStr}</strong>
+                            <lightning-helptext content={ERRMSG_PASTTERM}></lightning-helptext>
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <div class="slds-card__body slds-card__body_inner slds-scrollable--y" style="max-height: 25vh;">
+                
+                <template if:true={papScheduleErrored}>
+                    <div class="slds-align_absolute-center">{papScheduleMessage}</div>
+                </template>
+
+                <template if:false={papScheduleErrored}>
+                    <lightning-datatable
+                        class="slds-table--striped"
+                        data-id="item-schedule-table"
+                        data={personalArticles}
+                        columns={columns}
+                        key-field="id"
+                        hide-checkbox-column="true"
+                        resize-column-disabled="true">
+                    </lightning-datatable>
+                </template>
+
+            </div>
+        </div>
+    </div>
+</template>

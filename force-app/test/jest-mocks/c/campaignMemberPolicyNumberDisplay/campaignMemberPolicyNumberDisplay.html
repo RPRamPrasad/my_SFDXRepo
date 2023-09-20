@@ -1,0 +1,28 @@
+<template>
+    <div data-id="blur" class="slds-grid" onblur={toggleOffDropdown} tabindex="0">
+        <div data-id="openDropdown" class="slds-col" onclick={toggleDropdown}>
+            {firstPolicyId}
+            <lightning-icon if:true={displayDropdown} data-id="dropdownIcon" class="slds-float_right" icon-name="utility:chevrondown" size="xx-small"
+                style="padding-right:13px">
+            </lightning-icon>
+        </div>
+        <div if:true={displayDropdown}>
+            <div if:true={dropdownToggled}>
+                <div>
+                    <ul data-id="unorderedList" class="slds-dropdown slds-dropdown_left slds-dropdown_large slds-scrollable" style={dropdownCss} >
+                        <template for:each={policyDisplayData} for:item="policy">
+                            <li key={policy.id} class="slds-dropdown__item" role="presentation">
+                                <a>
+                                    <div data-id="policyHolder" class="plcy-info">
+                                        {policy.label}{policy.description}
+                                    </div>
+                                </a>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

@@ -1,0 +1,720 @@
+{
+    "statusCode": 200,
+    "body": {
+        "policy": {
+            "agreementIndexIdentifier": 348122821,
+            "policyInceptionDate": "2014-04-28T00:00:00-0500",
+            "policyStatusCode": 2,
+            "policyStatusText": "In Force",
+            "agreementAccessKey": "131C248580",
+            "agreementDisplayNumber": "C24 8580-D28-13B",
+            "companyCode": "0001",
+            "businessLineCode": "A",
+            "autoDivisionCode": "5",
+            "autoFleetIndicator": "N",
+            "policyRenewalTermDurationMoCnt": "6",
+            "automaticReinEligIndicator": "N",
+            "renewalSuspensionIndicator": "N",
+            "commercialCrisisIndicator": "N",
+            "oldestPolicyOriginationDate": "2014-04-28T00:00:00-0500",
+            "productDescriptionText": "PRIVATE PASSENGER",
+            "legacyStatusCode": "01",
+            "productDescriptionCode": "0",
+            "legacyStatusExtensionCode": "M",
+            "billingCurrentDueAmount": 0,
+            "billingAccountNumber": "5394713801",
+            "stateFarmStateCode": "13",
+            "relatedPolicy": [
+                {
+                    "relatedAgreementIndexId": 449723661,
+                    "relatedAgreementAccessKey": "5632875998",
+                    "relatedAgreementDisplayNumber": "2875998-C25-56",
+                    "natureCode": 6,
+                    "agreementSourceSystemCode": 1,
+                    "relatedProductDescriptionCode": "1",
+                    "relatedProductDescriptionText": "COMMERCIAL"
+                },
+                {
+                    "relatedAgreementIndexId": 449723661,
+                    "relatedAgreementAccessKey": "5832875998",
+                    "relatedAgreementDisplayNumber": "2875998-C25-58",
+                    "natureCode": 8,
+                    "agreementSourceSystemCode": 1,
+                    "relatedProductDescriptionCode": "1",
+                    "relatedProductDescriptionText": "COMMERCIAL"
+                }
+            ],
+            "policyPartyRole": [
+                {
+                    "roleNameCode": 18,
+                    "roleNameText": "Named Insured",
+                    "secondaryRoleNameCode": 1,
+                    "secondaryRoleNameText": "Additional",
+                    "party": {
+                        "partyIdentifier": "HXN730D3001",
+                        "partyIdSourceDBCode": 1
+                    }
+                },
+                {
+                    "roleNameCode": 18,
+                    "roleNameText": "Named Insured",
+                    "secondaryRoleNameCode": 20,
+                    "secondaryRoleNameText": "First",
+                    "party": {
+                        "partyIdentifier": "2566N20N001",
+                        "partyIdSourceDBCode": 1
+                    }
+                },
+                {
+                    "roleNameCode": 19,
+                    "roleNameText": "Named Insured - Policy Name",
+                    "party": {
+                        "partyName": {
+                            "fullName": "DIAZ CASTILLO, SONIA &        DIAZ-NEVAREZ, EVA"
+                        }
+                    }
+                }
+            ],
+            "termVersion": {
+                "fullTermStartDate": "2018-10-28T00:00:00-0500",
+                "fullTermEndDate": "2019-04-28T00:00:00-0500",
+                "termVersionStartDate": "2018-10-28T00:00:00-0500",
+                "policyChangeCode": "B",
+                "totalPolicyPremiumAmount": 532,
+                "insurableRisk": [
+                    {
+                        "riskInceptionDate": "2014-04-28T00:00:00-0500",
+                        "autoPolicyOrigEffectiveDate": "2014-04-28",
+                        "autoVehicleInceptionDate": "2014-04-28",
+                        "riskRatingRuleCode": "01",
+                        "riskUsageTypeCode": "0",
+                        "riskManagementCode": "DDD",
+                        "riskPrimaryUseCode": "08",
+                        "withdrawnFromUseIndicator": "N",
+                        "youthfulOperatorIndicator": "N",
+                        "autoFredIdentifier": "PCN5041B4V7",
+                        "autoFredSequenceNumber": 3,
+                        "totalRiskPremiumAmount": 532,
+                        "autoInsurableRiskLocation": {
+                            "sfGeographicStateCode": "13",
+                            "territoryCode": "127",
+                            "countyCode": "016",
+                            "cityCode": "000",
+                            "latitudeNumber": 41.627428,
+                            "longitudeNumber": -87.560707,
+                            "longitudeLatitudeAccuracyCode": "A",
+                            "locationQualityCode": "AP02",
+                            "locationMatchCode": "S00",
+                            "postalAddress": {
+                                "fullStreetAddressText": "338 HOXIE AVE",
+                                "cityName": "CALUMET CITY",
+                                "postalStateCode": "IL",
+                                "postalZipCode": "60409-1904",
+                                "countryNameText": "USA",
+                                "legacyPostalAddressBlockText": "338 HOXIE AVE CALUMET CITY IL  60409-1904"
+                            }
+                        },
+                        "coverageSet": {
+                            "baseFormNumber": "9813B",
+                            "coverage": [
+                                {
+                                    "coveragePremiumAmount": 13.57,
+                                    "name": "Uninsured Motor Vehicle - Bodily Injury (under Uninsured Motor Vehicle BIPD)",
+                                    "systemName": "UNINSURED_MOTOR_VEHICLE",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "0N"
+                                        },
+                                        {
+                                            "name": "Limit Per Person",
+                                            "systemName": "LIMIT_PER_PERSON",
+                                            "type": "LIMIT",
+                                            "valueNum": 250000
+                                        },
+                                        {
+                                            "name": "Limit Per Accident",
+                                            "systemName": "LIMIT_PER_ACCIDENT",
+                                            "type": "LIMIT",
+                                            "valueNum": 500000
+                                        }
+                                    ],
+                                    "coverageCategory": [
+                                        {
+                                            "systemName": "UNINSURED_MOTOR_VEHICLE_CTGRY"
+                                        }
+                                    ],
+                                    "abbreviation": "U"
+                                },
+                                {
+                                    "coveragePremiumAmount": 96.32,
+                                    "name": "Property Damage",
+                                    "systemName": "PROPERTY_DAMAGE",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "0N"
+                                        },
+                                        {
+                                            "name": "Limit Per Accident",
+                                            "systemName": "LIMIT_PER_ACCIDENT",
+                                            "type": "LIMIT",
+                                            "valueNum": 100000
+                                        }
+                                    ],
+                                    "coverageCategory": [
+                                        {
+                                            "systemName": "PROPERTY_DAMAGE_CTGRY"
+                                        }
+                                    ],
+                                    "abbreviation": "A"
+                                },
+                                {
+                                    "coveragePremiumAmount": 13.57,
+                                    "name": "Uninsured Motor Vehicle - Bodily Injury (under Uninsured Motor Vehicle BIPD)",
+                                    "systemName": "UNINSURED_MOTOR_VEHICLE",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "0N"
+                                        },
+                                        {
+                                            "name": "Limit Per Person",
+                                            "systemName": "LIMIT_PER_PERSON",
+                                            "type": "LIMIT",
+                                            "valueNum": 250000
+                                        },
+                                        {
+                                            "name": "Limit Per Accident",
+                                            "systemName": "LIMIT_PER_ACCIDENT",
+                                            "type": "LIMIT",
+                                            "valueNum": 500000
+                                        }
+                                    ],
+                                    "coverageCategory": [
+                                        {
+                                            "systemName": "UNINSURED_MOTOR_VEHICLE_CTGRY"
+                                        }
+                                    ],
+                                    "abbreviation": "U"
+                                },
+                                {
+                                    "coveragePremiumAmount": 52.95,
+                                    "name": "Comprehensive Coverage",
+                                    "systemName": "COMPREHENSIVE",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "98"
+                                        },
+                                        {
+                                            "name": "Glass Deductible",
+                                            "systemName": "GLASS_DEDUCTIBLE",
+                                            "type": "DEDUCTIBLE",
+                                            "valueNum": 1000
+                                        },
+                                        {
+                                            "name": "Deductible",
+                                            "systemName": "DEDUCTIBLE",
+                                            "type": "DEDUCTIBLE",
+                                            "valueNum": 1000
+                                        }
+                                    ],
+                                    "coverageCategory": [
+                                        {
+                                            "systemName": "COMPREHENSIVE_CTGRY"
+                                        }
+                                    ],
+                                    "abbreviation": "D"
+                                },
+                                {
+                                    "coveragePremiumAmount": 184.43,
+                                    "name": "Bodily Injury",
+                                    "systemName": "BODILY_INJURY",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "25"
+                                        },
+                                        {
+                                            "name": "Limit Per Person",
+                                            "systemName": "LIMIT_PER_PERSON",
+                                            "type": "LIMIT",
+                                            "valueNum": 250000
+                                        },
+                                        {
+                                            "name": "Limit Per Accident",
+                                            "systemName": "LIMIT_PER_ACCIDENT",
+                                            "type": "LIMIT",
+                                            "valueNum": 500000
+                                        }
+                                    ],
+                                    "coverageCategory": [
+                                        {
+                                            "systemName": "BODILY_INJURY_CTGRY"
+                                        }
+                                    ],
+                                    "abbreviation": "A"
+                                },
+                                {
+                                    "coveragePremiumAmount": 124.5,
+                                    "name": "Collision Coverage",
+                                    "systemName": "COLLISION",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "92"
+                                        },
+                                        {
+                                            "name": "Deductible",
+                                            "systemName": "DEDUCTIBLE",
+                                            "type": "DEDUCTIBLE",
+                                            "valueNum": 1000
+                                        }
+                                    ],
+                                    "coverageCategory": [
+                                        {
+                                            "systemName": "COLLISION_CTGRY"
+                                        }
+                                    ],
+                                    "abbreviation": "G"
+                                },
+                                {
+                                    "coveragePremiumAmount": 24.18,
+                                    "name": "Medical Payments",
+                                    "systemName": "MEDICAL_PAYMENTS",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "081"
+                                        },
+                                        {
+                                            "name": "Limit",
+                                            "systemName": "LIMIT",
+                                            "type": "LIMIT",
+                                            "valueNum": 5000
+                                        }
+                                    ],
+                                    "coverageCategory": [
+                                        {
+                                            "systemName": "MEDICAL_PAYMENTS_CTGRY"
+                                        }
+                                    ],
+                                    "abbreviation": "C"
+                                },
+                                {
+                                    "coveragePremiumAmount": 31.59,
+                                    "name": "Underinsured Motor Vehicle",
+                                    "systemName": "UNDERINSURED_MOTOR_VEHICLE",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "0N"
+                                        },
+                                        {
+                                            "name": "Limit Per Person",
+                                            "systemName": "LIMIT_PER_PERSON",
+                                            "type": "LIMIT",
+                                            "valueNum": 250000
+                                        },
+                                        {
+                                            "name": "Limit Per Accident",
+                                            "systemName": "LIMIT_PER_ACCIDENT",
+                                            "type": "LIMIT",
+                                            "valueNum": 500000
+                                        }
+                                    ],
+                                    "coverageCategory": [
+                                        {
+                                            "systemName": "UNDERINSURED_MOTOR_VEHICLE_CTGRY"
+                                        }
+                                    ],
+                                    "abbreviation": "W"
+                                },
+                                {
+                                    "coveragePremiumAmount": 4.46,
+                                    "name": "Emergency Road Service",
+                                    "systemName": "EMERGENCY_ROAD_SERVICE",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "1"
+                                        }
+                                    ],
+                                    "coverageCategory": [
+                                        {
+                                            "systemName": "EMERGENCY_ROAD_SERVICE_CTGRY"
+                                        }
+                                    ],
+                                    "abbreviation": "H"
+                                },
+                                {
+                                    "coveragePremiumAmount": 4.46,
+                                    "name": "Emergency Road Service",
+                                    "systemName": "EMERGENCY_ROAD_SERVICE",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "1"
+                                        }
+                                    ],
+                                    "coverageCategory": [
+                                        {
+                                            "systemName": "EMERGENCY_ROAD_SERVICE_CTGRY"
+                                        }
+                                    ],
+                                    "abbreviation": "H"
+                                }
+                            ],
+                            "endorsementForm": [
+                                {
+                                    "formNumber": "6913B",
+                                    "endorsementFormType": "8",
+                                    "formDescriptionText": "AMENDATORY ENDORSEMENT"
+                                },
+                                {
+                                    "formNumber": "6128J",
+                                    "endorsementFormType": "4",
+                                    "formDescriptionText": "AMENDATORY ENDORSEMENT"
+                                }
+                            ]
+                        },
+                        "pricingRuleSet": {
+                            "totalDiscountPremiumAmount": 348.89,
+                            "pricingAdjustment": [
+                                {
+                                    "pricingRuleSetUniqueName": "ANTI_THEFT_DISC",
+                                    "pricingRuleSetTypeCode": "1",
+                                    "pricingRuleSetDisplayName": "Anti-Theft Discount",
+                                    "pricingRuleSetAdjustmentAmount": 5.88
+                                },
+                                {
+                                    "pricingRuleSetUniqueName": "DRV_SAFE_SAVE_DISC",
+                                    "pricingRuleSetTypeCode": "1",
+                                    "pricingRuleSetDisplayName": "Drive Safe and Save Discount",
+                                    "pricingRuleSetAdjustmentAmount": 76.22
+                                },
+                                {
+                                    "pricingRuleSetUniqueName": "MCD",
+                                    "pricingRuleSetTypeCode": "1",
+                                    "pricingRuleSetDisplayName": "Multiple Car Discount",
+                                    "pricingRuleSetAdjustmentAmount": 110.64
+                                },
+                                {
+                                    "pricingRuleSetUniqueName": "MLD",
+                                    "pricingRuleSetTypeCode": "1",
+                                    "pricingRuleSetDisplayName": "Auto Multiple Line Discount",
+                                    "pricingRuleSetAdjustmentAmount": 85.13
+                                },
+                                {
+                                    "pricingRuleSetUniqueName": "VSD",
+                                    "pricingRuleSetTypeCode": "1",
+                                    "pricingRuleSetDisplayName": "Vehicle Safety Discount",
+                                    "pricingRuleSetAdjustmentAmount": 10.37
+                                },
+                                {
+                                    "pricingRuleSetUniqueName": "AFD",
+                                    "pricingRuleSetTypeCode": "1",
+                                    "pricingRuleSetDisplayName": "Accident Free Discount",
+                                    "pricingRuleSetAdjustmentAmount": 75.81
+                                }
+                            ],
+                            "autoClassCode": "103H30F000",
+                            "autoClassRplcByGrnlDataCode": "R"
+                        },
+                        "homeOwnershipStatusCode": "01",
+                        "riskMarketCode": "01",
+                        "riskReinstatementIndicator": "N",
+                        "autoBasicPolicyCode": "0",
+                        "autoPreferredCompanyOfferInd": "N",
+                        "vehicle": [
+                            {
+                                "runningLightIndicator": "X",
+                                "antiqueIndicator": "N",
+                                "classicIndicator": "N",
+                                "antilockBrakeIndicator": "U",
+                                "modelSpecificationIdentifier": "91UL2PTAKE1",
+                                "vehicleUsage": {
+                                    "estAnnualDistanceDrivenCount": 8000
+                                },
+                                "acquisitionDate": "2017-07-25T00:00:00-0500",
+                                "antiTheftDeviceCode": "C",
+                                "vehicleSafetyDiscountCode": "B",
+                                "driveSafeAndSaveEnrollmentSwitch": false,
+                                "manufacturerCode": "5",
+                                "manufacturerDivisionCode": "1",
+                                "makeName": "CHEVROLET",
+                                "modelName": "TRAVERSE",
+                                "modelYearNumber": 2010,
+                                "bodyStyleDescriptionText": "SPORT WG",
+                                "vinValidationCode": "V",
+                                "irgCollisionCode": "017",
+                                "irgComprehensiveCode": "020",
+                                "liabilityRatingGroupCode": "05",
+                                "physicalObjectSerialNumber": "1GNLVGED9AJ216712",
+                                "physicalObjectPartyRole": [
+                                    {
+                                        "roleNameCode": 15,
+                                        "roleNameText": "Lienholder",
+                                        "party": {
+                                            "partyIdentifier": "06650",
+                                            "partyIdSourceDBCode": 2,
+                                            "postalAddress": {
+                                                "fullStreetAddressText": "PO BOX 76809",
+                                                "cityName": "LOS ANGELES",
+                                                "postalStateCode": "CA",
+                                                "postalZipCode": "90076-0809",
+                                                "countryNameText": "USA",
+                                                "legacyPostalAddressBlockText": "PO BOX 76809 LOS ANGELES CA -90076-0809"
+                                            },
+                                            "partyName": {
+                                                "fullName": "WESTLAKE FINANCIAL SERVICES"
+                                            }
+                                        }
+                                    }
+                                ],
+                                "effectiveDate": "2017-07-25T00:00:00-0500",
+                                "telemeterIdentifier": 11517842,
+                                "telematicsServiceProductCode": "09",
+                                "telematicsDriveSafeAndSaveRegistrationStatusText": "Incomplete",
+                                "telematicsInitialAnnualMileageText": "Initial Participation Discount"
+
+                            }
+                        ],
+                        "insuranceApplication": {
+                            "priorCrrrCode": "00088",
+                            "priorCrrrDurationMonthCount": "352",
+                            "priorCrrrBiCovUpperLimitCode": "0500",
+                            "quotedPremiumAmount": 0,
+                            "newBusnTransTypeCode": "N",
+                            "applicationEffectiveDate": "2014-04-28T00:00:00-0500"
+                        },
+                        "autoFleetCode": "0",
+                        "highwayLossDataSentIndicator": "Y",
+                        "riskPartyRole": [
+                            {
+                                "exposureRatingCode": "E",
+                                "exposureRatingDescriptionText": "EXPOSURE",
+                                "roleNameCode": 21,
+                                "roleNameText": "Operator",
+                                "party": {
+                                    "partyIdentifier": "FPJUA31DO5G",
+                                    "partyIdSourceDBCode": 4,
+                                    "birthDate": "1973-07-15T00:00:00-0500",
+                                    "autoClientIdentifier": "FPJUA31DO5G",
+                                    "sfOperationCenterCode": "01",
+                                    "genderCode": "F",
+                                    "originalLicenseDate": "1989-07-01T00:00:00-0500",
+                                    "partyName": {
+                                        "fullName": "DIAZ-CASTILLO,SONIA",
+                                        "firstName": "SONIA",
+                                        "lastName": "DIAZ-CASTILLO"
+                                    },
+                                    "driverIdentifier": "9EFMG31DO5G"
+                                }
+                            },
+                            {
+                                "exposureRatingCode": "E",
+                                "exposureRatingDescriptionText": "EXPOSURE",
+                                "roleNameCode": 21,
+                                "roleNameText": "Operator",
+                                "party": {
+                                    "partyIdentifier": "15GN1R1B8SI",
+                                    "partyIdSourceDBCode": 4,
+                                    "birthDate": "1994-04-20T00:00:00-0500",
+                                    "autoClientIdentifier": "15GN1R1B8SI",
+                                    "sfOperationCenterCode": "01",
+                                    "genderCode": "F",
+                                    "originalLicenseDate": "2010-04-27T00:00:00-0500",
+                                    "partyName": {
+                                        "fullName": "CASTILLO,MADALINE",
+                                        "firstName": "MADALINE",
+                                        "lastName": "CASTILLO"
+                                    },
+                                    "driverIdentifier": "B6QSE41B8SI"
+                                }
+                            },
+                            {
+                                "roleExclusionCode": 1,
+                                "exposureRatingCode": "E",
+                                "exposureRatingDescriptionText": "EXPOSURE",
+                                "exclusionEffectiveDate": "2014-04-28T00:00:00-0500",
+                                "roleNameCode": 21,
+                                "roleNameText": "Operator",
+                                "party": {
+                                    "partyIdentifier": "I2QLP01DLT8",
+                                    "partyIdSourceDBCode": 4,
+                                    "birthDate": "1979-02-21T00:00:00-0600",
+                                    "autoClientIdentifier": "I2QLP01DLT8",
+                                    "sfOperationCenterCode": "01",
+                                    "genderCode": "M",
+                                    "partyName": {
+                                        "fullName": "DIAZ,JOEL",
+                                        "firstName": "JOEL",
+                                        "lastName": "DIAZ"
+                                    },
+                                    "driverIdentifier": "GMJ9081DM6V"
+                                },
+                                "endorsementForm": [
+                                    {
+                                        "formNumber": "6023CS",
+                                        "formDescriptionText": "DRIVER EXCLUSION"
+                                    }
+                                ]
+                            },
+                            {
+                                "exposureRatingCode": "E",
+                                "exposureRatingDescriptionText": "EXPOSURE",
+                                "roleNameCode": 21,
+                                "roleNameText": "Operator",
+                                "party": {
+                                    "partyIdentifier": "IR3L2F1AUAN",
+                                    "partyIdSourceDBCode": 4,
+                                    "birthDate": "1989-01-14T00:00:00-0600",
+                                    "autoClientIdentifier": "IR3L2F1AUAN",
+                                    "sfOperationCenterCode": "01",
+                                    "genderCode": "M",
+                                    "originalLicenseDate": "2005-01-01T00:00:00-0600",
+                                    "partyName": {
+                                        "fullName": "DIAZ,AURELIANO",
+                                        "firstName": "AURELIANO",
+                                        "lastName": "DIAZ"
+                                    },
+                                    "driverIdentifier": "FMVA0F1AUAN"
+                                }
+                            },
+                            {
+                                "exposureRatingCode": "E",
+                                "exposureRatingDescriptionText": "EXPOSURE",
+                                "roleNameCode": 21,
+                                "roleNameText": "Operator",
+                                "party": {
+                                    "partyIdentifier": "PA0I091B8S9",
+                                    "partyIdSourceDBCode": 4,
+                                    "birthDate": "1999-03-12T00:00:00-0600",
+                                    "autoClientIdentifier": "PA0I091B8S9",
+                                    "sfOperationCenterCode": "01",
+                                    "genderCode": "M",
+                                    "originalLicenseDate": "2017-08-09T00:00:00-0500",
+                                    "partyName": {
+                                        "fullName": "CASTILLO,GILBERTO",
+                                        "firstName": "GILBERTO",
+                                        "lastName": "CASTILLO"
+                                    },
+                                    "driverIdentifier": "OAHFE91B8S9"
+                                }
+                            },
+                            {
+                                "exposureRatingCode": "E",
+                                "exposureRatingDescriptionText": "EXPOSURE",
+                                "roleNameCode": 21,
+                                "roleNameText": "Operator",
+                                "party": {
+                                    "partyIdentifier": "RMN3MO1DLT8",
+                                    "partyIdSourceDBCode": 4,
+                                    "birthDate": "1954-05-25T00:00:00-0500",
+                                    "autoClientIdentifier": "RMN3MO1DLT8",
+                                    "sfOperationCenterCode": "01",
+                                    "genderCode": "F",
+                                    "originalLicenseDate": "1971-06-01T00:00:00-0500",
+                                    "partyName": {
+                                        "fullName": "DIAZ-NEVAREZ,EVA",
+                                        "firstName": "EVA",
+                                        "lastName": "DIAZ-NEVAREZ"
+                                    },
+                                    "driverIdentifier": "9DBHEJ1K9AR"
+                                }
+                            },
+                            {
+                                "exposureRatingCode": "E",
+                                "exposureRatingDescriptionText": "EXPOSURE",
+                                "roleNameCode": 21,
+                                "roleNameText": "Operator",
+                                "party": {
+                                    "partyIdentifier": "RMN3MO1DLT9",
+                                    "partyIdSourceDBCode": 4,
+                                    "birthDate": "1955-05-25T00:00:00-0500",
+                                    "autoClientIdentifier": "RMN3MO1DLT9",
+                                    "sfOperationCenterCode": "01",
+                                    "genderCode": "F",
+                                    "originalLicenseDate": "1971-06-01T00:00:00-0500",
+                                    "partyName": {
+                                        "fullName": "DIAZ-NEVAREZ,EVA",
+                                        "firstName": "EVA",
+                                        "lastName": "DIAZ-NEVAREZ"
+                                    },
+                                    "driverIdentifier": "9DBHEJ1K9AR"
+                                }
+                            },
+                            {
+                                "exposureRatingCode": "E",
+                                "exposureRatingDescriptionText": "EXPOSURE",
+                                "roleNameCode": 21,
+                                "roleNameText": "Operator",
+                                "party": {
+                                    "partyIdentifier": "O475JO1DLT8",
+                                    "partyIdSourceDBCode": 4,
+                                    "autoClientIdentifier": "O475JO1DLT8",
+                                    "sfOperationCenterCode": "01",
+                                    "genderCode": "M",
+                                    "originalLicenseDate": "1967-04-01T00:00:00-0600",
+                                    "partyName": {
+                                        "fullName": "NEVAREZ,AURELIANO",
+                                        "firstName": "AURELIANO",
+                                        "lastName": "NEVAREZ"
+                                    },
+                                    "driverIdentifier": "9CD0SJ1K9AR"
+                                }
+                            }
+                        ],
+                        "riskBillingCurrentDueAmount": 0
+                    }
+                ],
+                "autoLegacyStatusCode": "01"
+            },
+            "servicingAgent": {
+                "bookOfBusinessIdentifier": "S8CDJ6WMXAL",
+                "stateCode": "13",
+                "agentCode": "93BF"
+            },
+            "agentOfRecord": {
+                "bookOfBusinessIdentifier": "S8CDJ6WMXAL",
+                "stateCode": "13",
+                "agentCode": "93BF"
+            },
+            "policyMailingPostalAddress": {
+                "fullStreetAddressText": "338 HOXIE AVE",
+                "cityName": "CALUMET CITY",
+                "postalStateCode": "IL",
+                "postalZipCode": "60409-1904",
+                "countryNameText": "USA",
+                "legacyPostalAddressBlockText": "338 HOXIE AVE CALUMET CITY IL  60409-1904",
+                "addressTypeCode": "1",
+                "tempAddressActiveIndicator": "N"
+            },
+            "companyName": "State Farm Mutual Automobile Insurance Company",
+            "agreSourceSystemCode": 1,
+            "renewalBillingDate": "2019-03-25T00:00:00-0500"
+        }
+    }
+}

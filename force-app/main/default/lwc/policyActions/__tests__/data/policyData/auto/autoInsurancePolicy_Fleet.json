@@ -1,0 +1,155 @@
+{
+    "apiName": "InsurancePolicy",
+    "childRelationships": {},
+    "id": "0YTR00000004DYkOAM",
+    "lastModifiedById": "005R000000407EGIAY",
+    "lastModifiedDate": "2021-01-26T17:47:08.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2021-01-26T17:47:08.000Z",
+    "fields": {
+        "AgreAccessKey__c": {
+            "displayValue": null,
+            "value": "131E716130"
+        },
+        "AgreSourceSysCd__c": {
+            "displayValue": null,
+            "value": "1"
+        },
+        "CoCd__c": {
+            "displayValue": null,
+            "value": "0001"
+        },
+        "MasterDataLocationCd__c": {
+            "displayValue": null,
+            "value": "01"
+        },
+        "NI_RoleNameCd__c": {
+            "displayValue": null,
+            "value": "18"
+        },
+        "NI_SecondaryRoleNameCd__c": {
+            "displayValue": null,
+            "value": "20"
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "E71 6130-D01-13A"
+        },
+        "NameInsured": {
+            "displayValue": "OSF HEALTHCARE SYSTEM",
+            "value": {
+                "apiName": "Account",
+                "childRelationships": {},
+                "id": "001R000001tC542IAC",
+                "lastModifiedById": "005R000000407EGIAY",
+                "lastModifiedDate": "2021-01-21T22:41:59.000Z",
+                "recordTypeId": "012o0000000qlFCAAY",
+                "recordTypeInfo": {
+                    "available": true,
+                    "defaultRecordTypeMapping": false,
+                    "master": false,
+                    "name": "Organization",
+                    "recordTypeId": "012o0000000qlFCAAY"
+                },
+                "systemModstamp": "2021-01-21T22:41:59.000Z",
+                "fields": {
+                    "ClientIdentifier__c": {
+                        "displayValue": null,
+                        "value": "7X1DF0DF001"
+                    },
+                    "Name": {
+                        "displayValue": null,
+                        "value": "OSF HEALTHCARE SYSTEM"
+                    },
+                    "PersonEmail": {
+                        "displayValue": null,
+                        "value": "qvvps.p.phjkexf4ulqvpxrkbc@sf.org"
+                    }
+                }
+            }
+        },
+        "NameInsuredId": {
+            "displayValue": null,
+            "value": "001R000001tC542IAC"
+        },
+        "Pilot_User_2__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "FleetInd__c": {
+            "displayValue": null,
+            "value": "y"
+        },
+        "PlcyTypeCd__c": {
+            "displayValue": null,
+            "value": "0"
+        },
+        "PolicyDescription": {
+            "displayValue": null,
+            "value": "2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2018 Subaru Crosstrek Sport Wg\n2019 Subaru Crosstex Sport Wg\n2019 Subaru Crosstrek 4 Dr\n2019 Subaru Crosstrek 4 Dr\n2019 Subaru Crosstrek 4 Dr\n2019 Subaru Crosstrek 4 Dr\n2019 Subaru Crosstrek 4 Dr\n2019 Subaru Crosstrek 4 Dr\n2019 Subaru Crosstrek 4 Dr\n2019 Subaru Crosstrek 4 Dr\n2019 Subaru Crosstrek 4 Dr\n2019 Subaru Crosstrek 4 Dr\n2019 Subaru Crosstrek 4 Dr\n2019 Subaru Crosstrek 4 Dr\n2019 Subaru Crosstrek 4dr\n2019 Subaru Crosstrek Sport Wg\n2019 Subaru Crosstrek Sport Wg\n2019 Subaru Crosstrek Sport Wg\n2019 Subaru Crosstrek Sport Wg\n2019 Subaru Crosstrek Sport Wg\n2019 Subaru Crosstrek Sport Wg\n2019 Subaru Crosstrek Sport Wg\n2019 Subaru Crosstrek Sport Wg\n2019 Subaru Crosstrek Sport Wg\n2019 Subaru Crosstrek Sport Wg"
+        },
+        "PolicyName": {
+            "displayValue": null,
+            "value": "FLEET"
+        },
+        "ProdLineCd__c": {
+            "displayValue": null,
+            "value": "A"
+        },
+        "Profile": {
+            "displayValue": "Developer System Administrator",
+            "value": {
+                "apiName": "Profile",
+                "childRelationships": {},
+                "id": "00e46000000HtmqAAC",
+                "lastModifiedById": "00546000000QXu5AAG",
+                "lastModifiedDate": "2021-02-04T17:42:36.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2021-02-04T17:42:36.000Z",
+                "fields": {
+                    "Name": {
+                        "displayValue": null,
+                        "value": "Developer System Administrator"
+                    }
+                }
+            }
+        },
+        "Servicing_Agent_Associate_ID__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Servicing_Agent__r": {
+            "displayValue": "Joseph 200 Remy",
+            "value": {
+                "apiName": "User",
+                "childRelationships": {},
+                "id": "005R00000040OGiIAM",
+                "lastModifiedById": "005R000000407EGIAY",
+                "lastModifiedDate": "2021-01-21T17:40:53.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2021-01-21T17:40:53.000Z",
+                "fields": {
+                    "Associate_ID__c": {
+                        "displayValue": null,
+                        "value": "J24Y61YS001"
+                    },
+                    "State_Agent_Code__c": {
+                        "displayValue": null,
+                        "value": null
+                    }
+                }
+            }
+        },
+        "SourceSystemIdentifier": {
+            "displayValue": null,
+            "value": "404341824"
+        },
+        "Status": {
+            "displayValue": "In Force",
+            "value": "In Force"
+        }
+    }
+}

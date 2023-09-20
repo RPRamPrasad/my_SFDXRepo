@@ -1,0 +1,151 @@
+{
+    "apiName": "InsurancePolicy",
+    "childRelationships": {},
+    "id": "0YTR00000004D3cOAE",
+    "lastModifiedById": "005R00000045FlCIAU",
+    "lastModifiedDate": "2020-09-29T15:16:11.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2020-09-29T15:16:11.000Z",
+    "fields": {
+        "AgreAccessKey__c": {
+            "displayValue": null,
+            "value": "5311062659"
+        },
+        "AgreSourceSysCd__c": {
+            "displayValue": null,
+            "value": "1"
+        },
+        "CoCd__c": {
+            "displayValue": null,
+            "value": "1"
+        },
+        "MasterDataLocationCd__c": {
+            "displayValue": null,
+            "value": "25"
+        },
+        "NI_RoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "NI_SecondaryRoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "106 2659-F06-53V"
+        },
+        "NameInsured": {
+            "displayValue": "TONY THRASHER",
+            "value": {
+                "apiName": "Account",
+                "childRelationships": {},
+                "id": "001R000001mOe0EIAS",
+                "lastModifiedById": "005R00000045FlCIAU",
+                "lastModifiedDate": "2020-09-29T15:15:13.000Z",
+                "recordTypeId": "012o0000000qlF7AAI",
+                "recordTypeInfo": {
+                    "available": true,
+                    "defaultRecordTypeMapping": true,
+                    "master": false,
+                    "name": "Individual",
+                    "recordTypeId": "012o0000000qlF7AAI"
+                },
+                "systemModstamp": "2020-11-30T21:20:22.000Z",
+                "fields": {
+                    "ClientIdentifier__c": {
+                        "displayValue": null,
+                        "value": "JK3JN3KB00T"
+                    },
+                    "Name": {
+                        "displayValue": null,
+                        "value": "TONY THRASHER"
+                    },
+                    "PersonEmail": {
+                        "displayValue": null,
+                        "value": "gnkezqsf45604@sf.org"
+                    }
+                }
+            }
+        },
+        "NameInsuredId": {
+            "displayValue": null,
+            "value": "001R000001mOe0EIAS"
+        },
+        "Pilot_User_2__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PlcyTypeCd__c": {
+            "displayValue": null,
+            "value": "0"
+        },
+        "PolicyDescription": {
+            "displayValue": null,
+            "value": "MULTIPLE VEHICLE\\n1997 JEEP WRANGLER SPORT WG\\n2019 CADILLAC XT5 SPORT WG\\n2014 CHEVROLET C1500 PICKUP\\n2009 DODGE RAM 1500 PICKUP"
+        },
+        "PolicyName": {
+            "displayValue": null,
+            "value": "MULTIPLE VEHICLE"
+        },
+        "ProdLineCd__c": {
+            "displayValue": null,
+            "value": "A"
+        },
+        "Profile": {
+            "displayValue": "Developer System Administrator",
+            "value": {
+                "apiName": "Profile",
+                "childRelationships": {},
+                "id": "00e46000000HtmqAAC",
+                "lastModifiedById": "00546000000QXu5AAG",
+                "lastModifiedDate": "2021-02-04T17:42:36.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2021-02-04T17:42:36.000Z",
+                "fields": {
+                    "Name": {
+                        "displayValue": null,
+                        "value": "Developer System Administrator"
+                    }
+                }
+            }
+        },
+        "Servicing_Agent_Associate_ID__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Servicing_Agent__r": {
+            "displayValue": "Glenn Moore, B38D, 53-8048",
+            "value": {
+                "apiName": "User",
+                "childRelationships": {},
+                "id": "005o0000003J6yJAAS",
+                "lastModifiedById": "00546000001eLXBAA2",
+                "lastModifiedDate": "2019-09-13T01:20:04.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2019-09-13T01:20:04.000Z",
+                "fields": {
+                    "Associate_ID__c": {
+                        "displayValue": null,
+                        "value": "SHZ6F1YS000"
+                    },
+                    "State_Agent_Code__c": {
+                        "displayValue": null,
+                        "value": "53-8048"
+                    }
+                }
+            }
+        },
+        "SourceSystemIdentifier": {
+            "displayValue": null,
+            "value": "76348823"
+        },
+        "Status": {
+            "displayValue": "In Force",
+            "value": "In Force"
+        }
+    }
+}

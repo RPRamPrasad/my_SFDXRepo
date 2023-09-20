@@ -1,0 +1,26 @@
+<template>
+    <div class="slds-grid">
+                <lightning-button-menu class="slds-button_last" alternative-text="Show menu" menu-alignment=auto>        
+                    <template for:each={dropdownDisplayOptions} for:item="item">
+                        <lightning-menu-item
+                            id={item.id}
+                            key={item.id}
+                            data-id={item.id} 
+                            value={item.label}
+                            label={item.label} 
+                            onclick={handleDropdownItem}>
+                            </lightning-menu-item>   
+                    </template>
+                </lightning-button-menu>
+        <div class="slds-col">
+            <button id={actionButtonId}
+                    data-id="actionButton" 
+                    class="slds-button slds-button_neutral slds-button_stretch" 
+                    onclick={handleActionButtonClick}
+                    if:true={showButton}>
+                {actionButtonLabel}
+            </button>
+        </div>
+
+    </div>
+</template>

@@ -1,0 +1,21 @@
+verbose: false
+instrumentation:
+  root: ./force-app/main/default/aura
+  include-all-sources: true
+  excludes: []
+reporting:
+  reports:
+    - html
+hooks:
+  post-require-hook: mocha-aura
+check:
+  global:
+    statements: 85
+    lines: 85
+    branches: 100
+    functions: 100
+  each:
+    statements: 85
+    lines: 85
+    branches: 100
+    functions: 100

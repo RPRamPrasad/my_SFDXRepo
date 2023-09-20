@@ -1,0 +1,75 @@
+<template>
+    <div class="slds-p-bottom_small">
+        <div class="slds-card slds-card_boundary">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <strong>Vehicle</strong>
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <div class="slds-card__body slds-card__body_inner">
+                <template if:true={vehicle}>
+                    <div class="slds-grid slds-gutters slds-wrap">
+                        <div class="slds-col slds-size_1-of-1">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1">
+                                    <c-policy-details-labeled-field label="Vehicle Description" value={vehicle}
+                                        data-id="vehicle" value-border="true"></c-policy-details-labeled-field>
+
+                                    <c-policy-details-labeled-field label="VIN" value={vin} data-id="vin"
+                                        value-border="true">
+                                    </c-policy-details-labeled-field>
+
+                                    <template if:true={hasFullAccess}>
+                                        <c-policy-details-labeled-field label="Vehicle Usage"
+                                            value={vehicleUsageDescription} data-id="vehicle-usage" value-border="true">
+                                        </c-policy-details-labeled-field>
+
+                                        <c-policy-details-labeled-field label="Annual Mileage" value={annualMiles}
+                                            data-id="annual-miles" value-border="true">
+                                        </c-policy-details-labeled-field>
+                                    </template>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-1 slds-var-p-top_xx-small">
+                                    <div class="slds-m-top_none slds-var-m-bottom_xxx-small field-label">
+                                        Odometer Readings
+                                    </div>
+                                    <template for:each={odometerReadings} for:item="reading">
+                                        <p key={reading.odometerReadingMonthYearDate}>
+                                            <lightning-formatted-date-time key={reading.odometerReadingMonthYearDate}
+                                                value={reading.odometerReadingMonthYearDate} month="2-digit"
+                                                day="2-digit" year="numeric" time-zone="UTC"></lightning-formatted-date-time>
+                                            &nbsp; // &nbsp;
+                                            <lightning-formatted-number key={reading.odometerMileageCount}
+                                                value={reading.odometerMileageCount}></lightning-formatted-number>
+                                        </p>
+                                    </template>
+
+                                    <template if:false={odometerReadings.length}>
+                                        <div class="slds-align_absolute-center slds-var-p-around_x-small">
+                                            No odometer readings found
+                                        </div>
+                                    </template>
+
+                                    <div class="slds-border_bottom"></div>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-1">
+                                    <c-policy-details-labeled-field label="Garage Address" value={garageAddress}
+                                        data-id="garage-address" value-border="true"></c-policy-details-labeled-field>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+                <template if:false={vehicle}>
+                    No vehicle details found
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

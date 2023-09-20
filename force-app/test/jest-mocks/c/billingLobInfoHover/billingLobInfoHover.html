@@ -1,0 +1,31 @@
+<template>
+	<div lwc:if={isCurrency} data-id='currencyStatusMessage' title={displayValue} >
+        
+        <lightning-formatted-number data-id="formattedCurrency"
+            value={displayValue}
+            format-style="currency"
+            currency-code="USD">
+        </lightning-formatted-number>
+        <lightning-icon 
+            data-id='currencyStatusInfo' 
+            icon-name="utility:info" 
+            style="padding-left: 10px;" 
+            size="x-small"
+            alternative-text={displayValue} 
+            title={hoverText}>
+        </lightning-icon>
+	</div>
+    <div lwc:else data-id='textStatusMessage' title={displayValue} >
+
+		{displayValue}
+
+        <lightning-icon 
+            data-id='textStatusInfo' 
+            icon-name="utility:info" 
+            style="padding-left: 10px;" 
+            size="x-small"
+            alternative-text={displayValue} 
+            title={hoverText}>
+        </lightning-icon>
+	</div>
+</template>

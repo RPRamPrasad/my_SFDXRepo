@@ -1,0 +1,53 @@
+<template>
+    <div class="slds-p-bottom_small">
+        <div class="slds-card slds-card_boundary">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <strong>Coverages</strong>
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <div class="slds-card__body slds-card__body_inner">
+                <template if:false={coverages.length}>
+                    <div class="slds-align_absolute-center" style="color:#666666">No coverages found
+                    </div>
+                </template>
+                <template if:true={coverages.length}>
+                    <div data-id="coverage-abbreviations" if:true={coverageAbbreviations.length}
+                        class="slds-grid slds-wrap slds-var-p-bottom_medium">
+                        <template for:each={coverageAbbreviations} for:item="cov">
+                            <span key={cov} class="slds-badge">{cov}</span>
+                        </template>
+                    </div>
+
+                    <lightning-datatable class="slds-table--striped" data-id="coverage-table" data={coveragesDisplayed}
+                        columns={coverageColumns} key-field="id" hide-checkbox-column="true"
+                        resize-column-disabled="true">
+                    </lightning-datatable>
+
+                    <template if:true={fire}>
+                        <div data-id="premium-help-text" class="slds-align_absolute-center" style="color:#666666">
+                            <br>
+                            Coverage amounts are displayed when the data is available.
+                            Not all products or individual coverages will have displayed amounts.
+                        </div>
+                    </template>
+
+                    <template if:true={auto}>
+                        <template if:true={showTotalPremium}>
+                            <div class="slds-clearfix slds-var-p-top_x-small">
+                                <div class="slds-float_right" style="text-align: right">
+                                    <c-policy-details-labeled-field label="Total Amount" value={totalPremium}
+                                        data-id="total-amount"></c-policy-details-labeled-field>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

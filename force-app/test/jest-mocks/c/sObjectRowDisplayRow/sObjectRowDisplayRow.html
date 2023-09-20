@@ -1,0 +1,15 @@
+<template>
+    <div style="height:20px">
+    <span data-id="label" class="truncateText">{label}</span>
+    <span data-id="value" if:false={displayLink} class="slds-float_right truncateText">{value}</span>
+    <lightning-formatted-url 
+        data-id="url"
+        if:true={displayLink} 
+        value={link} 
+        label={value} 
+        target="_self"
+        class="slds-float_right truncateText">
+    </lightning-formatted-url>
+</div>
+
+</template>

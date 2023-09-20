@@ -1,0 +1,12 @@
+<template>
+
+    <div id="sobjectLinkAndHoverOuterDiv" onmouseenter={displayAccountAlerts} onmouseleave={closeAccountAlerts}>
+        <lightning-formatted-url value={sObjectLink} label={linkText} tooltip={linkText} target={target}></lightning-formatted-url>
+        <template if:true={displayAccountAlertHover}>
+            <div>
+                <c-campaign-member-tabset account-id={accountId} data-id="hoverCampaignMemberTabset" style={accountAlertCss} class="slds-popover"></c-campaign-member-tabset>
+            </div>   
+        </template>
+    </div>
+
+</template>

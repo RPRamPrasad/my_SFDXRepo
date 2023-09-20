@@ -1,0 +1,50 @@
+<template>
+    <div class={cssForBlock}>
+        <div class="slds-m-top_none slds-var-m-bottom_xxx-small field-label" data-id="field-label">
+            {label}
+            <template if:true={help}>
+                &nbsp;
+                <lightning-helptext content={help}>
+                </lightning-helptext>
+            </template>
+        </div>
+
+        <template if:true={valueHighlight}>
+            <lightning-formatted-text title={valueHighlight} value={valueHighlight}
+                class="slds-var-m-vertical_x-small bold">
+            </lightning-formatted-text>
+            <br />
+        </template>
+
+        <template if:true={value}>
+            <lightning-formatted-text 
+                if:true={isTextValue} 
+                title={label} 
+                value={value} 
+                class="slds-var-m-vertical_x-small"
+                data-id="text-field">
+            </lightning-formatted-text>
+
+            <lightning-formatted-number 
+                if:false={isTextValue} 
+                title={label} 
+                value={value}
+                class="slds-var-m-vertical_x-small"
+                data-id="number-field">
+            </lightning-formatted-number>
+        </template>
+
+        <template if:true={urlLabel}>
+            <a 
+                href={url} 
+                target="_blank"
+                rel="noopener"
+                class="slds-var-m-vertical_x-small"
+                data-id="url-field"
+            >
+                {urlLabel}
+            </a>
+        </template>
+        
+    </div>
+</template>

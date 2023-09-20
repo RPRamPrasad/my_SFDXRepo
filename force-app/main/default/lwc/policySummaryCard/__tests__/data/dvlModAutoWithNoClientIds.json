@@ -1,0 +1,487 @@
+{
+    "statusCode": 200,
+    "body": {
+        "policy": {
+            "agreementIndexIdentifier": 497687059,
+            "policyInceptionDate": "2022-08-13T00:00:00.000+00:00",
+            "policyStatusCode": 2,
+            "policyStatusText": "In Force",
+            "agreementAccessKey": "35P1733402",
+            "agreementDisplayNumber": "1733402-SFP-35",
+            "ratingChangeRenewalDate": "2023-05-19",
+            "companyCode": "0001",
+            "businessLineCode": "A",
+            "policyRenewalTermDurationMoCnt": "6",
+            "autoPolicyCovPeriodIndicator": "N",
+            "autoGrePolicyIndicator": "N",
+            "commercialCrisisIndicator": "N",
+            "oldestPolicyOriginationDate": "2023-02-13T00:00:00.000+00:00",
+            "productDescriptionText": "Private Passenger",
+            "legacyStatusCode": "01",
+            "productDescriptionCode": "0",
+            "stateFarmStateCode": "35",
+            "relatedPolicy": [
+                {
+                    "relatedAgreementIndexId": 374261757,
+                    "relatedAgreementAccessKey": "3528882880",
+                    "relatedAgreementDisplayNumber": "888 2880-C26-35C",
+                    "natureCode": 8,
+                    "agreementSourceSystemCode": 1,
+                    "relatedProductDescriptionCode": "0",
+                    "relatedProductDescriptionText": "PRIVATE PASSENGER"
+                },
+                {
+                    "relatedAgreementIndexId": 374275670,
+                    "relatedAgreementAccessKey": "3528882879",
+                    "relatedAgreementDisplayNumber": "888 2879-C26-35B",
+                    "natureCode": 8,
+                    "agreementSourceSystemCode": 1,
+                    "relatedProductDescriptionCode": "0",
+                    "relatedProductDescriptionText": "PRIVATE PASSENGER"
+                },
+                {
+                    "relatedAgreementIndexId": 486565175,
+                    "relatedAgreementAccessKey": "352C943587",
+                    "relatedAgreementDisplayNumber": "C94 3587-A29-35",
+                    "natureCode": 8,
+                    "agreementSourceSystemCode": 1,
+                    "relatedProductDescriptionCode": "0",
+                    "relatedProductDescriptionText": "PRIVATE PASSENGER"
+                },
+                {
+                    "relatedAgreementIndexId": 501146539,
+                    "relatedAgreementAccessKey": "352D295679",
+                    "relatedAgreementDisplayNumber": "D29 5679-B13-35",
+                    "natureCode": 8,
+                    "agreementSourceSystemCode": 1,
+                    "relatedProductDescriptionCode": "0",
+                    "relatedProductDescriptionText": "PRIVATE PASSENGER"
+                }
+            ],
+            "policyPartyRole": [
+                {
+                    "roleNameCode": 18,
+                    "roleNameText": "Named Insured",
+                    "secondaryRoleNameCode": 28,
+                    "secondaryRoleNameText": "Primary",
+                    "party": {
+                        "partyIdentifier": "TH8S65YB00F",
+                        "partyIdSourceDBCode": 1,
+                        "postalAddress": {
+                            "postalAddressIdentifier": "MP8ZP3F800J"
+                        },
+                        "partyName": {
+                            "nameIdentifier": "00001"
+                        },
+                        "snapshotIdentifier": "24062022-0538-4Ff2-bbc2-562428227E5d"
+                    }
+                },
+                {
+                    "roleNameCode": 18,
+                    "roleNameText": "Named Insured",
+                    "secondaryRoleNameCode": 1,
+                    "secondaryRoleNameText": "Additional",
+                    "party": {
+                        "partyIdentifier": "KDJN47TSQGF",
+                        "partyIdSourceDBCode": 1,
+                        "postalAddress": {
+                            "postalAddressIdentifier": "MP8ZP3F800J"
+                        },
+                        "partyName": {
+                            "nameIdentifier": "00001"
+                        },
+                        "snapshotIdentifier": "24062022-0538-6dEF-B4d3-55486536fCc3"
+                    }
+                }
+            ],
+            "termVersion": {
+                "termVersionIdentifier": "2",
+                "fullTermStartDate": "2023-02-13T00:00:00.000+00:00",
+                "fullTermEndDate": "2023-08-13T00:00:00.000+00:00",
+                "termVersionStartDate": "2023-05-19T00:00:00.000+00:00",
+                "totalPolicyPremiumAmount": 1990.88,
+                "insurableRisk": [
+                    {
+                        "riskIdentifier": "356763",
+                        "riskCategoryText": "PRIVATE PASSENGER",
+                        "autoPolicyOrigEffectiveDate": "2022-08-13",
+                        "autoVehicleInceptionDate": "2022-08-13",
+                        "riskRatingRuleCode": "01",
+                        "riskUsageTypeCode": "0",
+                        "riskPrimaryUseCode": "08",
+                        "totalRiskPremiumAmount": 546.52,
+                        "autoInsurableRiskLocation": {
+                            "sfGeographicStateCode": "35",
+                            "countyCode": "076",
+                            "cityCode": "000",
+                            "latitudeNumber": 40.861303,
+                            "longitudeNumber": -81.479152,
+                            "locationQualityCode": "AP05",
+                            "locationMatchCode": "S00",
+                            "postalAddress": {
+                                "fullStreetAddressText": "6910 Stockbridge St NW",
+                                "streetAddressLine1Text": "6910 Stockbridge St NW",
+                                "cityName": "Canton",
+                                "postalStateCode": "OH",
+                                "postalZipCode": "44718-3709",
+                                "countryNameText": "USA",
+                                "standardizationIndicator": "Y"
+                            }
+                        },
+                        "coverageSet": {
+                            "baseFormNumber": "9835C",
+                            "coverage": [
+                                {
+                                    "coveragePremiumAmount": 3.910000000000000142108547152020037174224853515625,
+                                    "name": "Emergency Road Service",
+                                    "systemName": "EMERGENCY_ROAD_SERVICE",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "1"
+                                        }
+                                    ],
+                                    "abbreviation": "H"
+                                },
+                                {
+                                    "coveragePremiumAmount": 52.409999999999996589394868351519107818603515625,
+                                    "name": "Comprehensive",
+                                    "systemName": "COMPREHENSIVE",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "10"
+                                        },
+                                        {
+                                            "name": "Deductible",
+                                            "systemName": "DEDUCTIBLE",
+                                            "type": "DEDUCTIBLE",
+                                            "valueNum": 0
+                                        }
+                                    ],
+                                    "abbreviation": "D"
+                                },
+                                {
+                                    "coveragePremiumAmount": 174,
+                                    "name": "Collision",
+                                    "systemName": "COLLISION",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "30"
+                                        },
+                                        {
+                                            "name": "Deductible",
+                                            "systemName": "DEDUCTIBLE",
+                                            "type": "DEDUCTIBLE",
+                                            "valueNum": 500
+                                        }
+                                    ],
+                                    "abbreviation": "G"
+                                },
+                                {
+                                    "coveragePremiumAmount": 12.519999999999999573674358543939888477325439453125,
+                                    "name": "Rental and Travel Expense",
+                                    "systemName": "CAR_RENTAL",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "C"
+                                        },
+                                        {
+                                            "name": "Limit Percentage",
+                                            "systemName": "LIMIT_PERCENTAGE",
+                                            "type": "LIMIT",
+                                            "valueNum": 80
+                                        },
+                                        {
+                                            "name": "Limit Per Occurrence",
+                                            "systemName": "LIMIT_PER_OCCURRENCE",
+                                            "type": "LIMIT",
+                                            "valueNum": 1000
+                                        }
+                                    ],
+                                    "abbreviation": "R1"
+                                },
+                                {
+                                    "coveragePremiumAmount": 14.769999999999999573674358543939888477325439453125,
+                                    "name": "Medical Payments",
+                                    "systemName": "MEDICAL_PAYMENTS",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "081"
+                                        },
+                                        {
+                                            "name": "Limit",
+                                            "systemName": "LIMIT",
+                                            "type": "LIMIT",
+                                            "valueNum": 5000
+                                        }
+                                    ],
+                                    "abbreviation": "C"
+                                },
+                                {
+                                    "coveragePremiumAmount": 107.5400000000000062527760746888816356658935546875,
+                                    "name": "Bodily Injury",
+                                    "systemName": "BODILY_INJURY",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "25"
+                                        },
+                                        {
+                                            "name": "Limit Per Accident",
+                                            "systemName": "LIMIT_PER_ACCIDENT",
+                                            "type": "LIMIT",
+                                            "valueNum": 500000
+                                        },
+                                        {
+                                            "name": "Limit Per Person",
+                                            "systemName": "LIMIT_PER_PERSON",
+                                            "type": "LIMIT",
+                                            "valueNum": 250000
+                                        }
+                                    ],
+                                    "abbreviation": "A"
+                                },
+                                {
+                                    "coveragePremiumAmount": 141.490000000000009094947017729282379150390625,
+                                    "name": "Property Damage",
+                                    "systemName": "PROPERTY_DAMAGE",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "0N"
+                                        },
+                                        {
+                                            "name": "Limit Per Accident",
+                                            "systemName": "LIMIT_PER_ACCIDENT",
+                                            "type": "LIMIT",
+                                            "valueNum": 100000
+                                        }
+                                    ],
+                                    "abbreviation": "A"
+                                },
+                                {
+                                    "coveragePremiumAmount": 39.88000000000000255795384873636066913604736328125,
+                                    "name": "Uninsured Bodily Injury",
+                                    "systemName": "UNINSURED_MOTOR_VEHICLE",
+                                    "coverageProperty": [
+                                        {
+                                            "name": "Rating Code",
+                                            "systemName": "RATE_CD",
+                                            "type": "RATE_FACTOR",
+                                            "valueText": "0G"
+                                        },
+                                        {
+                                            "name": "Limit Per Accident",
+                                            "systemName": "LIMIT_PER_ACCIDENT",
+                                            "type": "LIMIT",
+                                            "valueNum": 500000
+                                        },
+                                        {
+                                            "name": "Limit Per Person",
+                                            "systemName": "LIMIT_PER_PERSON",
+                                            "type": "LIMIT",
+                                            "valueNum": 250000
+                                        }
+                                    ],
+                                    "abbreviation": "U"
+                                }
+                            ],
+                            "endorsementForm": [
+                                {
+                                    "formNumber": "9835C",
+                                    "formDescriptionText": "Ohio State Farm Car Policy Booklet",
+                                    "documentClassificationName": "AttachmentBooklet"
+                                }
+                            ]
+                        },
+                        "pricingRuleSet": {
+                            "pricingAdjustment": [
+                                {
+                                    "pricingRuleSetUniqueName": "DRV_SAFE_SAVE_DISC",
+                                    "pricingRuleSetTypeCode": "1",
+                                    "pricingRuleSetDisplayName": "Drive Safe and Save Discount",
+                                    "pricingRuleSetAdjustmentAmount": 5.37
+                                },
+                                {
+                                    "pricingRuleSetUniqueName": "VSD",
+                                    "pricingRuleSetTypeCode": "1",
+                                    "pricingRuleSetDisplayName": "Vehicle Safety Discount"
+                                }
+                            ]
+                        },
+                        "physicalObjectIdentifier": "1795386",
+                        "riskMarketCode": "01",
+                        "autoBasicPolicyCode": "0",
+                        "vehicle": [
+                            {
+                                "physicalObjectSerialNumber": "KMHFG4JG2HA747240",
+                                "manufacturerCode": "H",
+                                "makeName": "HONDA",
+                                "modelName": "CIVIC",
+                                "modelYearNumber": 2013,
+                                "bodyStyleDescriptionText": "4DR",
+                                "irgCollisionCode": "017",
+                                "irgComprehensiveCode": "013",
+                                "liabilityRatingGroupCode": "05",
+                                "modelSpecificationIdentifier": "4SSI9JD77I1",
+                                "vehicleSafetyDiscountCode": "D",
+                                "driveSafeAndSaveEnrollmentSwitch": true,
+                                "telematicsServiceProductCode": "09",
+                                "telematicsEnrollmentIdentifier": 129143,
+                                "telematicsEnrollmentCompletionDate": "2021-08-13T00:00:00.000+00:00",
+                                "telematicsDriveSafeAndSaveRegistrationStatusText": "COMPLETE"
+                            }
+                        ],
+                        "highwayLossDataSentIndicator": "Y",
+                        "riskPartyRole": [
+                            {
+                                "roleNameCode": 21,
+                                "roleNameText": "Operator",
+                                "party": {
+                                    "partyIdSourceDBCode": 1,
+                                    "postalAddress": {
+                                        "postalAddressIdentifier": "MP8ZP3F800J"
+                                    },
+                                    "birthDate": "1971-09-27T00:00:00.000+00:00",
+                                    "genderCode": "F",
+                                    "originalLicenseDate": "1987-09-27T00:00:00.000+00:00",
+                                    "partyName": {
+                                        "nameIdentifier": "00001"
+                                    },
+                                    "snapshotIdentifier": "24062022-0538-6dEF-B4d3-55486536fCc3"
+                                }
+                            },
+                            {
+                                "roleNameCode": 21,
+                                "roleNameText": "Operator",
+                                "party": {
+                                    "partyIdSourceDBCode": 1,
+                                    "postalAddress": {
+                                        "postalAddressIdentifier": "MP8ZP3F800J"
+                                    },
+                                    "birthDate": "1963-08-09T00:00:00.000+00:00",
+                                    "genderCode": "M",
+                                    "originalLicenseDate": "1979-08-09T00:00:00.000+00:00",
+                                    "partyName": {
+                                        "nameIdentifier": "00001"
+                                    },
+                                    "snapshotIdentifier": "24062022-0538-4Ff2-bbc2-562428227E5d"
+                                }
+                            },
+                            {
+                                "roleNameCode": 21,
+                                "roleNameText": "Operator",
+                                "party": {
+                                    "partyIdSourceDBCode": 1,
+                                    "postalAddress": {
+                                        "postalAddressIdentifier": "MP8ZP3F800J"
+                                    },
+                                    "birthDate": "2002-03-17T00:00:00.000+00:00",
+                                    "genderCode": "F",
+                                    "originalLicenseDate": "2018-08-09T00:00:00.000+00:00",
+                                    "partyName": {
+                                        "nameIdentifier": "00001"
+                                    },
+                                    "snapshotIdentifier": "24062022-0538-4ECf-Fc7c-54448229bE9d"
+                                }
+                            },
+                            {
+                                "roleNameCode": 21,
+                                "roleNameText": "Operator",
+                                "party": {
+                                    "partyIdSourceDBCode": 1,
+                                    "postalAddress": {
+                                        "postalAddressIdentifier": "MP8ZP3F800J"
+                                    },
+                                    "birthDate": "2004-06-02T00:00:00.000+00:00",
+                                    "genderCode": "F",
+                                    "originalLicenseDate": "2020-09-24T00:00:00.000+00:00",
+                                    "partyName": {
+                                        "nameIdentifier": "00001"
+                                    },
+                                    "snapshotIdentifier": "24062022-0538-CAdc-16Df-54937617DFCf"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "policyPricingRuleSet": {
+                    "pricingAdjustment": [
+                        {
+                            "pricingRuleSetUniqueName": "AFD",
+                            "pricingRuleSetTypeCode": "1",
+                            "pricingRuleSetDisplayName": "Accident Free Discount"
+                        },
+                        {
+                            "pricingRuleSetUniqueName": "SCD",
+                            "pricingRuleSetTypeCode": "1",
+                            "pricingRuleSetDisplayName": "Steer Clear Discount"
+                        },
+                        {
+                            "pricingRuleSetUniqueName": "MCD",
+                            "pricingRuleSetTypeCode": "1",
+                            "pricingRuleSetDisplayName": "Multiple Car Discount"
+                        },
+                        {
+                            "pricingRuleSetUniqueName": "MLD",
+                            "pricingRuleSetTypeCode": "1",
+                            "pricingRuleSetDisplayName": "Auto Multiple Line Discount"
+                        }
+                    ]
+                },
+                "businessModelExecutions": [
+                    {
+                        "businessModelExecutionIdentifier": "918b9aea-d305-48bc-863b-d8c0582af00b",
+                        "executionSourceName": "ModelExecutionByTerm",
+                        "businessModelScoreUsageText": "ModelExecutionHistory"
+                    },
+                    {
+                        "businessModelExecutionIdentifier": "4f62ba41-2309-41b3-9b67-5e883acd5fbe",
+                        "executionSourceName": "ModelExecutionByScore",
+                        "businessModelScoreUsageText": "Rating"
+                    },
+                    {
+                        "businessModelExecutionIdentifier": "55ad9006-24ec-49e9-97a2-19eb2196eaca",
+                        "executionSourceName": "ModelExecutionByScore",
+                        "businessModelScoreUsageText": "Insight"
+                    },
+                    {
+                        "businessModelExecutionIdentifier": "4dec30c3-2091-4383-a674-7a7632903e78",
+                        "executionSourceName": "ModelExecutionUnderwritingHistory",
+                        "businessModelScoreUsageText": "Renewal"
+                    }
+                ]
+            },
+            "servicingAgent": {
+                "bookOfBusinessIdentifier": "D27QL6WMPAL"
+            },
+            "agentOfRecord": {
+                "bookOfBusinessIdentifier": "D27QL6WMPAL"
+            },
+            "policyMailingPostalAddress": {
+                "postalAddressIdentifier": "MP8ZP3F800J"
+            },
+            "companyName": "State Farm Mutual Automobile Insurance Company",
+            "agreSourceSystemCode": 24,
+            "awsFailoverResponse": "false"
+        }
+    }
+}

@@ -1,0 +1,51 @@
+.section-header {
+    font-size: 1.7em;
+    padding: 10px;
+    background-color: #F5F5F5;
+}
+
+.section-sub-header {
+    font-size: 1.35em;
+    padding: 5px;
+    border-bottom: 1px solid black;
+}
+
+.section-content {
+    padding: 10px;
+}
+
+.divider {
+    padding: 3px;
+    border-top: 1px solid lightgray;
+}
+
+.card-border {
+    padding-bottom: 5px;
+}
+
+.card-details {
+    padding: 10px;
+}
+
+.error-banner {
+    background-color: rgb(194, 57, 52);
+    color: #FFF;
+    text-align: center;
+    border-radius: 0.25rem;
+}
+
+.warning-banner {
+    background-color: rgb(255, 193, 83);
+    color: #000;
+    text-align: center;
+    border-radius: 0.25rem;
+}
+
+.field-label {
+    color:#666666;
+    font-size: 0.9em;
+}
+
+.larger-font {
+    font-size: 1.5em;
+}

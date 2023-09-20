@@ -1,0 +1,80 @@
+<template>
+    <div class="slds-theme_default">
+        <div class="modal" style="height: 640px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Address Standarization Popup -->
+                    <div class="slds-modal__content slds-p-bottom_small">
+                        <div data-id="modalContent" title={testLabel} class="slds-grid slds-wrap slds-theme_default"
+                            id="modal-content-id-1">
+                            <div class="slds-col slds-size_1-of-1 slds-theme_warning">
+                                <h2 class="slds-text-heading_small slds-p-vertical_small">Review the following
+                                    warning message(s):
+                                </h2>
+                            </div>
+                            <div class="slds-col slds-size_1-of-1 slds-p-vertical_small">
+                                <ul class="slds-p-left_small" style="color:red">
+                                    <template for:each={errorDisplay} for:item="addrErrors">
+                                        <li data-id="errors" key={addrErrors.messageText}
+                                            style="list-style-type: circle;">
+                                            <p>{addrErrors.messageText}</p>
+                                            <br />
+                                        </li>
+                                    </template>
+                                </ul>
+                            </div>
+                            <template if:true={is04}>
+                                <div class="slds-col slds-size_1-of-1 slds-p-vertical_small">
+                                    <h2 class="slds-text-heading_small slds-theme_shade">{addressType} Address: Which Address is Correct?
+                                    </h2>
+                                </div>
+                                <!--Standardized address-->
+                                <div class="slds-col slds-size_1-of-1 slds-small-size_3-of-6">
+                                    <lightning-input data-id="standard" type='radio' name='addressList'
+                                        value='standard' label='We Found' title={standardAddrString}
+                                        onclick={handleChange} style=font-weight:bold checked
+                                        aria-describedby="standardAddr" onblur={standardFocus}>
+                                    </lightning-input>
+                                    <p class="slds-p-left_large" id="standardAddr" style="white-space: pre-line">
+                                        {standardAddrString}
+                                    </p>
+                                </div>
+                                <!--Non-Standardized address-->
+                                <div class="slds-col  slds-size_1-of-1 slds-small-size_3-of-6">
+                                    <lightning-input tabindex="0" data-id="notStandard" type='radio' name='addressList'
+                                        value='current' label='You Entered' title={currentAddrString}
+                                        onclick={handleChange} style=font-weight:bold aria-describedby="currentAddr" onblur={notStandFocus}>
+                                    </lightning-input>
+                                    <p class="slds-p-left_large" id="currentAddr" style="white-space: pre-line">
+                                        {currentAddrString}
+                                    </p>
+                                </div>
+                            </template>
+                            <template if:true={is06}>
+                                <div class="slds-col slds-size_1-of-1 slds-p-vertical_small">
+                                    <h2 class="slds-text-heading_small slds-theme_shade">{addressType} Address:</h2>
+                                </div>
+                                <div class="slds-col  slds-size_1-of-1">
+                                    <label style=font-weight:bold class="slds-p-bottom_small">Current Address:</label>
+                                    <p data-id="06text" style="white-space: pre-line" class="slds-left_large">
+                                        {currentAddrString}
+                                    </p>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <div class="slds-align_absolute-center">
+                            <lightning-button data-id="Edit" label="Edit" variant="neutral" onclick={closeAddStd}
+                                onblur={editFocus} value="edit" class="slds-m-left_x-small"></lightning-button>
+                            <lightning-button data-id="Continue" label="Continue" variant="brand" onclick={closeAddStd}
+                                onblur={continueFocus} value="save" class="slds-m-left_x-small"></lightning-button>
+                        </div>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,151 @@
+{
+    "apiName": "InsurancePolicy",
+    "childRelationships": {},
+    "id": "0YTR00000004D40OAE",
+    "lastModifiedById": "005R00000045FlCIAU",
+    "lastModifiedDate": "2020-09-29T15:16:11.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2020-09-29T15:16:11.000Z",
+    "fields": {
+        "AgreAccessKey__c": {
+            "displayValue": null,
+            "value": "05609387520K30"
+        },
+        "AgreSourceSysCd__c": {
+            "displayValue": null,
+            "value": "1"
+        },
+        "CoCd__c": {
+            "displayValue": null,
+            "value": "5"
+        },
+        "MasterDataLocationCd__c": {
+            "displayValue": null,
+            "value": "5"
+        },
+        "NI_RoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "NI_SecondaryRoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "93-K3-8752-0"
+        },
+        "NameInsured": {
+            "displayValue": "HYLAND COURTS TOWNHOME ASSOCIATION",
+            "value": {
+                "apiName": "Account",
+                "childRelationships": {},
+                "id": "001R000001mOe06IAC",
+                "lastModifiedById": "005R00000045FlCIAU",
+                "lastModifiedDate": "2020-09-29T15:15:07.000Z",
+                "recordTypeId": "012o0000000qlFCAAY",
+                "recordTypeInfo": {
+                    "available": true,
+                    "defaultRecordTypeMapping": false,
+                    "master": false,
+                    "name": "Organization",
+                    "recordTypeId": "012o0000000qlFCAAY"
+                },
+                "systemModstamp": "2020-09-29T15:15:08.000Z",
+                "fields": {
+                    "ClientIdentifier__c": {
+                        "displayValue": null,
+                        "value": "4536R4DY005"
+                    },
+                    "Name": {
+                        "displayValue": null,
+                        "value": "HYLAND COURTS TOWNHOME ASSOCIATION"
+                    },
+                    "PersonEmail": {
+                        "displayValue": null,
+                        "value": null
+                    }
+                }
+            }
+        },
+        "NameInsuredId": {
+            "displayValue": null,
+            "value": "001R000001mOe06IAC"
+        },
+        "Pilot_User_2__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PlcyTypeCd__c": {
+            "displayValue": null,
+            "value": "V"
+        },
+        "PolicyDescription": {
+            "displayValue": null,
+            "value": "Residential Community Association Policy\\n5325 & 5327 HYLAND PL\\n5733-5745 HYLAND COURTS DR\\n5417-5429 HYLAND COURTS DR\\n5581-5593 HYLAND COURTS DR\\n5732-5738 HYLAND COURTS DR\\n5881-5893 HYLAND COURTS DR"
+        },
+        "PolicyName": {
+            "displayValue": null,
+            "value": "Residential Community Association Policy"
+        },
+        "ProdLineCd__c": {
+            "displayValue": null,
+            "value": "F"
+        },
+        "Profile": {
+            "displayValue": "Developer System Administrator",
+            "value": {
+                "apiName": "Profile",
+                "childRelationships": {},
+                "id": "00e46000000HtmqAAC",
+                "lastModifiedById": "00546000000QXu5AAG",
+                "lastModifiedDate": "2021-02-04T17:42:36.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2021-02-04T17:42:36.000Z",
+                "fields": {
+                    "Name": {
+                        "displayValue": null,
+                        "value": "Developer System Administrator"
+                    }
+                }
+            }
+        },
+        "Servicing_Agent_Associate_ID__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Servicing_Agent__r": {
+            "displayValue": "Paul Gentilini, GIYX, 23-6002",
+            "value": {
+                "apiName": "User",
+                "childRelationships": {},
+                "id": "005o0000003JDrtAAG",
+                "lastModifiedById": "00546000001eLXBAA2",
+                "lastModifiedDate": "2019-09-12T19:17:18.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2019-09-12T19:17:18.000Z",
+                "fields": {
+                    "Associate_ID__c": {
+                        "displayValue": null,
+                        "value": "FSNX01YS000"
+                    },
+                    "State_Agent_Code__c": {
+                        "displayValue": null,
+                        "value": "23-6002"
+                    }
+                }
+            }
+        },
+        "SourceSystemIdentifier": {
+            "displayValue": null,
+            "value": "224968612"
+        },
+        "Status": {
+            "displayValue": "In Force",
+            "value": "In Force"
+        }
+    }
+}

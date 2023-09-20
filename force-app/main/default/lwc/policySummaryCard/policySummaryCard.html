@@ -1,0 +1,332 @@
+<template>
+    <div class="slds-var-m-bottom_small slds-var-p-horizontal_small slds-var-p-top_small card-border">
+        <lightning-card>
+
+            <!-- title -->
+            <span slot="title" style="display:flex;">
+                <c-policy-summary-lob-icon 
+                    lob={policy.PolicyType} 
+                    source-code={policy.AgreSourceSysCd__c}
+                    class="slds-m-right_small lob-icon">
+                </c-policy-summary-lob-icon>
+                <span class="policy-number">
+                    <div class="display: inline-block;">
+                        <a onclick={navigateToPolicy} data-id="launch-policy">{policy.Name}</a>
+                        <lightning-button-icon data-id='copyButton' icon-name="utility:copy_to_clipboard" variant="bare"
+                            alternative-text="Copy" title="Copy Policy Number" onclick={copyPolicyNumber} size="small">
+                        </lightning-button-icon>
+                        <br/>
+                        <lightning-badge if:true={policyStatusNotInForceOrTerm} data-id="policy-status" label={policy.Status} title={policyStatusHelpText}></lightning-badge>
+                    </div>
+                </span>
+                <span class="policy-name" title={policy.PolicyName} data-id="list-item-desc">{policy.PolicyName}</span>
+            </span>
+
+            <!-- actions -->
+            <span slot="actions">
+                <c-policy-summary-alert 
+                    if:true={alerts.length} 
+                    alerts={alerts} 
+                    is-card-view=true 
+                    is-household={isHousehold} 
+                    account-list={accountList} 
+                    account-page-record-id={accountPageRecordId} 
+                    data-id="policy-alert">
+                </c-policy-summary-alert>
+                <lightning-button-menu 
+                    alternative-text="Policy Actions" 
+                    icon-size="small"
+                    onselect={handleOnSelect}
+                    menu-alignment="right"
+                    class="slds-m-left_small"
+                    data-id="list-item-actions"
+                >
+                    <template if:true={policyActions}>
+                        <template for:each={policyActions} for:item="action">
+                            <lightning-menu-item value={action} label={action} key={action} data-id={action} disabled={isSavingRecord}></lightning-menu-item>
+                        </template>
+                    </template>
+                </lightning-button-menu>
+            </span>
+
+            <!-- body -->
+            <div class="slds-m-left_large full-width overflow slds-p-right_large">
+                <span class="slds-m-right_x-small header-field-label">Inception</span><strong class="slds-m-right_medium" data-id="inception">{inceptionDate}</strong>
+                <span class="slds-m-right_x-small header-field-label" data-id="renew-term-label">{renewTermLabel}</span><strong class={renewTermClass} data-id="renew-term">{renewTermDate}</strong>
+                <span class="slds-m-right_x-small header-field-label">Agent</span><a data-id="launch-agent" onclick={launchAgentLink}>{servicingAgent}</a>
+            </div>
+
+            <!-- risk section -->
+            <div style="display:flex;" if:true={policy.InsurancePolicyAssets} class="slds-m-left_large slds-m-top_xx-small">
+                <div class="risk-box">
+                    <template if:true={showRiskShowAll}>
+                        <template for:each={getRisksForShowAll} for:item="risk">
+                            <template if:true={isLegacyMultiCar}>
+                                <div key={risk.Description__c} class="risk-title-parent slds-p-vertical_xx-small slds-m-top_x-small flex-div">
+                                    <span class="risk-title">{risk.RiskNumber__c}: {risk.Description__c}</span>
+                                    <template if:true={risk.hasDssDiscount}>
+                                        <img 
+                                            data-id='dss-icon-multicar-showall' 
+                                            src={dssIconPath} 
+                                            alt="Drive Safe &amp; Save"
+                                            style="height: 18px;" 
+                                            title={dssIconTitle} 
+                                            class="slds-m-left_x-small slds-m-top_xx-small" />
+                                    </template>
+                                </div>
+                            </template>
+                            <template if:false={isLegacyMultiCar}>
+                                <div key={risk.Description__c} class="risk-title-parent slds-p-vertical_xx-small slds-m-top_x-small flex-div">
+                                    <span class="risk-title" data-id="non-lmc-sa-risk-title">{risk.Description__c}</span>
+                                    <template if:true={risk.hasDssDiscount}>
+                                        <img 
+                                            data-id='dss-icon-showall' 
+                                            src={dssIconPath}
+                                            alt="Drive Safe &amp; Save" 
+                                            style="height: 18px;" 
+                                            title={dssIconTitle} 
+                                            class="slds-m-left_x-small slds-m-top_xx-small" />
+                                    </template>
+                                </div>
+                            </template>
+                            <template if:true={risk.coverageAbbreviations}>
+                                <span data-id="coverages-showall" key={risk.Description__c}>
+                                    <template for:each={risk.coverageAbbreviations} for:item="coverage">
+                                        <lightning-badge key={coverage} label={coverage} title={coverage}></lightning-badge>
+                                    </template>
+                                </span>
+                            </template>
+                                
+                            <template if:true={risk.drivers}>
+                                <template if:true={risk.drivers.length}>
+                                    <div key={risk.Id} class="grey-bg slds-p-around_x-small slds-m-top_x-small flex-div">
+                                        <div><span data-id="driver-title-showall">Drivers</span></div>
+                                        <div class="slds-m-left_small">
+                                            <template if:true={risk.drivers}>
+                                                <template for:each={risk.drivers} for:item="driver">
+                                                    <strong key={driver.name}>{driver.firstName}</strong>
+                                                    <span key={driver.name}> ({driver.age})</span>
+                                                    <template if:true={driver.isPrincipalAndAssigned}><strong key={driver.name}> P/A</strong></template>
+                                                    <template if:false={driver.isPrincipalAndAssigned}>
+                                                        <template if:true={driver.isPrincipalOperator}><strong key={driver.name}> P</strong></template>
+                                                        <template if:true={driver.isAssignedDriver}><strong key={driver.name}> A</strong></template>
+                                                    </template>
+                                                    <template if:false={driver.isLastDriver}>
+                                                        <span key={driver.name} class="slds-m-right_x-small" data-id="driver-semicolon-showall">;</span>
+                                                    </template>
+                                                </template>
+                                            </template>
+                                        </div>
+                                    </div>
+                                </template>
+                            </template>
+                        </template>
+
+                        <!-- Show All Risks -->
+                        <lightning-button 
+                            data-id="show-hide"
+                            label={showAllRisksLabel} 
+                            title={showAllRisksLabel} 
+                            onclick={toggleRiskShowAll}
+                            variant="base"
+                            class="slds-m-left_small">
+                        </lightning-button>
+                    </template>
+                    <template if:false={showRiskShowAll} for:each={risks} for:item="risk">
+                        <template if:true={isLegacyMultiCar}>
+                            <div key={risk.Description__c} class="risk-title-parent slds-p-vertical_xx-small slds-m-top_x-small flex-div">
+                                <span class="risk-title" data-id="multi-car-risk-title">{risk.RiskNumber__c}: {risk.Description__c}</span>
+                                <template if:true={risk.hasDssDiscount}>
+                                    <img 
+                                        data-id='dss-icon-multicar' 
+                                        src={dssIconPath} 
+                                        alt="Drive Safe &amp; Save"
+                                        style="height: 18px;" 
+                                        title={dssIconTitle} 
+                                        class="slds-m-left_x-small slds-m-top_xx-small" />
+                                </template>
+                            </div>
+                        </template>
+                        <template if:false={isLegacyMultiCar}>
+                            <div key={risk.Description__c} class="risk-title-parent slds-p-vertical_xx-small slds-m-top_x-small flex-div">
+                                <span class="risk-title" data-id="non-lmc-risk-title">{risk.Description__c}</span>
+                                <template if:true={risk.hasDssDiscount}>
+                                    <img 
+                                        data-id='dss-icon' 
+                                        src={dssIconPath} 
+                                        alt={dssIconTitle}
+                                        style="height: 18px;" 
+                                        title={dssIconTitle} 
+                                        class="slds-m-left_x-small slds-m-top_xx-small" />
+                                </template>
+                            </div>
+                        </template>
+                        <template if:true={risk.coverageAbbreviations}>
+                            <span data-id="coverages" key={risk.Description__c}>
+                                <template for:each={risk.coverageAbbreviations} for:item="coverage">
+                                    <lightning-badge key={coverage} label={coverage} title={coverage} data-id="coverage"></lightning-badge>
+                                </template>
+                            </span>
+                        </template>
+                        
+                        <template if:true={risk.drivers}>
+                            <template if:true={risk.drivers.length}>
+                                <div key={risk.Id} class="grey-bg slds-p-around_x-small slds-m-top_x-small flex-div">
+                                    <div><span data-id="driver-title">Drivers</span></div>
+                                    <div class="slds-m-left_small">
+                                        <template if:true={risk.drivers}>
+                                            <template for:each={risk.drivers} for:item="driver">
+                                                <strong key={driver.name} data-id="driver-first-name">{driver.firstName}</strong>
+                                                <span key={driver.name} data-id="driver-age"> ({driver.age})</span>
+                                                <template if:true={driver.isPrincipalAndAssigned}><strong key={driver.name} data-id="operator-type"> P/A</strong></template>
+                                                <template if:false={driver.isPrincipalAndAssigned}>
+                                                    <template if:true={driver.isPrincipalOperator}><strong key={driver.name} data-id="operator-type"> P</strong></template>
+                                                    <template if:true={driver.isAssignedDriver}><strong key={driver.name} data-id="operator-type"> A</strong></template>
+                                                </template>
+                                                <template if:false={driver.isLastDriver}>
+                                                    <span key={driver.name} class="slds-m-right_x-small" data-id="driver-semicolon">;</span>
+                                                </template>
+                                            </template>
+                                        </template>
+                                    </div>
+                                </div>
+                            </template>
+                        </template>
+                    </template>
+                </div>
+            </div>
+
+            <!-- policy fields -->
+            <div class="grey-bg slds-p-around_x-small slds-m-top_x-small slds-m-left_large">
+                <div style="display: flex;">
+                    <span class="slds-m-right_x-small" data-id="insureds-title">{insuredTitle}</span><strong data-id="card-insureds">{policy.AgreDisplayPartyName__c}</strong>
+                    
+                    <!-- Policy Enhance -->
+                    <span style="margin-left:auto;">
+
+                        <template if:true={shouldShowEnhance}>
+                            <template if:false={isPolicyTerminated}>
+                                <template if:false={isFleet}>
+                                    <template if:false={enhanceIsLoading}>
+                                        <template if:false={dvlError}>
+                                            <template if:false={details}>
+                                                <lightning-button-icon 
+                                                    icon-name="utility:sparkles" 
+                                                    alternative-text="Show More Details" 
+                                                    title="Show More Details"
+                                                    variant="brand"
+                                                    size="small"
+                                                    onclick={enhancePolicy}
+                                                    data-id="enhance-button">
+                                                </lightning-button-icon>
+                                            </template>
+                                        </template>
+                                    </template>
+                                </template>
+                            </template>
+                        </template>
+
+                    </span>
+                </div>
+                <template if:true={obligee}>
+                    <div style="display: flex;">
+                        <span class="slds-m-right_x-small" data-id="obligee-title">Obligee</span><strong data-id="card-obligee">{obligee}</strong>
+                    </div>
+                </template>
+                <div class="overflow">
+                    <template if:true={policy.BillingPolicyAccounts__r}>
+                        <span class="slds-m-right_x-small">Billing</span>
+                        <template if:true={policy.BillingPolicyAccounts__r}>
+                            <template for:each={policy.BillingPolicyAccounts__r} for:item="billAccount">
+                                <a onclick={navigateToBill} data-id={billAccount.BillingAccountID__c} key={billAccount.BillingAccountID__r.AccountNumber__c} class="slds-m-right_small">{billAccount.BillingAccountID__r.AccountNumber__c}</a>
+                            </template>
+                        </template>
+                    </template>
+                </div>
+                <div>
+                    <template if:true={policy.Claims}>
+                        <span class="slds-m-right_x-small no-wrap">Open Claims</span>
+                        <span class="overflow">
+                            <template if:true={policy.Claims}>
+                                <template for:each={policy.Claims} for:item="claim">
+                                    <a onclick={navigateToClaim} data-id={claim.Id} key={claim.Id} class="slds-m-right_small no-wrap">{claim.Name}</a>
+                                </template>
+                            </template>
+                        </span>
+                    </template>
+                </div>
+            </div>
+
+            <template if:true={shouldShowEnhance}>
+                <template if:false={isPolicyTerminated}>
+                    <template if:false={isFleet}>
+                        <template if:false={enhanceIsLoading}>
+                            <template if:true={dvlError}>
+                                <div class="slds-var-p-around_x-small slds-m-top_x-small error-banner" data-id="error">
+                                    {dvlError}
+                                </div>
+                            </template>
+                        </template>
+                        <template if:true={enhanceIsLoading}>
+                            <lightning-spinner alternative-text="Loading" size="small" data-id="loading-spinner"></lightning-spinner>
+                        </template>
+                    </template>
+                </template>
+            </template>
+
+        </lightning-card>
+    </div>
+
+    <c-send-to-customer-modal if:true={showSendModal} is-modal-open={showSendModal} customer-name={accountContext.name} customer-email={accountContext.email} onclosemodal={onCloseModal} onsendconfirmation={onSendEmail}></c-send-to-customer-modal>
+
+    <template if:true={showRiskModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container risk-modal" data-id="risk-modal">
+                <button class="slds-button slds-button_icon slds-modal__close" onclick={closeRiskModal} data-id="close-modal-button">
+                    <lightning-icon icon-name="utility:close" variant="inverse" size="small"><label>Close</label></lightning-icon>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Select a vehicle</h1>
+                    <p class="slds-m-top_x-small">
+                        Select a vehicle to initiate the policy change.
+                    </p>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="slds-grid slds-grid_align-center">
+                        <div class="slds-col">
+                            <template if:true={risks}>
+                                <template for:each={risks} for:item="risk">
+                                    <div class="centered" key={risk.Id}>
+                                        <template if:true={isLegacyMultiCar}>
+                                            <button
+                                                title={risk.riskNumDesc} 
+                                                onclick={handleModalSelect} 
+                                                data-id={risk.Id} 
+                                                class="slds-button slds-button_neutral slds-button_stretch slds-m-bottom_small">
+                                                {risk.riskNumDesc}
+                                            </button>
+                                        </template>
+                                        <template if:false={isLegacyMultiCar}>
+                                            <button
+                                                title={risk.Description__c} 
+                                                onclick={handleModalSelect} 
+                                                data-id={risk.Id} 
+                                                class="slds-button slds-button_neutral slds-button_stretch slds-m-bottom_small">
+                                                {risk.Description__c}
+                                            </button>
+                                        </template>
+                                    </div>
+                                </template>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={closeRiskModal}>Cancel</button>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+</template>

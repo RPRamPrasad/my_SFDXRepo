@@ -1,0 +1,117 @@
+<template >
+    <template if:true={enableSpinner}>
+    <div class="spinnerHolder">
+        <lightning-spinner data-id="spinner" alternative-text="Loading" if:true={enableSpinner}></lightning-spinner>
+    </div>
+    </template>
+        <h3 class="slds-section-title--divider">Case Information</h3>
+    
+    <div class="slds-box slds-theme_default">
+        <lightning-record-edit-form object-api-name={objectApiName} onload={handleOnLoad}
+                            onsubmit={handleSubmit} onsuccess={handleSuccess} onerror={handleError}>
+        <template if:true = {displayError}>
+                <!-- Page Level Generic Notification Start -->
+                <div class="slds-notify slds-notify_alert slds-theme_error errorText" data-id="pageErrorNotification" tabindex="-1" style="outline: none;">
+                    <span class="errorNotificationLeftAlign">Review the error(s) on this page.</span>
+                </div><br/>
+                <!-- Page Level Generic Notification End -->
+
+                <!-- Displays List Of Page Level Error Messages -->
+                <lightning-formatted-rich-text class="slds-p-top_x-small slds-text-color_error" value={displayErrorMsg} data-id="errorLists">
+                </lightning-formatted-rich-text><br/>
+            </template>
+        <div class="slds-grid">
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input-field data-id="AssignedTo" field-name="Assigned_To__c"  ></lightning-input-field>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <lightning-input-field data-id="Subject" field-name="Subject"></lightning-input-field>
+            </div>
+        </div>
+        <div class="slds-grid">
+            <div class="slds-col slds-size_1-of-2">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="text-input-id-1">Case Owner</label>
+                        <div class="slds-form-element__control">
+                        <input readonly type="text" data-id="CaseOwner" placeholder={userFullName} class="slds-input" value={userFullName} />
+                        </div>
+                 </div>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                    <lightning-input-field required data-id="Status" field-name="Status"></lightning-input-field>
+                </div>
+        </div>
+            <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-output-field data-id="CaseNumber" field-name="CaseNumber"></lightning-output-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field data-id="Priority" field-name="Priority"></lightning-input-field>
+                    </div>
+                </div>
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field data-id="PolicyNumber" field-name="PolicyNumber__c"></lightning-input-field>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <lightning-input-field data-id="LOB" field-name="LOB__c"></lightning-input-field>
+                    </div>
+                </div>
+                <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input-field data-id="ProductDescription" field-name="ProductDescription__c"></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input-field data-id="Premium" field-name="Premium__c"></lightning-input-field>
+                        </div>
+                    </div>
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-2 ">
+                        <lightning-input-field disabled data-id="AccountId" field-name="AccountId" value={accountId}  ></lightning-input-field>
+                    </div>
+                </div>
+                <div class="slds-grid">
+                    <div class="slds-col slds-size_1-of-2"> 
+                        <lightning-input-field disabled required data-id="ContactId" field-name="ContactId" value={contactId}  ></lightning-input-field>
+                    </div>
+                </div>
+                <h3 class="slds-section-title--divider">Source Information</h3>
+            
+                <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                                <div class="slds-form-element">
+                                    <label class="slds-form-element__label" for="Status">Case Originator</label>
+                                        <div class="slds-form-element__control">
+                                        <input readonly type="text" data-id="Status" placeholder="" class="slds-input" value="Agent Office" />
+                                        </div>
+                                 </div>
+                            </div>
+                        
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input-field data-id="Type" field-name="Type" ></lightning-input-field>
+                            <lightning-input-field data-id="Reason" field-name="Reason" ></lightning-input-field>
+                        </div>
+                    </div>
+                    <h3 class="slds-section-title--divider">Description Information</h3>
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                             <lightning-input-field data-id="Description" field-name="Description" ></lightning-input-field>
+                        </div>
+                    </div>
+                    <h3 class="slds-section-title--divider">System Information</h3>
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_1-of-2">
+                             <lightning-input-field data-id="TriggeredBy" field-name="Triggered_By__c" ></lightning-input-field>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-input-field data-id="isExpired" field-name="Expired__c" ></lightning-input-field>
+                       </div>
+                    </div>
+                <footer class="slds-modal__footer" data-id="caseModalFooter">
+                        <lightning-button data-id='CancelButton' label="Cancel" variant="brand" onclick={handleCancel} class="slds-p-right_xx-small"></lightning-button>
+                        <lightning-button data-id='SubmitButton' type="submit" label="Save" variant="brand" ></lightning-button>
+               </footer> 
+        </lightning-record-edit-form>
+    <!--</div>-->
+    </div>
+</template>

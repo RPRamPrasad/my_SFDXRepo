@@ -1,0 +1,16 @@
+<template>
+  <div class="slds-p-left_xx-small">
+    <lightning-input 
+        label=""
+        type="number" 
+        placeholder={inputPlaceHolder}
+        value={numberOfRecordsToAssign}
+        min="0"
+        max={inputMax}
+        variant="label-hidden"
+        message-when-range-overflow={inputErrorMessage}
+        message-when-range-underflow={inputErrorMessage}
+        onchange={handleNumberEntry} >
+    </lightning-input>
+  </div>
+</template>

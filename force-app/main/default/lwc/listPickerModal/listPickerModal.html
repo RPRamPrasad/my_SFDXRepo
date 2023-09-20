@@ -1,0 +1,39 @@
+<template>
+    <div class="slds-modal slds-fade-in-open slds-backdrop">
+        <div class="slds-modal__container">
+            <div class="slds-modal__header">
+                <lightning-button-icon icon-name="utility:close" alternative-text="Close this window" size="large"
+                    variant="bare-inverse" onclick={onCloseClick} class="slds-modal__close">
+                </lightning-button-icon>
+                <h2 data-id="title" class="slds-modal__title">{title}</h2>
+            </div>
+
+            <div class="slds-modal__content slds-p-around_medium">
+                <template if:false={isLoading}>
+                    <div data-id="itemList" class="slds-grid slds-grid_vertical-align-center slds-wrap">
+                        <template for:each={paginatedList} for:item="item">
+                            <lightning-button class="slds-col slds-size_1-of-2 slds-var-p-left_large" key={item.value}
+                                data-id={item.value} variant="base" label={item.label} onclick={onItemClicked}>
+                            </lightning-button>
+                        </template>
+                    </div>
+                    <div if:true={showPaginator}
+                        class="slds-grid slds-grid_vertical-stretch slds-grid_vertical-align-center slds-grid_align-center">
+                        <c-lwc-paginator data-id="listPickerPaginatior" max-per-page={pageSize}
+                            total-data-size={list.length} current-page={activePage}
+                            onpaginationchanged={handlePageChange}>
+                        </c-lwc-paginator>
+                    </div>
+                </template>
+                <div if:true={isLoading}
+                    class="slds-grid slds-grid_vertical-stretch slds-grid_vertical-align-center slds-grid_align-center slds-is-relative spin">
+                    <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+                </div>
+            </div>
+            <div class="slds-modal__footer">
+                <lightning-button data-id="cancelButton" label="Cancel" variant="" onclick={onCloseClick}>
+                </lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

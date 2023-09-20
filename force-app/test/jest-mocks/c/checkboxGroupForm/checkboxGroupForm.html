@@ -1,0 +1,28 @@
+<template>
+    <div>
+        <div class="slds-grid slds-grid--align-space">
+            <template for:each={columns} for:item="column">
+                <div class="slds-col slds-m-bottom_small" key={column.Id}> 
+                    <lightning-checkbox-group
+                        data-id={column.dataId}
+                        options={column.options}
+                        value={column.value}
+                        name={column.name}
+                        disabled={disableCheckboxes}>
+                    </lightning-checkbox-group>
+                </div>
+            </template> 
+        </div>  
+        <slot name="contentBelowCheckboxGroup"></slot>
+        <div class='slds-m-top_small slds-modal__footer' style="width:100%; float:right;">
+            <div>
+                <lightning-button 
+                    data-id="submitButton" 
+                    label={submitButtonText} 
+                    onclick={handleSubmit}
+                    variant="brand">
+                </lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-grid slds-grid_vertical">
+        <template if:true={value}>
+            <template if:true={value.length}>
+                <template for:each={value} for:item="listItem">
+                    <div key={listItem.url}>
+                        <lightning-formatted-url value={listItem.url} label={listItem.label} tooltip={listItem.tooltip}>
+                        </lightning-formatted-url>
+                    </div>
+                </template>
+            </template>
+            <template if:false={value.length}>
+                N/A
+            </template>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,10 @@
+<template>
+    <template if:true={hasObjectId}>
+        <a onclick={navigateToView} data-id="anchorId" data-object-id={objectId}>
+            <lightning-formatted-text data-id="objectLabel" data-object-id={objectId} value={label}></lightning-formatted-text>
+        </a>
+    </template>
+    <template if:false={hasObjectId}>
+        <lightning-formatted-text value={label}></lightning-formatted-text>
+    </template>
+</template>

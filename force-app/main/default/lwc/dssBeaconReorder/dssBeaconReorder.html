@@ -1,0 +1,99 @@
+<template>
+    <section role="dialog" aria-labelledby="modal-heading-01" aria-modal="true" class="slds-modal"
+        data-id="beacon-modal">
+        <div class="slds-modal__container slds-modal_medium">
+            <header class="slds-modal__header">
+                <lightning-button-icon icon-name="utility:close" size="x-small" class="slds-modal__close"
+                    onclick={toggleModal}>
+                </lightning-button-icon>
+                <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Drive Safe & Save™ Beacon Reorder
+                </h2>
+            </header>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <div class="modal-body-pages">
+                    <template if:true={shouldShowSpinner}>
+                        <lightning-spinner class="dss-spinner" alternative-text="Loading" size="medium" data-id="loading-spinner"></lightning-spinner>
+                    </template>
+                    <template if:false={shouldShowSpinner}>
+                        <template if:true={shouldShowErrorScreen}>
+                            <div data-id="kickout-content">Unfortunately, a beacon cannot be ordered at this time.</div>
+                            <br />
+                            <div data-id="reason-header"><b>Reason you are not able to reorder a beacon:</b></div>
+                            <div id="error-content" data-id="error-content">
+                                <lightning-formatted-rich-text data-id="modal-body-html" value={currentBodyText}></lightning-formatted-rich-text>
+                            </div>
+                            <br />
+                            <br />
+                            <template if:true={shouldShowReqSupportButton}>
+                                <div data-id="reason-footer">If you believe this is an error, consider the actions below.</div>
+                            </template>
+                        </template>
+                        <template if:false={shouldShowErrorScreen}>
+                            <div id="modal-content" data-id="modal-content">
+                                <lightning-formatted-rich-text data-id="modal-body-html" value={currentBodyText}></lightning-formatted-rich-text>
+                            </div>
+                            <template if:true={shouldShowYesNoButtons}>
+                                <div data-id="yes-no-buttons" class="slds-m-top_medium">
+                                    <button 
+                                        data-id="yes-button"
+                                        class="slds-button slds-button_neutral"
+                                        onclick={goToNextPage}>Yes</button>
+                                    <button
+                                        data-id="no-button"
+                                        class="slds-button slds-button_neutral"
+                                        onclick={goToReasonsPage}>No</button>
+                                </div>
+                            </template>
+                            <template if:true={shouldShowReorderReasons}>
+                                <div data-id="reorder-reasons-padding" class="reorder-reasons-padding">
+                                    <lightning-radio-group name="reorderReasonsGroup"
+                                        label="Situation"
+                                        options={reorderReasons}
+                                        value={selectedReorderReason}
+                                        onchange={handleRadioChange}
+                                        type="radio"
+                                        required
+                                        data-id="reorder-reasons-group">
+                                    </lightning-radio-group>
+                                </div>
+                            </template>
+                            <template if:true={shouldShowAddress}>
+                                <div data-id="address-information">
+                                    <div>{customerFirstName} {customerLastName}</div>
+                                    <div>{customerStreet}</div>
+                                    <div>{customerCity}, {customerState} {customerZip}</div>
+                                    <br />
+                                    <div>If the address is not correct, please update the mailing address on the Customer's Account.</div>
+                                </div>
+                            </template>
+                        </template>
+                    </template>
+                </div>
+                <hr class="hr-break" />
+                <div class="account-textbox">
+                    <lightning-input type="text" value={accountName} label="Account Name" disabled></lightning-input>
+                </div>
+            </div>
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" id="cancel-button" data-id="cancel-button" onclick={toggleModal}>Cancel</button>
+                <template if:true={shouldShowPreviousButton}>
+                    <button class="slds-button slds-button_brand" id="previous-button" data-id="previous-button"
+                        onclick={goToPreviousPage}>Previous</button>
+                </template>
+                <template if:true={shouldShowContinueButton}>
+                    <button class="slds-button slds-button_brand" id="continue-button" data-id="continue-button"
+                        onclick={goToNextPage} disabled={shouldDisableContinueButton}>Continue</button>
+                </template>
+                <template if:true={shouldShowSubmitButton}>
+                    <button class="slds-button slds-button_brand" id="submit-button" data-id="submit-button"
+                        onclick={handleSubmit} disabled={shouldShowSpinner}>Submit Reorder</button>                    
+                </template>
+                <template if:true={shouldShowReqSupportButton}>
+                    <button class="slds-button slds-button_brand" id="support-button" data-id="support-button"
+                        onclick={createSupportCase} disabled={isSaving}>Request Support</button>
+                </template>
+            </footer>
+        </div>
+    </section>
+    <div id="modal-backdrop" data-id="modal-backdrop" class="slds-backdrop"></div>
+</template>

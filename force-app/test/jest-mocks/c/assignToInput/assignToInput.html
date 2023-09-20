@@ -1,0 +1,34 @@
+<template>
+  <div class="slds-grid  slds-var-p-top_xxx-small slds-var-p-bottom_xxx-small">
+    <div data-id="name-div" class="slds-col slds-size_8-of-12">
+        <lightning-input
+          type="text"
+          data-id="name"
+          value={nameLabel}
+          variant="label-hidden"
+          disabled>
+        </lightning-input> 
+    </div>
+    <div data-id="slot-div" class="slds-col slds-size_3-of-12">
+      <slot
+        onuserletterentry={handleLetterEntry}>
+      </slot>
+    </div>
+    <div class="slds-col slds-size_1-of-12 slds-align_absolute-center slds-float_right" >
+        <lightning-button-icon 
+            data-id="removeRowButton"
+            icon-name="utility:delete"
+            variant="bare"
+            alternative-text="Remove"
+            size="large"
+            onclick={removeRow} >
+        </lightning-button-icon>
+    </div>
+  </div>
+  <template if:true={letterEntryError}>
+    <div class="slds-text-body_regular slds-text-align_center slds-text-color_error" >
+      <p data-id="error" >{errorMessage}</p>
+    </div>
+  </template>
+  
+</template>

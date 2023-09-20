@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-theme_default">
+        <div class="demo-only" style="height: 640px;">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open"  id="modal-content-id-1">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header errorBanner">
+                        <h2>There are errors with the email address you entered, please review.</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium errorBody" >
+                        <p>Email verification result:</p>
+                        <p class="errorText"><b>{verifyEmailAddressResult}</b></p>
+                        <br />
+                        <p>Email address you entered:</p>
+                        <p><b>{enteredEmail}</b></p>
+                    </div>
+                    <footer class="slds-p-bottom_x-large errorFooter">
+                        <p>The email address you entered may be an invalid email address, click edit to change the email
+                            address or click continue to proceed.</p>
+                        <br />
+                        <lightning-button data-id="edit" label="Edit" variant="brand" onclick={editEmail} onblur={editFocus}
+                            class="slds-m-left_x-small"></lightning-button>
+                        <lightning-button data-id="continue" label="Continue" variant="neutral" onclick={continueEmail} onblur={continueFocus}
+                            class="slds-m-left_x-small"></lightning-button>
+
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,20 @@
+.outside {
+    padding: 2px 0 2px 0;
+}
+.c-container {
+    background: rgb(243, 243, 243);
+    margin: 0px 0 2px 0;
+    padding: 2px 0 2px 0;
+    white-space: normal;
+}
+.header-column {
+    padding: 0 2rem;
+}
+.field-title {
+    font-size: .75rem;
+    line-height: 1.25;
+    color: #54698d;
+}
+.field-value {
+    text-transform: capitalize;
+}

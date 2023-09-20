@@ -1,0 +1,10 @@
+@import 'c/policyDetailsCommonCSS';
+
+.data-block {
+    padding: 5px 0px;
+    min-width: 150px;
+}
+
+.bold {
+    font-weight: bold;
+}

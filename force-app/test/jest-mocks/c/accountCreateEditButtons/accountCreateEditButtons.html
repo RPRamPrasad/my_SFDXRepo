@@ -1,0 +1,18 @@
+<template>
+    <div class="slds-hide">BUTTONS</div>
+    <!--Run onInit to determine if -->
+    <lightning-card variant="Narrow">
+            <div id="createEdit" class="slds-grid slds-wrap" style="padding-bottom: 20px;">
+                <div class="slds-size_1-of-1">
+                    <center>
+                        <div class="slds-gutters">
+                            <lightning-button data-id="Cancel" label="Cancel" disabled={isButtonDisabled} onclick={handleClick}></lightning-button>
+                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            <lightning-button data-id="Save" label="Save" variant="brand" disabled={isButtonDisabled} onclick={handleClick}></lightning-button>
+                        </div>
+                    </center>
+                </div>
+            </div>
+    </lightning-card>
+    <div style="margin-bottom:8%"></div>
+</template>

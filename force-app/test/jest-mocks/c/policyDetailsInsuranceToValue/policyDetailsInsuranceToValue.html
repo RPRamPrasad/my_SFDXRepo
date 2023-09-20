@@ -1,0 +1,47 @@
+<template>
+    <div class="slds-p-bottom_small">
+        <div class="slds-card slds-card_boundary">
+            <div class="slds-card__header slds-grid">
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <strong>Insurance To Value</strong>
+                        </h2>
+                    </div>
+                </header>
+            </div>
+            <div class="slds-card__body slds-card__body_inner">
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_1-of-2">
+                        <c-policy-details-labeled-field label="Date of Estimate" value={dateOfEstimate}
+                            data-id="date-of-estimate" value-border="true"></c-policy-details-labeled-field>
+
+                        <c-policy-details-labeled-field label="Insurance to Value Rate %" value={insuranceToValueRate}
+                            data-id="insurance-to-value-rate" value-border="true"></c-policy-details-labeled-field>
+
+                        <template if:true={xactwareUrl}>
+                            <c-policy-details-labeled-field label="Estimate Number" url-label={estimateNumber} url={xactwareUrl}
+                                data-id="estimate-number" value-border="true"></c-policy-details-labeled-field>
+                        </template>
+                        <template if:false={xactwareUrl}>
+                            <c-policy-details-labeled-field 
+                                label="Estimate Number" 
+                                value={estimateNumber}
+                                data-id="estimate-number" 
+                                value-border="true"
+                                help="The hyperlink to the Xactware report will be added in a future release."
+                            ></c-policy-details-labeled-field>
+                        </template>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                        <c-policy-details-labeled-field label="Replacement Cost" value={replacementCost}
+                            data-id="replacement-cost" value-border="true"></c-policy-details-labeled-field>
+
+                        <c-policy-details-labeled-field label="Current Coverage" value={currentCoverage}
+                            data-id="current-coverage" value-border="true"></c-policy-details-labeled-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

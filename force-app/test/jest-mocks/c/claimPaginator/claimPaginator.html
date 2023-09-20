@@ -1,0 +1,17 @@
+<template>
+    <div class="container" if:true={showPaginator}>
+            <div class="left">
+                <template if:true={displayLeftButton}>
+                    <lightning-icon class ="smallBorder slds-border_top slds-border_left slds-border_right slds-border_bottom" 
+                        icon-name="utility:chevronleft"  onclick={previousPage} size="x-small"></lightning-icon>
+                </template>
+            </div>
+            <div class="centered">{currentPage} of {totalPages}</div>
+            <div class="right">
+                <template if:true={displayRightButton}>
+                    <lightning-icon class ="smallBorder slds-border_top slds-border_left slds-border_right slds-border_bottom" 
+                         icon-name="utility:chevronright"  onclick={nextPage} size="x-small"></lightning-icon>
+                </template>
+            </div>
+    </div>
+</template>

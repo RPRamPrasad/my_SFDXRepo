@@ -1,0 +1,44 @@
+<template>
+    
+            <!--template if:true={showModal}-->
+            <lightning-modal-header data-id="bulkAssignToModal" label="Assign User(s)"></lightning-modal-header>
+            <template if:true={receivedAllData}>
+                <lightning-modal-body>
+                    <div class="slds-align_absolute-center">
+                    <c-bulk-assign-to data-id="campaignMemberBulkAssignTo" users-to-assign-to={usersToAssignTo}
+                        records-to-assign={campaignMemberData} s-object-type="CampaignMember"
+                        assign-to-field="AssignedTo__c" show-success-toast=true send-email=true
+                        email-subject="New Campaign Member Assignment"
+                        email-message="The following team members have new Campaign members assigned to them."
+                        record-id={recordId} record-type="Campaign" record-label="Campaign Member"
+                        record-label-plural="Campaign Members" is-assign-to-disabled={disableAssignToButton}
+                        onassignmentsuccess={handleAssignmentSuccess} onassignmenterror={handleAssignmentError}
+                        onassignmentcancel={handleAssignmentCancel}>
+                        <div data-id="assignSlot" slot="assignDescription" class="slds-var-p-around_xx-small">
+                            {assignToDescription}</div>
+                    </c-bulk-assign-to>
+                </div>
+                </lightning-modal-body>
+            </template>
+            <template if:false={receivedAllData}>
+                <lightning-modal-body>
+                    <div data-id="campaignMemberBulkAssignToNoData">
+                        <div class="slds-align_absolute-center">
+                            <div style="margin-bottom: 20px;">
+                                <lightning-formatted-text data-id="waitingToReceiveText" value={waitingForText}>
+                                </lightning-formatted-text>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="slds-align_absolute-center" style="margin-bottom: 30px;">
+                            <div class="spinnerHolder">
+                                <lightning-spinner data-id="waitingToReceiveSpinner">
+                                </lightning-spinner>
+                            </div>
+                        </div>
+                    </div>
+                </lightning-modal-body>
+            </template>
+            <!--/template-->
+
+</template>

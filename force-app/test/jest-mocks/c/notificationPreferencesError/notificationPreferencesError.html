@@ -1,0 +1,38 @@
+<template>
+    <div style="z-index:1;position:relative">
+        <div if:true={isNotInNewHotProspectGroup}>
+            <div class="slds-box slds-theme_shade slds-text-heading_small slds-p-around_xxx-small"
+                style="margin-left:20px;display: inline-block;" data-id="groupMemberErrorSection">
+                <div class="slds-text-heading_small">
+                    <p>You are not a member of the <b>{newHotProspectGroupName}</b> group.</p>
+                    <p>To request to join the group, Please <lightning-formatted-url value={newHotProspectGroupURL}
+                            label="Click Here!">
+                        </lightning-formatted-url>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div if:true={noNewHotProspectGroupFound}>
+            <div class="slds-box slds-theme_shade slds-text-heading_small slds-p-around_xxx-small"
+                style="margin-left:20px;display: inline-block;" data-id="noGroupErrorSection">
+                <div class="slds-text-heading_small slds-text-color_destructive">
+                    <p>A Chatter Group cannot be found for your Office. Please validate that the name of the group was
+                        not changed.</p>
+                    <p>It MUST be named using the format of <b>{newHotProspectGroupName}</b>.</p>
+                </div>
+            </div>
+        </div>
+        <div if:true={unhandlederror} style="display:inline-block;margin-top:10px;margin-left:20px;"
+            class="slds-text-heading_small slds-p-around_small slds-theme_error" data-id="errorSection">
+            An unexpected error has occurred. Please contact your normal support channel for assistance.
+        </div>
+        <div if:true={allChatterNotificationsDisabled} style="display:inline-block;margin-top:10px;margin-left:20px;margin-right:20px;"
+            class="slds-text-heading_small slds-p-around_small slds-theme_error" data-id="allChatterNotificationsDisabledSection">
+            You currently have all Chatter email notifications disabled. Until you enable them, you will not receive New Hot Prospect email notifications. To change this setting, please navigate to Settings via your profile icon in the upper-right, select Chatter -> Email Notifications -> check 'Receive Emails'.
+        </div>
+        <div if:true={allChatterMentionsDisabled} style="display:inline-block;margin-top:10px;margin-left:20px;margin-right:20px;"
+            class="slds-text-heading_small slds-p-around_small slds-theme_error" data-id="chatterMentionsDisabledSection">
+            You currently have Chatter post mention notifications disabled. Until you enable them, you will not receive New Hot Prospect email notifications. To change this setting, please navigate to Settings via your profile icon in the upper-right, select Chatter -> Email Notifications -> check 'Mentions me in a post'.
+        </div>
+    </div>
+</template>

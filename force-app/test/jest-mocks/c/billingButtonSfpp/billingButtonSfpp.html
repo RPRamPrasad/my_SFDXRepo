@@ -1,0 +1,8 @@
+<template>
+    <lightning-button data-id='viewButton' class="mock-link" variant="base" label={billingAccountNumber} title={status}
+        onclick={openSFPPAccountUrl}>
+    </lightning-button>
+    <lightning-button-icon data-id='copyButton' icon-name="utility:copy_to_clipboard" variant="bare"
+        alternative-text="Copy" title="Copy Billing Account Number" onclick={copySFPPNumber}>
+    </lightning-button-icon>
+</template>

@@ -1,0 +1,27 @@
+<template>
+    <div class="slds-grid">
+        <div class="slds-col">
+            <div class="slds-float_right">
+                <div style="float:left">
+                    <lightning-button-group>
+                        <lightning-button
+                            if:true={displayAssignToButton}
+                            data-id="bulkAssignToButton" 
+                            label="Assign User(s)"
+                            aria-haspopup="modal"
+                            onclick={displayBulkAssignTo}>
+                        </lightning-button>
+                
+                        <lightning-button-icon 
+                            data-id="filterShowButton"
+                            icon-name="utility:filterList"  
+                            alternative-text="Filter Campaign Members" 
+                            title="Filter"
+                            onclick={handleFilterClick}>
+                        </lightning-button-icon>
+                    </lightning-button-group>
+                </div>     
+            </div>
+        </div>
+    </div>
+</template>

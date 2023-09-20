@@ -1,0 +1,134 @@
+{
+    "statusCode": 200,
+    "body": {
+        "policy": {
+            "policyInceptionDate": "2013-02-07T00:00:00.000+00:00",
+            "policyStatusCode": 2,
+            "policyStatusText": "In Force",
+            "agreementAccessKey": "236092Y5130BV9",
+            "agreementDisplayNumber": "92-BV-Y513-9",
+            "companyCode": "0005",
+            "businessLineCode": "F",
+            "policyRenewalTermDurationMoCnt": "12",
+            "productDescriptionText": "SURETY BOND",
+            "legacyStatusCode": "01",
+            "policyRenewalTypeCode": "0",
+            "coverageTermLengthCode": "3",
+            "productDescriptionCode": "M",
+            "billingCurrentDueAmount": 50.00,
+            "stateFarmStateCode": "75",
+            "policyPartyRole": [
+                {
+                    "roleNameCode": 18,
+                    "roleNameText": "Named Insured",
+                    "secondaryRoleNameCode": 20,
+                    "secondaryRoleNameText": "First",
+                    "roleSequenceNumber": 1,
+                    "party": {
+                        "partyIdentifier": "PYD9S4WW00R",
+                        "partyIdSourceDBCode": 1
+                    }
+                },
+                {
+                    "roleNameCode": 19,
+                    "roleNameText": "Named Insured - Policy Name",
+                    "party": {
+                        "partyName": {
+                            "fullName": "QUAN, MATTHEW DAVID"
+                        }
+                    }
+                },
+                {
+                    "roleNameCode": 20,
+                    "roleNameText": "Obligee",
+                    "party": {
+                        "partyName": {
+                            "fullName": "STATE OF CALIFORNIA"
+                        }
+                    }
+                }
+            ],
+            "termVersion": {
+                "fullTermStartDate": "2024-02-07T00:00:00.000+00:00",
+                "fullTermEndDate": "2025-02-07T00:00:00.000+00:00",
+                "termVersionStartDate": "2022-02-07T00:00:00.000+00:00",
+                "totalPolicyPremiumAmount": 50.00,
+                "insurableRisk": [
+                    {
+                        "riskLocation": {
+                            "sfGeographicStateCode": "CA",
+                            "countyCode": "030",
+                            "cityCode": "545",
+                            "cityLimitIndicator": "Y",
+                            "territorySubZoneVersionNumber": "000.00",
+                            "territoryZoneVersionNumber": "000.00",
+                            "postalAddress": {
+                                "fullStreetAddressText": "3532 KATELLA AVE STE 107",
+                                "streetAddressLine1Text": "3532 KATELLA AVE STE 107",
+                                "cityName": "LOS ALAMITOS",
+                                "postalStateCode": "CA",
+                                "postalZipCode": "90720-3140",
+                                "countryNameText": "USA",
+                                "legacyPostalAddressBlockText": "3532 KATELLA AVE STE 107 LOS ALAMITOS CA 90720-3140"
+                            },
+                            "primaryLocationSwitch": true
+                        }
+                    }
+                ],
+                "policyCoverageSet": {
+                    "policyFormCode": "0",
+                    "coverage": [
+                        {
+                            "systemName": "SURETY_BOND",
+                            "coverageProperty": [
+                                {
+                                    "systemName": "BOND_AMOUNT",
+                                    "valueNum": 5000
+                                }
+                            ],
+                            "coverageClassCode": "00480"
+                        }
+                    ]
+                },
+                "rateSetVersionNumber": "000.00",
+                "multipleLocationSwitch": false,
+                "claimRecordRating": {}
+            },
+            "agentOfRecord": {
+                "bookOfBusinessIdentifier": "WMYZR6WMPAL",
+                "stateCode": "75",
+                "agentCode": "8265",
+                "associateIdentifier": "MF6J61YS000"
+            },
+            "policyMailingPostalAddress": {
+                "fullStreetAddressText": "3532 KATELLA AVE STE 107",
+                "streetAddressLine1Text": "3532 KATELLA AVE STE 107",
+                "cityName": "LOS ALAMITOS",
+                "postalStateCode": "CA",
+                "postalZipCode": "90720-3140",
+                "countryNameText": "USA",
+                "legacyPostalAddressBlockText": "3532 KATELLA AVE STE 107 LOS ALAMITOS CA 90720-3140"
+            },
+            "companyName": "State Farm Fire and Casualty Company",
+            "producerAssignmentTypeCode": "2",
+            "bpcDescriptionText": "SURETY BOND",
+            "policyIssueYearNumber": 2013,
+            "billDueDate": "2022-02-07T00:00:00.000+00:00",
+            "billCode": "0",
+            "primaryFormLineMajorPerilCode": "6020",
+            "productDescriptionAbbreviationText": "BOND",
+            "agreSourceSystemCode": 1,
+            "legacyPaymentActivityCode": "W",
+            "legacyPaymentActivityDescription": "Billed/Not Paid",
+            "bondTypeCode": "S",
+            "doNotRenewIndicator": "N",
+            "generalFollowups": [
+                {
+                    "activityCode": "3BXI",
+                    "activityDate": "2024-12-17T00:00:00.000+00:00"
+                }
+            ],
+            "awsFailoverResponse": "false"
+        }
+    }
+}

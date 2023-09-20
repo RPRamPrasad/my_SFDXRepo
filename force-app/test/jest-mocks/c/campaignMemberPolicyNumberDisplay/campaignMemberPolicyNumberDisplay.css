@@ -1,0 +1,11 @@
+span.link {
+    color:#1579d0;
+}
+span:hover.link {
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+.plcy-info {
+  white-space: normal;
+}

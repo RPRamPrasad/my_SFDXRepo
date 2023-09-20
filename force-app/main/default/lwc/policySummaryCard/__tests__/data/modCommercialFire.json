@@ -1,0 +1,43 @@
+{
+  "Servicing_Agent__c": "0053v000001EYMiAAO",
+  "NI_SecondaryRoleNameCd__c": "20",
+  "ServicingAgentExternal__c": "<a href=\"/apex/VFP_ExternalLink?LinkId=26&amp;primaryStateCode=13&amp;primaryAgentCode=8475\" target=\"_blank\"> SFO Sterling</a>",
+  "NI_RoleNameCd__c": "18",
+  "ProdLineCd__c": "F",
+  "Name": "11-KJ-9999-6",
+  "Servicing_Agent__r": {
+      "Associate_ID__c": "BDVHYB31DAL",
+      "Id": "0053v000001EYMiAAO",
+      "Name": "13-8475 SFO Sterling, IL",
+      "State_Agent_Code__c": "13-8475"
+  },
+  "PolicyDescription": "Business Fire\\n605 N BULLMOOSE DR",
+  "SourceSystemIdentifier": "282751018",
+  "NameInsuredId": "001R000001mOe0CIAS",
+  "CoCd__c": "5",
+  "NameInsured": {
+      "ClientIdentifier__c": "GQLNX0DF00S",
+      "Id": "001R000001mOe0CIAS",
+      "PersonEmail": "moddlshthsq2@sf.org",
+      "Name": "ROY E DOSSEY"
+  },
+  "Status": "In Force",
+  "PolicyType": "Fire",
+  "SFDCPolicyNumberSearchKey__c": "E621302C0113",
+  "CancellationDate": "4000-12-31T00:00:00.000Z",
+  "AgreAccessKey__c": "11609999999AB0",
+  "RenewalDate": "2022-03-01T12:00:00.000Z",
+  "AgreDisplayPartyName__c": "DOSSET, ROY",
+  "InsurancePolicyAssets": [
+      {
+          "Description__c": "605 N BULLMOOSE DR",
+          "RiskNumber__c": "001",
+          "Id": "0YW2C0000004E6nWAE",
+          "RiskStatusText__c": "In Force"
+      }
+  ],
+  "AgreSourceSysCd__c": "15",
+  "PolicyName": "Business Fire",
+  "Id": "0YTR00000004D4NOAU",
+  "EffectiveDate": "2018-03-01T12:00:00.000Z"
+}

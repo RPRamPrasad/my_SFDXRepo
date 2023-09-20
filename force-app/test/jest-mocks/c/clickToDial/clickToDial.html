@@ -1,0 +1,31 @@
+<template>
+        <template if:true={userPreference}>
+                <template if:true={displayPhoneNumber}>
+                        <template if:true={enabled}>
+                                <!-- Default Display -->
+                                <div if:true={displayDefaultVersion} data-id="clickToDialDefaultDisplay">
+                                        <span if:true={doNotMarket} data-id="doNotMarketDisplay">Do Not Market: </span>
+                                        <a class="slds-text-link" href={phoneLink} target="_self" onclick={handlePhoneClick} data-id="phoneLink">{phoneNumber}</a>
+                                        <span if:true={displayCallFailed} data-id="callFailedDisplay">&nbsp;Call Failed? 
+                                                <a href={callFailedPhoneLink} target="_self" onclick={handlePhoneClick} data-id="callFailedLink">Click Here</a>
+                                        </span>
+                                </div>
+
+                                <!-- Minimal Display-->
+                                <div if:true={displayMinimalVersion} data-id="clickToDialMinimalDisplay">
+                                        <span if:true={doNotMarket} data-id="doNotMarketDisplay">Do Not Market: </span>
+                                        <div class="tooltip" data-id="phoneLinkToolTip">
+                                                <span class="tooltiptext" data-id="phoneLinkToolTipText">{phoneNumber}</span>
+                                                <a href={phoneLink} target="_self" onclick={handlePhoneClick} data-id="phoneLink">
+                                                        <lightning-icon class="phone-icon" icon-name="utility:call" size="small" alternative-text={phoneNumber} data-id="linkIcon"></lightning-icon>
+                                                </a>
+                                        </div>
+                                        <span if:true={displayCallFailed}>&nbsp;&nbsp; 
+                                                <a href={callFailedPhoneLink} target="_self" onclick={handlePhoneClick} data-id="callFailedLink">Call Failed?</a>
+                                        </span>
+                                </div>
+                        </template>
+                        <div if:false={enabled} data-id="clickToDialNotEnabledDisplay">{phoneNumber}</div>
+                </template>
+        </template>
+</template>

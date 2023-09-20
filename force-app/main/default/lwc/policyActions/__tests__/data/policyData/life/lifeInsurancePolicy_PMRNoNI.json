@@ -1,0 +1,122 @@
+{
+    "apiName": "InsurancePolicy",
+    "childRelationships": {},
+    "id": "0YTR00000004DmXOAU",
+    "lastModifiedById": "005R0000005P7kyIAC",
+    "lastModifiedDate": "2021-02-17T22:25:34.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2021-02-17T22:25:34.000Z",
+    "fields": {
+        "AgreAccessKey__c": {
+            "displayValue": null,
+            "value": "P237278251"
+        },
+        "AgreSourceSysCd__c": {
+            "displayValue": null,
+            "value": "1"
+        },
+        "CoCd__c": {
+            "displayValue": null,
+            "value": "0002"
+        },
+        "MasterDataLocationCd__c": {
+            "displayValue": null,
+            "value": "80"
+        },
+        "NI_RoleNameCd__c": {
+            "displayValue": null,
+            "value": "22"
+        },
+        "NI_SecondaryRoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "LF-3727-8251"
+        },
+        "NameInsured": {
+            "displayValue": null,
+            "value": null
+        },
+        "NameInsuredId": {
+            "displayValue": null,
+            "value": null
+        },
+        "Pilot_User_2__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PlcyTypeCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PolicyDescription": {
+            "displayValue": null,
+            "value": "Whole Life: Aponte, Desiree"
+        },
+        "PolicyName": {
+            "displayValue": null,
+            "value": "Whole Life"
+        },
+        "ProdLineCd__c": {
+            "displayValue": null,
+            "value": "L"
+        },
+        "Profile": {
+            "displayValue": "Developer System Administrator",
+            "value": {
+                "apiName": "Profile",
+                "childRelationships": {},
+                "id": "00e46000000HtmqAAC",
+                "lastModifiedById": "00546000000QXu5AAG",
+                "lastModifiedDate": "2021-02-04T17:42:36.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2021-02-04T17:42:36.000Z",
+                "fields": {
+                    "Name": {
+                        "displayValue": null,
+                        "value": "Developer System Administrator"
+                    }
+                }
+            }
+        },
+        "Servicing_Agent_Associate_ID__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Servicing_Agent__r": {
+            "displayValue": "Jeff Hoffer, T2CX, 59-7152",
+            "value": {
+                "apiName": "User",
+                "childRelationships": {},
+                "id": "005o0000003JG1lAAG",
+                "lastModifiedById": "00546000001eLXBAA2",
+                "lastModifiedDate": "2019-09-13T03:08:17.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2019-09-13T03:08:17.000Z",
+                "fields": {
+                    "Associate_ID__c": {
+                        "displayValue": null,
+                        "value": "YXT2R1YS000"
+                    },
+                    "State_Agent_Code__c": {
+                        "displayValue": null,
+                        "value": "59-7152"
+                    }
+                }
+            }
+        },
+        "SourceSystemIdentifier": {
+            "displayValue": null,
+            "value": "439236835"
+        },
+        "Status": {
+            "displayValue": "In Force",
+            "value": "In Force"
+        }
+    }
+}

@@ -1,0 +1,119 @@
+<template>
+    <div class="lcPadding">
+        <lightning-card title='Automated Journey Opt-In'>
+            <div class="pageWrapper">
+                <div class='journeyType'>
+                    <h1>{optInConstants.type}</h1>
+                </div>
+                <div class='optInSelection'>
+                    <h1>{optInConstants.preference}</h1>
+                </div>
+            </div>
+            <template for:each={journeys} for:item='journey'>
+                <div class="pageWrapper" key={journey.Id}>
+                    <div class='journeyType'>
+                        <h1><a href={journey.Link} target="_blank">{journey.Name}</a></h1>
+                        <lightning-helptext class='helpText' content={journey.HelpText}></lightning-helptext>
+                    </div>
+                    <div class='optInSelection'>
+                        <lightning-button-group>
+                            <lightning-button role="button" data-id={journey.TitleYes} title={journey.TitleYes}
+                                tabindex="0" variant={journey.VariantYes} disabled={isJourneyOptInPermissionEnabled}
+                                label="Yes" onclick={handleYesClickOnRadioButtons} aria-pressed="false">
+                            </lightning-button>
+                            <lightning-button role="button" data-id={journey.TitleNo} title={journey.TitleNo}
+                                tabindex="0" variant={journey.VariantNo} disabled={isJourneyOptInPermissionEnabled}
+                                label="No" onclick={handleNoClickOnRadioButtons} aria-pressed="false">
+                            </lightning-button>
+                        </lightning-button-group>
+                    </div>
+                    <div if:true={journey.DisplayInputEntry} class="entriesWanted"><input type="text"
+                            onchange={handleNumberChange} id={journey.Id} pattern="[0-9]*" class="slds-input"></div>
+                </div>
+            </template>
+            <div class="pageWrapper">
+                <div class='journeyType'></div>
+                <div class='optInSelection'>
+                    <lightning-button-group>
+                        <div if:true={displaySave} data-id='saveButton'>
+                            <!--button class="slds-button slds-button_brand" disabled={isJourneyOptInPermissionEnabled}
+                                onclick={save}>Save</button-->
+                            <button class="slds-button slds-button_brand" disabled={isJourneyOptInPermissionEnabled}
+                                onclick={save}>Save</button>
+
+                        </div>
+
+                    </lightning-button-group>
+                </div>
+                <div class="entriesWanted"></div>
+            </div>
+        </lightning-card>
+    </div>
+    <!--c-modal role="dialog" data-id="journeyOptInConfirmation" header="Journey Opt-In Preferences" modal-width=40>
+        <div>
+            <lightning-datatable key-field="id" data={data} hide-checkbox-column columns={columns}>
+            </lightning-datatable>
+            <h1>{optInConstants.confirmation}</h1>
+            <lightning-button-group class='modalButtons'>
+                <button class="slds-button slds-button_neutral" data-id="cancelButton" onclick={closeModal}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={onOptInPreferenceSubmission}>Submit</button>
+            </lightning-button-group>
+        </div>
+    </c-modal-->
+
+    <!-- modal start -->
+    <template if:true={isShowModal}>
+        <section role="dialog" tabindex="0" aria-labelledby="modal-heading-01" aria-modal="true" 
+            aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+
+            <div class="slds-modal__container modalContainer segoeUIFont autoModalFocus" style="width: 40%;">
+                <!-- modal header start -->
+                <header class="slds-modal__header" data-id="journeyOptInModalId">
+                    <button
+                        class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse closeForceCoverageModal"
+                        onclick={hideModalBox} title="Close" data-modal-id="closeIconFocus" tabindex="0">
+                        <lightning-icon icon-name="utility:close" size="medium" variant="inverse">
+                        </lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-06" class="slds-modal__title slds-hyphenate"><strong>Journey Opt-In
+                            Preferences</strong></h2>
+                </header>
+
+                <!-- modal body start -->
+
+                <div class="slds-modal__content" id="modal-content-id-7">
+                    <div class="slds-card__body slds-card__body_inner slds-grid slds-wrap">
+                        <div class="" style="width:100%">
+                            <p class="marginCoverage"></p>
+                            <lightning-datatable class="slds-table slds-table_header-hidden slds-table_bordered"
+                            key-field="id" 
+                            data={data} 
+                            hide-checkbox-column 
+                            columns={columns}
+                            data-id="shareTable">
+                            </lightning-datatable>
+                            <div>
+                                <h1>{optInConstants.confirmation}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- modal footer start-->
+
+                <footer class="slds-modal__footer">
+                    <!--button class="slds-button slds-button_brand modalBtn closepolicymodal" onclick={hideModalBox}
+                        tabindex="0">Close</button>
+                    <button class="slds-button slds-button_brand modalBtn submit" onclick={onOptInPreferenceSubmission}
+                        tabindex="0">Submit</button-->
+                    <lightning-button-group class='modalButtons'>
+                        <button class="slds-button slds-button_neutral" data-id="closeBtn" onclick={hideModalBox}>Cancel</button>
+                        <button class="slds-button slds-button_brand" data-id="submitBtn" onclick={onOptInPreferenceSubmission}>Submit</button>
+                    </lightning-button-group>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+  
+</template>

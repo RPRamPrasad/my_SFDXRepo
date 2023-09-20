@@ -1,0 +1,210 @@
+<template>
+  <div class="slds-align_absolute-center" style="width:400px;">
+  <template if:true={hasRecordsToAssign}>
+    <template if:true={hasUsersToAssignTo}>
+      <div style="width:400px;" data-id="contentOption">
+        <!-- Overwrite Warning Message-->
+        <div data-id="overwriteWarning" if:true={displayOverwriteWarning} >
+          <div class="slds-align_absolute-center slds-text-color_destructive slds-text-heading_large">
+            Warning!
+          </div>
+          <div class="slds-text-body_regular slds-border_bottom slds-var-p-around_medium slds-align_absolute-center">
+            <p data-id="overwriteWarningText" >{numberOfRecordsThatWillBeOverwritten} records will have their assignment overwritten. <br />
+            Do you want to continue with the reassignment?</p>
+          </div>
+            <lightning-button-group class="slds-align_absolute-center">
+              <lightning-button 
+                data-id="overwriteOkButton" 
+                label="Continue" 
+                onclick={handleOverwriteOkay}>
+              </lightning-button>
+              <lightning-button 
+                data-id="overwriteCancelButton" 
+                label="Cancel" 
+                variant="destructive" 
+                onclick={cancelAssignment} >
+              </lightning-button>
+            </lightning-button-group>
+        </div>
+  
+        <!-- Bulk Assign To -->
+        <div data-id="bulkAssignmentSection" if:true={displayAssignTo} >
+          
+            <!--Assigned To Disabled Reason Section start-->
+            <template if:true={isAssignToDisabled}>
+              <div data-id = "assignToErrorPanel" class="slds-grid slds-wrap" style="display:inline-block;">
+                <div class="slds-size_2-of-2">
+                  <div class="slds-box_x-small slds-text-align_left slds-var-m-around_xxx-small slds-theme_error">
+                      {assignedTodisabledReason}
+                  </div>
+                </div>
+              </div>
+            </template>
+            <!--Assigned To Disabled Reason Section End-->
+            <slot name="assignDescription"></slot>
+            <div class="slds-var-p-bottom_small">
+              <lightning-combobox
+                data-id="assignMethodComboBox"
+                label="Assignment Method"
+                value={assignMethod}
+                placeholder="Select Method of Assignment"
+                options={assignmentOptions}
+                onchange={handleAssignMethod} >
+              </lightning-combobox>  
+            </div>
+            <template if:true={numberMethod}>
+              <div class="slds-grid" style="font-weight: bold;">
+                <div class="slds-col slds-size_8-of-12">
+                  <br>
+                  <p>Users to Assign</p>
+                </div>
+                <div class="slds-col slds-size_4-of-12">
+                  <br>
+                  <p>Record Count</p>
+                </div>
+              </div>
+            </template>
+            <template if:false={numberMethod}>
+              <div class="slds-grid" style="font-weight: bold;">
+                <div class="slds-col slds-size_6-of-12">
+                  <br>
+                  <p>Users to Assign</p>
+                </div>
+                <div class="slds-col slds-size_3-of-12 slds-var-p-left_small">
+                  <p>Record</p>
+                  <p>Count</p>
+                </div>
+                <div class="slds-col slds-size_3-of-12">
+                  <p class="slds-var-p-left_x-small">Letters</p>
+                  <p>
+                    <span>1st</span><span class="slds-var-p-left_large">2nd</span>
+                  </p>
+                </div>
+              </div>
+            </template>
+            <div class="spinnerHolder">
+              <lightning-spinner if:true={showSpinner} alternative-text="Assigning Records" ></lightning-spinner>
+              <div data-id='scrollableUserList' class='slds-scrollable' style='max-height:45vh;'>
+                <template for:each={userAssignToInputs} for:item="userAssignToInput">
+                  <c-assign-to-input 
+                    key={userAssignToInput.inputId} 
+                    data-id={userAssignToInput.inputId}
+                    input-id={userAssignToInput.inputId}
+                    selected-user={userAssignToInput.selectedUser} 
+                    onremoverow={handleRemoveRow}
+                    onlettersentered={handleLetterEntry}>
+                    <template if:true={numberMethod}>
+                      <c-assign-to-input-by-number
+                      input-id={userAssignToInput.inputId}
+                      input-max={totalRecordsToAssign}
+                      number-of-records-to-assign={userAssignToInput.numberOfRecordsToAssign}
+                      onusernumberentry={handleNumberEntryChange}>
+                      </c-assign-to-input-by-number>
+                    </template>
+                    <template if:false={numberMethod}>
+                      <c-assign-to-input-by-alpha
+                        input-id={userAssignToInput.inputId}
+                        user-selections={userAssignToInputs}
+                        number-of-records-to-assign={userAssignToInput.numberOfRecordsToAssign}>
+                        <!---Add event listeners (userfirstletterentry & usersecondletterentry)-->
+                      </c-assign-to-input-by-alpha>
+                    </template>
+                  </c-assign-to-input>
+                </template>
+              </div>
+            <div class="slds-grid">
+              <div if:true={showUserSelection} class="slds-col slds-size_11-of-12 slds-var-p-top_small">
+                <lightning-combobox
+                  data-id='userSelectionComboBox'
+                  variant="label-hidden"
+                  placeholder={selectPlaceHolder} 
+                  options={userComboOptions}
+                  onchange={handleSelectChange}>
+                </lightning-combobox>
+              </div>
+              <div if:true={showUserSelection} class="slds-col slds-size_1-of-12 slds-var-p-top_small slds-var-p-left_x-small">
+                <lightning-button-icon 
+                  data-id="removeComboBoxButton"
+                  icon-name="utility:delete"
+                  variant="bare"
+                  alternative-text="Remove"
+                  size="large"
+                  onclick={hideUserSelection} >
+                </lightning-button-icon>
+              </div>
+            </div>
+            <div class="slds-grid">
+              <div if:true={displayAddUser} class="slds-col slds-size_12-of-12 slds-var-p-top_small">
+                <button 
+                  data-id="addUserButton" 
+                  onclick={handleAddUser} 
+                  class="slds-button slds-button_neutral slds-button_stretch">Add User
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="slds-var-p-around_xx-small" >
+            <div data-id="totalNumberEntered">Total Number Entered: {totalNumberEntered}</div>
+            <div data-id="totalNumberRemaining">Total Number Remaining: {totalNumberRemaining}</div>
+          </div>
+          <div data-id="warningPanel" if:true={displayTooManyError}
+            class="slds-notify_alert slds-theme_alert-texture slds-theme_warning slds-var-p-around_xx-small" role="alert">
+            <span class="slds-assistive-text">error</span>
+            <span class="slds-icon_container slds-icon-utility-error slds-var-m-right_x-small"
+              title="Description of icon when needed">
+              <lightning-icon icon-name="utility:warning" size="small"></lightning-icon>
+            </span>
+            <h2 data-id="totalRecordsMatchWarning">Total does not match number of records. <br />Values must total
+              {totalRecordsToAssign}.
+            </h2>
+          </div>
+          <div class="slds-align_absolute-center slds-var-p-top_small">
+            <lightning-button-group if:true={numberMethod} data-id="numberButtons" >
+              <lightning-button 
+                label="Distribute Evenly" 
+                data-id="distributeEvenlyButton"
+                onclick={distributeEvenly}>
+              </lightning-button>
+              <lightning-button 
+                label="Assign" 
+                data-id="assignButtonNumber" 
+                icon-name="utility:save" 
+                disabled={assignDisabled}
+                onclick={performNumberAssignment}>
+              </lightning-button>
+              <lightning-button 
+                label="Cancel" 
+                data-id="cancelButton" 
+                variant="destructive" 
+                onclick={cancelAssignment}>
+              </lightning-button>
+            </lightning-button-group>
+          
+            <lightning-button-group if:false={numberMethod} data-id="alphaButtons" >
+              <lightning-button 
+                label="Assign" 
+                data-id="assignButtonAlpha" 
+                icon-name="utility:save" 
+                disabled={assignDisabled}
+                onclick={performAlphaAssignment}>
+              </lightning-button>
+              <lightning-button 
+                label="Cancel" 
+                data-id="cancelButton" 
+                variant="destructive" 
+                onclick={cancelAssignment}>
+              </lightning-button>
+            </lightning-button-group>
+          </div>
+        </div>
+      </div>
+    </template>
+  </template>
+  <div if:false={hasUsersToAssignTo} data-id="noUsersError" class="slds-align_absolute-center">
+        No users sent to assign to.
+  </div>
+  <div if:false={hasRecordsToAssign} data-id="noRecordsToAssignTo" class="slds-align_absolute-center">
+    No records to assign to.
+  </div>
+  </div>
+</template>

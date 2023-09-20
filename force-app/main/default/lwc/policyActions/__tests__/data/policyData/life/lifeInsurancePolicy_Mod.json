@@ -1,0 +1,151 @@
+{
+    "apiName": "InsurancePolicy",
+    "childRelationships": {},
+    "id": "0YTR00000004DqtOAE",
+    "lastModifiedById": "005R0000005P7kyIAC",
+    "lastModifiedDate": "2021-02-26T21:50:17.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2021-02-26T21:50:17.000Z",
+    "fields": {
+        "AgreAccessKey__c": {
+            "displayValue": null,
+            "value": "000240135997"
+        },
+        "AgreSourceSysCd__c": {
+            "displayValue": null,
+            "value": "23"
+        },
+        "CoCd__c": {
+            "displayValue": null,
+            "value": "0002"
+        },
+        "MasterDataLocationCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "NI_RoleNameCd__c": {
+            "displayValue": null,
+            "value": "22"
+        },
+        "NI_SecondaryRoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "LF-4013-5997"
+        },
+        "NameInsured": {
+            "displayValue": "STEPHEN V CRAMO VII",
+            "value": {
+                "apiName": "Account",
+                "childRelationships": {},
+                "id": "001R000001vhcXuIAI",
+                "lastModifiedById": "005R0000005P7kyIAC",
+                "lastModifiedDate": "2021-02-26T21:49:25.000Z",
+                "recordTypeId": "012o0000000qlF7AAI",
+                "recordTypeInfo": {
+                    "available": true,
+                    "defaultRecordTypeMapping": true,
+                    "master": false,
+                    "name": "Individual",
+                    "recordTypeId": "012o0000000qlF7AAI"
+                },
+                "systemModstamp": "2021-02-26T21:49:25.000Z",
+                "fields": {
+                    "ClientIdentifier__c": {
+                        "displayValue": null,
+                        "value": "4KP7D9J5KWD"
+                    },
+                    "Name": {
+                        "displayValue": null,
+                        "value": "STEPHEN V CRAMO VII"
+                    },
+                    "PersonEmail": {
+                        "displayValue": null,
+                        "value": "aaa@hotmail.com"
+                    }
+                }
+            }
+        },
+        "NameInsuredId": {
+            "displayValue": null,
+            "value": "001R000001vhcXuIAI"
+        },
+        "Pilot_User_2__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PlcyTypeCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PolicyDescription": {
+            "displayValue": null,
+            "value": "Guaranteed Issue Final Expense"
+        },
+        "PolicyName": {
+            "displayValue": null,
+            "value": "Guaranteed Issue Final Expense"
+        },
+        "ProdLineCd__c": {
+            "displayValue": null,
+            "value": "L"
+        },
+        "Profile": {
+            "displayValue": "Developer System Administrator",
+            "value": {
+                "apiName": "Profile",
+                "childRelationships": {},
+                "id": "00e46000000HtmqAAC",
+                "lastModifiedById": "00546000000QXu5AAG",
+                "lastModifiedDate": "2021-02-04T17:42:36.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2021-02-04T17:42:36.000Z",
+                "fields": {
+                    "Name": {
+                        "displayValue": null,
+                        "value": "Developer System Administrator"
+                    }
+                }
+            }
+        },
+        "Servicing_Agent_Associate_ID__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Servicing_Agent__r": {
+            "displayValue": "Mike Nichols, JM57, 13-3599",
+            "value": {
+                "apiName": "User",
+                "childRelationships": {},
+                "id": "005o0000003JAtxAAG",
+                "lastModifiedById": "00546000001eLXBAA2",
+                "lastModifiedDate": "2019-09-12T19:07:54.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2019-09-12T19:07:54.000Z",
+                "fields": {
+                    "Associate_ID__c": {
+                        "displayValue": null,
+                        "value": "4LBZJ1YS000"
+                    },
+                    "State_Agent_Code__c": {
+                        "displayValue": null,
+                        "value": "13-3599"
+                    }
+                }
+            }
+        },
+        "SourceSystemIdentifier": {
+            "displayValue": null,
+            "value": "4528322240"
+        },
+        "Status": {
+            "displayValue": "In Force",
+            "value": "In Force"
+        }
+    }
+}

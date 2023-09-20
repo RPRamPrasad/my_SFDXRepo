@@ -1,0 +1,43 @@
+<template>
+    <div>
+     <lightning-radio-group data-id="RecordType" name="radioGroup"
+                  options={options}
+                  value={value}
+                  type="radio" 
+                  onchange={handleRecordTypeChange}></lightning-radio-group>
+                  </br>
+          <template if:true={noPolicyError}>
+            <lightning-formatted-rich-text class="slds-p-top_x-small slds-text-color_error" value="No policy associated with the Campaign" data-id="errorLists">
+            </lightning-formatted-rich-text><br/>
+          </template>
+          <template if:true={showPolicy}>
+              <lightning-combobox data-id="PolicyData" required name="policies"
+                                        label="Policy/Account Number"
+                                        value={policyValue}
+                                        placeholder="-Select-"
+                                        options={policyDataOptions}
+                                         >
+              </lightning-combobox>
+          </template>
+          <template if:true={showCaseReason}>
+                  <lightning-combobox data-id="CaseReasonData" required name="casereason"
+                                      label="Case Reason"
+                                      value={caseReasonValue}
+                                      placeholder="-Select-"
+                                      options={CaseReasonPicklistValues.data.values}
+                                       >
+                  </lightning-combobox>
+            </template>
+          </br>
+      
+        <footer class="slds-modal__footer" data-id="caseModalFooter">
+              <lightning-button data-id='CancelButton' label="Cancel" variant="brand" onclick={handleCancel} class="slds-p-right_xx-small"></lightning-button>
+              <template if:true={showSaveButton}>      
+                <lightning-button data-id='SubmitButton' type="submit" label="Save" variant="brand" disabled={noPolicyError}></lightning-button>
+              </template>
+              <template if:false={showSaveButton}>      
+                <lightning-button data-id='NextButton' type="submit" label="Next" onclick={handleNext} variant="brand" ></lightning-button>
+              </template>
+     </footer> 
+  </div>
+  </template>

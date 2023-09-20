@@ -1,0 +1,56 @@
+<template>
+    <lightning-card variant="narrow" icon-name="standard:actions_and_buttons">
+        <h3 slot="title" data-id="title"><strong>Policy Actions</strong></h3>
+        <c-dss-beacon-reorder account-id={namedInsured} account-name={niName} customer-first-name={niFirstName} customer-last-name={niLastName} customer-street={niStreet} customer-city={niCity} customer-state={niState} customer-zip={niZip} customer-client-id={niClientId} policy-number={policyNumber} agreement-access-key={agreementAccessKey} product-description={getProductDescription} source-system-code={sourceSystemCode}></c-dss-beacon-reorder>
+        <c-premium-change-inquiry-modal policy-name={policyNumber} record-id={recordId} account-id={namedInsured}></c-premium-change-inquiry-modal>
+        <c-agent-status-tracker-modal></c-agent-status-tracker-modal>
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading" size="medium" data-id="loading-spinner"></lightning-spinner>
+        </template>
+        <template if:false={isLoading}>
+            <c-send-to-customer-modal if:true={showSendModal} is-modal-open={showSendModal} customer-name={accountContext.name} customer-email={accountContext.email} onclosemodal={onCloseModal} onsendconfirmation={onSendEmail} ></c-send-to-customer-modal>
+            <template if:true={detailsButtonIsVisible}>
+                <span slot="actions">
+                    <template if:true={isHagertyDriversClub}>
+                        <lightning-helptext data-id="hdc-helptext" content="No policy details or actions are available for Hagerty Driver's Club"></lightning-helptext>
+                    </template>
+                    <lightning-button label="View Policy Details" variant="brand" onclick={handleDetails} data-id="View Policy Details" disabled={isHagertyDriversClub}></lightning-button>
+                </span>
+            </template>
+
+            <template if:true={actionsButtonList.length}>
+                <lightning-button-group data-id="action-list" slot="actions" class="slds-var-p-left_small">
+                    <template for:each={actionsButtonList} for:item="action">
+                        <lightning-button label={action} key={action} onclick={handleAction} data-id={action} disabled={isSavingRecord}></lightning-button>
+                    </template>
+                    <template if:true={actionsMenuList.length}>
+                        <lightning-button-menu alternative-text="Show Menu" onselect={handleAction} data-id="action-dropdown" menu-alignment="right">
+                            <template for:each={actionsMenuList} for:item="action">
+                                <lightning-menu-item label={action} value={action} key={action} data-id={action}></lightning-menu-item>
+                            </template>
+                        </lightning-button-menu>
+                    </template>
+                </lightning-button-group>
+            </template>
+        </template>
+        <template if:true={error}>
+            <div class="slds-var-p-horizontal_small">
+                <div class="slds-var-p-around_small error-banner" data-id="error">
+                    {error}
+                </div>
+            </div>
+        </template>
+        <template if:true={warning}>
+            <div class="slds-var-p-horizontal_small">
+                <div class="slds-var-p-around_small warning-banner" data-id="warning">
+                    {warning}
+                </div>
+            </div>
+        </template>
+        <template if:true={waitingForRisk}>
+            <div class="slds-grid slds-grid_align-center slds-grid_vertical-align-center">
+                <div class="larger-font" data-id="no-risk-selected">Select a risk below to view available actions</div>
+            </div>
+        </template>
+    </lightning-card>
+</template>

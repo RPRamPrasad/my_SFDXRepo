@@ -1,0 +1,6 @@
+.fix-position {
+    position: absolute; 
+    margin-top: 32px; 
+    margin-left: -198px;
+    width: 350px;
+}

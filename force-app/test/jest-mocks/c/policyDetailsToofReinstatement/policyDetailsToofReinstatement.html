@@ -1,0 +1,52 @@
+<template>
+    <template if:true={showToofSection}>
+        <div class="slds-p-bottom_small">
+            <div class="slds-card slds-card_boundary">
+                <div class="slds-card__header slds-grid">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__body">
+                            <h2 class="slds-card__header-title">
+                                <strong>TOOF Reinstatement</strong>
+                            </h2>
+                        </div>
+                    </header>
+                </div>
+                <div class="slds-card__body slds-card__body_inner">
+                    <div class="slds-grid slds-gutters slds-grid_vertical">
+                        <div class="slds-col">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-1">
+
+                                    <template if:true={toofDatesExist}>
+                                        <c-policy-details-labeled-field label="Time Out Of Force">
+                                        </c-policy-details-labeled-field>
+
+                                        <div data-id="toofDates">
+                                            <template for:each={toofDates} for:item="toofDate">
+                                                <div key={toofDate}>{toofDate}</div>
+                                            </template>
+                                        </div>
+
+                                        <c-policy-details-labeled-field value-border="true">
+                                        </c-policy-details-labeled-field>
+                                    </template>
+
+                                    <c-policy-details-labeled-field if:true={reinstatementAppdate}
+                                        label="Reinstatement App Date" value={reinstatementAppdate}
+                                        data-id="reinstatement-app-date" value-border="true">
+                                    </c-policy-details-labeled-field>
+
+                                    <c-policy-details-labeled-field if:true={toofSource}
+                                        label="Cancellation Requested By" value={toofSource}
+                                        data-id="cancellation-requested-by" value-border="true">
+                                    </c-policy-details-labeled-field>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,21 @@
+<template>
+    <div class="spinnerHolder">
+    <lightning-spinner data-id="spinner" alternative-text="Loading" if:true={enableSpinner}></lightning-spinner>
+        <lightning-combobox
+            name="progress"
+            label="Please select a text message to send"
+            value={textCode}
+            placeholder="Text Options"
+            options={dropDownOptions}
+            onchange={handleChange}>
+        </lightning-combobox>
+        <br/>
+        <br/>
+        <!-- Modal Footer Start-->
+        <footer class="slds-modal__footer" data-id="simpleConvModalFooter">
+            <lightning-button data-id="cancel" label="Cancel" variant="brand" onclick={handleCancel} class="slds-p-right_xx-small"></lightning-button>
+            <lightning-button data-id="sfConnectSubmit" type="submit" onclick={handleSubmit} label="Send" name="Send" variant="brand" disabled={buttonDisabled}></lightning-button>
+        </footer>
+        <!-- Modal Footer End-->
+    </div>
+</template>

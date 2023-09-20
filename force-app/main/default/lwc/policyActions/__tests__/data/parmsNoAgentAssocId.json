@@ -1,0 +1,9 @@
+{
+    "accountRecordId": "accountRecordId",
+    "agreementIndexId": "agreementIndexId",
+    "policyNumber" : "policyNumber",
+    "lob" : "lob",
+    "encodedDescription": "encodedDescription",
+    "outOfBook": "outOfBook",
+    "accessKey": "accessKey"
+}

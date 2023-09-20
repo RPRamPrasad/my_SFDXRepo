@@ -1,0 +1,151 @@
+{
+    "apiName": "InsurancePolicy",
+    "childRelationships": {},
+    "id": "0YTR00000004DqsOAE",
+    "lastModifiedById": "005R0000005P7kyIAC",
+    "lastModifiedDate": "2021-02-26T21:50:17.000Z",
+    "recordTypeId": "012000000000000AAA",
+    "recordTypeInfo": null,
+    "systemModstamp": "2021-02-26T21:50:17.000Z",
+    "fields": {
+        "AgreAccessKey__c": {
+            "displayValue": null,
+            "value": "X40805224"
+        },
+        "AgreSourceSysCd__c": {
+            "displayValue": null,
+            "value": "8"
+        },
+        "CoCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "MasterDataLocationCd__c": {
+            "displayValue": null,
+            "value": "00"
+        },
+        "NI_RoleNameCd__c": {
+            "displayValue": null,
+            "value": "22"
+        },
+        "NI_SecondaryRoleNameCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Name": {
+            "displayValue": null,
+            "value": "40805224"
+        },
+        "NameInsured": {
+            "displayValue": "GEOFFREY BRIAN CARLSON VII",
+            "value": {
+                "apiName": "Account",
+                "childRelationships": {},
+                "id": "001R000001vhcXvIAI",
+                "lastModifiedById": "005R0000005P7kyIAC",
+                "lastModifiedDate": "2021-02-26T21:49:25.000Z",
+                "recordTypeId": "012o0000000qlF7AAI",
+                "recordTypeInfo": {
+                    "available": true,
+                    "defaultRecordTypeMapping": true,
+                    "master": false,
+                    "name": "Individual",
+                    "recordTypeId": "012o0000000qlF7AAI"
+                },
+                "systemModstamp": "2021-02-26T21:49:25.000Z",
+                "fields": {
+                    "ClientIdentifier__c": {
+                        "displayValue": null,
+                        "value": "62NMS1S600W"
+                    },
+                    "Name": {
+                        "displayValue": null,
+                        "value": "GEOFFREY BRIAN CARLSON VII"
+                    },
+                    "PersonEmail": {
+                        "displayValue": null,
+                        "value": "zxzuwtiucnjc2@sf.org"
+                    }
+                }
+            }
+        },
+        "NameInsuredId": {
+            "displayValue": null,
+            "value": "001R000001vhcXvIAI"
+        },
+        "Pilot_User_2__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PlcyTypeCd__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "PolicyDescription": {
+            "displayValue": null,
+            "value": "Pnx Value Term 20: Carlson, Geoffrey Brian"
+        },
+        "PolicyName": {
+            "displayValue": null,
+            "value": "PNX VALUE TERM 20"
+        },
+        "ProdLineCd__c": {
+            "displayValue": null,
+            "value": "L"
+        },
+        "Profile": {
+            "displayValue": "Developer System Administrator",
+            "value": {
+                "apiName": "Profile",
+                "childRelationships": {},
+                "id": "00e46000000HtmqAAC",
+                "lastModifiedById": "00546000000QXu5AAG",
+                "lastModifiedDate": "2021-02-04T17:42:36.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2021-02-04T17:42:36.000Z",
+                "fields": {
+                    "Name": {
+                        "displayValue": null,
+                        "value": "Developer System Administrator"
+                    }
+                }
+            }
+        },
+        "Servicing_Agent_Associate_ID__c": {
+            "displayValue": null,
+            "value": null
+        },
+        "Servicing_Agent__r": {
+            "displayValue": "Geoff Carlson, G7FU, 11-2778",
+            "value": {
+                "apiName": "User",
+                "childRelationships": {},
+                "id": "005o0000003JGE1AAO",
+                "lastModifiedById": "00546000001eLXBAA2",
+                "lastModifiedDate": "2019-09-13T02:32:28.000Z",
+                "recordTypeId": null,
+                "recordTypeInfo": null,
+                "systemModstamp": "2019-09-13T02:32:28.000Z",
+                "fields": {
+                    "Associate_ID__c": {
+                        "displayValue": null,
+                        "value": "3QHBY1YS000"
+                    },
+                    "State_Agent_Code__c": {
+                        "displayValue": null,
+                        "value": "11-2778"
+                    }
+                }
+            }
+        },
+        "SourceSystemIdentifier": {
+            "displayValue": null,
+            "value": "359778133"
+        },
+        "Status": {
+            "displayValue": "In Force",
+            "value": "In Force"
+        }
+    }
+}
