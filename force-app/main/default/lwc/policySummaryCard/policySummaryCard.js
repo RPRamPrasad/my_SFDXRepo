@@ -21,6 +21,10 @@ import logClickCardOpenClaim from '@salesforce/apex/PolicySummaryEventController
 import logClickCardPolicyNum from '@salesforce/apex/PolicySummaryEventController.logClickCardPolicyNum';
 import logClickToggleShowAllRisks from '@salesforce/apex/PolicySummaryEventController.logClickToggleShowAllRisks';
 import logClickEnhanceSummary from '@salesforce/apex/PolicySummaryEventController.logClickEnhanceSummary';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent'
+import getVFOrigin from '@salesforce/apex/HA4C_PKCE.getVFOrigin';
+import getHA4CToken from '@salesforce/apex/HA4C_PKCE.getHA4CToken';
+import getPolicyDetailsParmHA4C from '@salesforce/apex/Ha4cWebController.getPolicyDetailsParmHA4C';
 
 import policyLogos from '@salesforce/resourceUrl/policySummaryLogos'
 
@@ -74,6 +78,29 @@ const {
 const SHOW_ALL_RISKS_LENGTH = 6;
 const EXCLUDED_DRIVER_CD = 'Z';
 
+const SUCCESS_STATUS = 200;
+const UNKNOWN = 'unknown';
+
+const isJsonString = (jsonString) => {
+    try {
+        const o = JSON.parse(jsonString);
+        if (o && typeof o === "object") {
+            return true;
+        }
+    }
+    catch (e) {
+        // returning false
+    }
+    return false;
+};
+
+const parseJSON = (jsonString) => {
+    if (isJsonString(jsonString)) {
+        return JSON.parse(jsonString);
+    }
+    return {};
+};
+
 export default class PolicySummaryCard extends NavigationMixin(LightningElement) {
     @api policy;
     @api userAccess;
@@ -90,6 +117,13 @@ export default class PolicySummaryCard extends NavigationMixin(LightningElement)
     selectedAction;
     risk;
     risks;
+
+    loadFrame;
+    WORKSTATION = 'ha4c_workstation_id';
+    calledRenderedCallback = false;
+    vfMessageListener;
+    parmString;
+    caseId;
 
     dssIconPath = `${policyLogos}/DSS_red36.svg`;
     dssIconTitle = 'Drive Safe & Save\u2122'
@@ -190,7 +224,19 @@ export default class PolicySummaryCard extends NavigationMixin(LightningElement)
         return this.policy.PolicyName?.toUpperCase() === FLEET;
     }
 
+    
+    constructor() {
+        super();
+        // save a reference to the bound function 
+        // because bind() returns a new function 
+        // and the component would not be able to call 
+        // removeEventListener() with the same function instance
+        this.vfMessageListener = this.handleAuthResponse.bind(this);
+    }
+
     async connectedCallback() {
+        window.addEventListener('message', this.vfMessageListener);
+
         // need new list of risks with display field of `RiskNumber: Description` for modal button labels
         this.risks = this.policy.InsurancePolicyAssets?.
             filter(risk => (!(this.policy.Status !== TERMINATED_STATUS && risk.RiskStatusText__c === TERMINATED_STATUS)) ).
@@ -253,6 +299,104 @@ export default class PolicySummaryCard extends NavigationMixin(LightningElement)
 
         await this.fetchPolicyActions();
     }
+
+    disconnectedCallback() {
+        this.unsubscribeToRiskMessageChannel();
+    }
+
+    async handleAuthResponse(event) {
+        const vfOrigin = await getVFOrigin();
+        if (event.data && (event.origin === vfOrigin)) {
+            const msg = parseJSON(event.data);
+            if (msg.ha4cVfReady === true) {
+                this.initiateVFAuthCall(vfOrigin);
+            }
+            if (msg.ha4cToken === true) {
+                await this.processToken();
+            }
+            if (msg.ha4cToken === false) {
+                this.processWorkstationId(UNKNOWN);
+            }
+        }
+    }
+
+    initiateVFAuthCall(vfOrigin) {
+        //call vf to initiate auth flow
+        const message = { ha4cPkceLogin: true }
+        this.template.querySelector('iframe').contentWindow.postMessage(JSON.stringify(message), vfOrigin);
+    }
+
+    async processToken() {
+        const token = await getHA4CToken();
+        const deviceId = parseJSON(window.atob(token.split('.')[1])).deviceid;
+        const workstationId = await this.determineWorkstationId(token, deviceId);
+        this.processWorkstationId(workstationId);
+    }
+
+    async determineWorkstationId(token, deviceId) {
+        // call microsoftGraph API if the deviceId is not undefined
+        if (typeof deviceId != 'undefined') {
+            const endpoint = `https://graph.microsoft.com/v1.0/devices?$filter=deviceId+eq+'${deviceId}'&$select=displayName`;
+            const respJson = await this.callMSGraph(endpoint, token);
+            return respJson?.value[0]?.displayName || UNKNOWN;
+        }
+        return UNKNOWN
+    }
+
+    processWorkstationId(workstationId) {
+        sessionStorage.setItem(this.WORKSTATION, workstationId);
+        this.navigateToWeb(workstationId);
+
+    }
+
+    async handleClick() {
+        const workstationId = sessionStorage.getItem(this.WORKSTATION);
+        if (workstationId) {
+            this.navigateToWeb(workstationId);
+        } else {
+            this.loadFrame = true;
+        }    }
+
+
+    //This method will launch URL in new Browser Window tab after setting up all paramters
+    async navigateToWeb(workstationId) {
+        this.parmString = await getPolicyDetailsParmHA4C({ caseId: this.caseId });
+        window.open(this.parmString + '&workstationID=' + workstationId + '&pgmName=PCA21&callingApp=Case');
+    }
+
+    async callMSGraph(endpoint, accessToken) {
+        const bearer = `Bearer ${accessToken}`;
+        const options = {
+            method: "GET",
+            headers: {
+                'Authorization': bearer,
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'ConsistencyLevel': 'eventual'
+            }
+        };
+        try {
+            const response = await fetch(endpoint, options);
+            // return response json only if the status code is 200
+            if (response.status === SUCCESS_STATUS) {
+                const responseBody = await response.json();
+                return responseBody;
+            }
+        } catch (e) {
+            // nothing to do here - just returning null
+        }
+        return null;
+    }
+
+    showToast(title, type, message) {
+        const toastEvent = new ShowToastEvent({
+            title: title,
+            variant: type,
+            message: message
+        });
+        this.dispatchEvent(toastEvent);
+    }
+
 
     // ALERTS
     get alerts() {
@@ -350,16 +494,12 @@ export default class PolicySummaryCard extends NavigationMixin(LightningElement)
         return this.isAuto || this.isSuretyBond;
     }
     @api
-    async enhancePolicy(event) {
+    async enhancePolicy() {
         this.enhanceIsLoading = true;
         let details;
 
         if (this.details) { 
             this.enhanceIsLoading = false;
-            return;
-        }
-
-        if (!this.isAutoOrSurety) {
             return;
         }
 
@@ -386,9 +526,7 @@ export default class PolicySummaryCard extends NavigationMixin(LightningElement)
         
         this.enhanceIsLoading = false;
 
-        if (event) {
-            logClickEnhanceSummary();
-        }
+        logClickEnhanceSummary();
     }
     async extractDetails(details) {
         this.details = details;
@@ -589,6 +727,7 @@ export default class PolicySummaryCard extends NavigationMixin(LightningElement)
             case POLICY_CHANGE:
                 this.isSavingRecord = true;
                 handlePolicyChange(paramObject, this)
+                    .then((caseId) => {this.caseId = caseId ; this.handleClick(); })
                     .catch((e) => {
                         this.logError('Failed to make policy change case: ' + JSON.stringify(e.message), 'policySummaryCard.handleAction');
                     })
@@ -598,6 +737,7 @@ export default class PolicySummaryCard extends NavigationMixin(LightningElement)
             case ADD_VEHICLE:
                 this.isSavingRecord = true;
                 handleAddVehicle(paramObject, this)
+                    .then((caseId) => {this.caseId = caseId ; this.handleClick(); })
                     .catch((e) => {
                         this.logError('Failed to make add vehicle case: ' + JSON.stringify(e.message), 'policySummaryCard.handleAction');
                     })

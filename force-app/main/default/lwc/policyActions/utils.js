@@ -85,13 +85,13 @@ export const launchNewCase = async(caseReason, paramObj, component, isCaseMigrat
         isLegacyPolicy: isLegacyPolicy,
         sourceSystemCode: paramObj.sourceSystemCode
     }
-
+        let caseId;
     try {
-        let caseId = await createPolicyTransactionCase({ inputData: inputData });
-
+         caseId = await createPolicyTransactionCase({ inputData: inputData });
         if (!caseId) {
             throw new Error();
         } else {
+            
             component[NavigationMixin.Navigate]({
                 type: 'standard__app',
                 attributes: {
@@ -113,6 +113,7 @@ export const launchNewCase = async(caseReason, paramObj, component, isCaseMigrat
             'There was an error creating a case for this service request. Please create a note or activity to document your action, as needed.'
         );
     }
+    return caseId;
 }
 
 const checkForTargetPolicy = async(component, paramObj) => {
@@ -140,12 +141,14 @@ export const isStateActivatedForPLM = async(caseReason, paramObj, component, isC
     if (stateIsPLMActivated) {
         checkForTargetPolicy(component, paramObj);
     } else {
-        launchNewCase(caseReason, paramObj, component, isCaseMigrationAction);
+       let caseId = await launchNewCase(caseReason, paramObj, component, isCaseMigrationAction);
         const isHatsorHa4cAccess = await isHatsorHa4cUser();
         if (!isHatsorHa4cAccess) {
             launchAutoPolicyAction(paramObj);
         }
+        return caseId;
     }
+    return null;
 }
 
 export const handleAgentStatusTracker = async (component) => {
@@ -154,28 +157,34 @@ export const handleAgentStatusTracker = async (component) => {
 }
 
 export const handlePolicyChange = async(paramObj, component) => {
-
     /////This is for SA Policy change modal launch
     //this.plmActivationStatus.isPCAutoLaunchActive
     const isHatsorHa4cAccess = await isHatsorHa4cUser();
     if (component.plmActivationStatus.isPCAutoLaunchActive && (!isHatsorHa4cAccess || paramObj.sourceSystemCode !== LEGACY_CD)) {
         launchAutoPolicyAction(paramObj);
     }
-    await launchNewCase(POLICY_CHANGE_CASE, paramObj, component, true);
-
+    try {
+    return await launchNewCase(POLICY_CHANGE_CASE, paramObj, component, true);
+    } catch (err) {
+        return null;
+    }
 }
 
 export const handleAddVehicle = async(paramObj, component) => {
     paramObj.productDescription = null;
     if (paramObj.sourceSystemCode === PERSONAL_AUTO_MOD_CD || paramObj.sourceSystemCode === COMMERCIAL_MOD_CD || parseInt(component.policyTypeCode, 10) !== 0 || !component.plmActivationStatus.isOppRedirectActive) {
-        await launchNewCase(ADDED_VEH_CASE, paramObj, component, true);
+        let caseId = await launchNewCase(ADDED_VEH_CASE, paramObj, component, true);
         // policy action only needs to be launched to URL gateway if it is for mod policy to policy center
         const isHatsorHa4cAccess = await isHatsorHa4cUser();
         if (component.plmActivationStatus.isPCAutoLaunchActive && (!isHatsorHa4cAccess || paramObj.sourceSystemCode === PERSONAL_AUTO_MOD_CD || paramObj.sourceSystemCode === COMMERCIAL_MOD_CD)) {
             await launchAutoPolicyAction(paramObj);
-        }
-    } else {
-        await isStateActivatedForPLM(ADDED_VEH_CASE, paramObj, component, true);
+        } 
+        return caseId;
+    } 
+    try {
+        return await isStateActivatedForPLM(ADDED_VEH_CASE, paramObj, component, true);
+    } catch (err) {
+        return null;
     }
 }
 
