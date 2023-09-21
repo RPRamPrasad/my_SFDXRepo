@@ -1,0 +1,103 @@
+{
+    "Servicing_Agent__c": "005o0000003KBQnAAO",
+    "ServicingAgentExternal__c": "<a href=\"/apex/VFP_ExternalLink?LinkId=26&amp;primaryStateCode=&amp;primaryAgentCode=\" target=\"_blank\">Jimmie Bergman</a>",
+    "NI_RoleNameCd__c": "18",
+    "ProdLineCd__c": "A",
+    "Name": "0053574-SFP-35",
+    "Servicing_Agent__r": {
+        "Associate_ID__c": "PL1H35CZXAK",
+        "Id": "005o0000003JFHsAAO",
+        "Name": "Jimmie Bergman, R6R5, 43-1226",
+        "State_Agent_Code__c": "43-1226"
+    },
+    "PolicyDescription": "2007 Toyota Camry\n2017 Hyundai Azera\n2017 Lexus Gx 460",
+    "SourceSystemIdentifier": "466341304",
+    "PlcyTypeCd__c": "0",
+    "NameInsuredId": "0012C00000h37J0QAI",
+    "CoCd__c": "0001",
+    "NameInsured": {
+        "ClientIdentifier__c": "9ZVNRB96RYE",
+        "Id": "0012C00000h37J0QAI",
+        "Name": "ALFRED CLARA TURODHELN"
+    },
+    "Status": "In Force",
+    "PolicyType": "Auto",
+    "SFDCPolicyNumberSearchKey__c": "0053574SFP35",
+    "BillingPolicyAccounts__r": [
+        {
+            "BillingAccountID__c": "a3Q2C000000wNwKUAU",
+            "BillingAccountID__r": {
+                "PastDueIndicator__c": true,
+                "BillDueDate__c": "2022-07-01",
+                "AccountNumber__c": "1227350151",
+                "Id": "a3Q2C000000wNwKUAU",
+                "Status__c": "Active",
+                "CalculatedCurrentAmountDue__c": 0,
+                "PastDueAmount__c": -190,
+                "SourceSystem__c": "SF Billing"
+            },
+            "Id": "a4Q2C000000aCiCUAU"
+        },
+        {
+            "BillingAccountID__c": "a3Q2C000000wNwFUAU",
+            "BillingAccountID__r": {
+                "PastDueIndicator__c": true,
+                "BillDueDate__c": "2022-02-01",
+                "AccountNumber__c": "1227337151",
+                "Id": "a3Q2C000000wNwFUAU",
+                "Status__c": "Active",
+                "CalculatedCurrentAmountDue__c": 0,
+                "PastDueAmount__c": -220,
+                "SourceSystem__c": "SF Billing"
+            },
+            "Id": "a4Q2C000000aDb3UAE"
+        },
+        {
+            "BillingAccountID__c": "a3Q2C000000wNwFUAZ",
+            "BillingAccountID__r": {
+                "PastDueIndicator__c": true,
+                "BillDueDate__c": "2022-02-01",
+                "AccountNumber__c": "1227337152",
+                "Id": "a3Q2C000000wNwFUAZ",
+                "Status__c": "Active",
+                "CalculatedCurrentAmountDue__c": 0,
+                "PastDueAmount__c": -220,
+                "SourceSystem__c": "SF Billing"
+            },
+            "Id": "a4Q2C000000aDb3UAG"
+        }
+    ],
+    "AgreAccessKey__c": "35P0053574",
+    "RenewalDate": "2022-08-03T12:00:00.000Z",
+    "AgreDisplayPartyName__c": "ALFRED TURODHELN",
+    "InsurancePolicyAssets": [
+        {
+            "Description__c": "2017 Hyundai Azera",
+            "RiskNumber__c": "001",
+            "Id": "0YW2C0000004E9FWAU",
+            "RiskStatusText__c": "In Force",
+            "VIN_Address_Cov_Amt__c": "KMHFG4JG2HA747240",
+            "AssetName": "2017 Hyundai Azera"
+        },
+        {
+            "Description__c": "2017 Lexus Gx 460",
+            "RiskNumber__c": "002",
+            "Id": "0YW2C0000004E9GWAU",
+            "RiskStatusText__c": "In Force",
+            "VIN_Address_Cov_Amt__c": "JTJBM7FX9H5923518",
+            "AssetName": "2017 Lexus Gx 460"
+        },
+        {
+            "Description__c": "2007 Toyota Camry",
+            "RiskNumber__c": "003",
+            "Id": "0YW2C0000004E9HWAU",
+            "RiskStatusText__c": "In Force",
+            "VIN_Address_Cov_Amt__c": "4T1BE46K57U307396",
+            "AssetName": "2007 Toyota Camry"
+        }
+    ],
+    "AgreSourceSysCd__c": "24",
+    "PolicyName": "Private Passenger",
+    "Id": "0YT2C0000008QZ2WAM",
+    "EffectiveDate": "2022-02-03T12:00:00.000Z"
+}

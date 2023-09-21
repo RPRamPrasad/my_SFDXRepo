@@ -92,6 +92,8 @@ jest.mock(
     () => ({ default: jest.fn() }), { virtual: true }
 );
 
+jest.mock('@salesforce/customPermission/SAE_Policy_Change', () => ({ default: false }), { virtual: true });
+
 describe('policyActions - actions', () => {
 
     const parms = require('./data/parms.json');
@@ -639,7 +641,7 @@ function flushPromises() {
 
         launchWebNecho ('AppName', parms);
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=9&accountId=accountRecordId&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=AppName&key=policyNumber&lineOfBusiness=lob&agentAssocId=agentAssociateId');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=9&accountId=accountRecordId&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=AppName&key=policyNumber&lineOfBusiness=lob&agentAssocId=agentAssociateId');
     });
 
     it('launches web NECO without an agent associate id', () => {
@@ -647,7 +649,7 @@ function flushPromises() {
 
         launchWebNecho ('AppName', parmsNoAssociateId);
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=69&accountId=accountRecordId&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=AppName&key=policyNumber&lineOfBusiness=lob');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=69&accountId=accountRecordId&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=AppName&key=policyNumber&lineOfBusiness=lob');
     });
 
     it('launches Policy Action with PERSONAL_AUTO_MOD_CD', () => {
@@ -655,7 +657,7 @@ function flushPromises() {
 
         launchAutoPolicyAction({agreementIndexId:"agreementIndexId", sourceSystemCode:24});
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=269&agreementIndexId=agreementIndexId&agreementNumber=undefined&applicationName=Auto&sourceSystemCode=24');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=269&agreementIndexId=agreementIndexId&agreementNumber=undefined&applicationName=Auto&sourceSystemCode=24');
     });
 
     it('launches Policy Action with multi car policy true and no agent associate ID', () => {
@@ -663,7 +665,7 @@ function flushPromises() {
 
         launchAutoPolicyAction({agreementIndexId:"agreementIndexId", lob:'A', accountClientId:"accountId", riskNumber:'riskNumber', policyNumber:"ABC 50-123", isMultiCarAuto: true});
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=101&Key=AABC5012riskNumber&absclient=accountId');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=101&Key=AABC5012riskNumber&absclient=accountId');
     });
 
     it('launches Policy Action with multi car policy true and agent associate ID', () => {
@@ -671,7 +673,7 @@ function flushPromises() {
 
         launchAutoPolicyAction({agreementIndexId:"agreementIndexId", lob:'A', stateAgentCode:"50-50", agentAssociateId:"agentAssociateId", accountClientId:"accountId", riskNumber:'riskNumber', policyNumber:"ABC 50-123", isMultiCarAuto: true});
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=21&Key=AABC5012riskNumber&absclient=accountId&StateAgentCode=5050');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=21&Key=AABC5012riskNumber&absclient=accountId&StateAgentCode=5050');
     });
 
     it('launches necho when multi car policy is false', () => {
@@ -679,7 +681,7 @@ function flushPromises() {
 
         launchAutoPolicyAction({agreementIndexId:"agreementIndexId", lob:'A', stateAgentCode:"50-50", agentAssociateId:"agentAssociateId", accountClientId:"accountId", riskNumber:'riskNumber', policyNumber:"ABC 50-123", isMultiCarPolicy: false});
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=9&accountId=undefined&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=new pt&key=ABC 50-123&lineOfBusiness=A&agentAssocId=agentAssociateId');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=9&accountId=undefined&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=new pt&key=ABC 50-123&lineOfBusiness=A&agentAssocId=agentAssociateId');
     });
 
     it('launches Hagerty for Antique policy', () => {
@@ -698,7 +700,7 @@ function flushPromises() {
             sourceSystemCode: 28
         });
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=258&intent=changePolicy&agreementNumber=agreAccessKey&stateAgentCode=50-6070');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=258&intent=changePolicy&agreementNumber=agreAccessKey&stateAgentCode=50-6070');
     });
 
     it('launches Policy Action with sourceSystemCode equals PERSONAL_FIRE_MOD_CD', () => {
@@ -706,7 +708,7 @@ function flushPromises() {
 
         launchFirePolicyAction({agreementIndexId:"agreementIndexId", sourceSystemCode:26});
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=96&agreementIndexId=agreementIndexId&intent=changePolicy');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=96&agreementIndexId=agreementIndexId&intent=changePolicy');
     });
 
     it('launches Policy Action with sourceSystemCode not equal to PERSONAL_FIRE_MOD_CD', () => {
@@ -714,7 +716,7 @@ function flushPromises() {
 
         launchFirePolicyAction(parms);
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=9&accountId=accountRecordId&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=policyNumber&lineOfBusiness=lob&agentAssocId=agentAssociateId');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=9&accountId=accountRecordId&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=policyNumber&lineOfBusiness=lob&agentAssocId=agentAssociateId');
     });
 
     it('launches Billing Online System with account record id, company code, policy number and line of business', () => {
@@ -722,7 +724,7 @@ function flushPromises() {
 
         launchBillingOnlineSystem ("accountId", "companyCode", "ABC 50-123", "A");
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=210&accountId=accountId&companyCode=companyCode&policyNumber=ABC50123&lineOfBusiness=A');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=210&accountId=accountId&companyCode=companyCode&policyNumber=ABC50123&lineOfBusiness=A');
     });
 
     it('launches certificate of insurance with regionCode, Fire policy number, Condo policy type code and line of business', () => {
@@ -730,7 +732,7 @@ function flushPromises() {
 
         launchCertificateOfInsurance("regionCode", "FIRE 50-123", "V", "F");
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=211&regionCode=regionCode&policyNumber=FIRE50123&policyType=V&lineOfBusiness=F');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=211&regionCode=regionCode&policyNumber=FIRE50123&policyType=V&lineOfBusiness=F');
     });
 
     it('launches certificate of insurance with client ID for Auto policy', () => {
@@ -738,7 +740,7 @@ function flushPromises() {
 
         launchCertificateOfInsurance("", "AUTO 50-123", "", "A","ABCD12345");
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=264&clientId=ABCD12345');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=264&clientId=ABCD12345');
     });
 
     it('calls emailAutoIdCardCallout and displayes success toast message', async () => {

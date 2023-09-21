@@ -1,7 +1,7 @@
 <template>
     <lightning-card variant="narrow" icon-name="standard:actions_and_buttons">
         <h3 slot="title" data-id="title"><strong>Policy Actions</strong></h3>
-        <c-dss-beacon-reorder account-id={namedInsured} account-name={niName} customer-first-name={niFirstName} customer-last-name={niLastName} customer-street={niStreet} customer-city={niCity} customer-state={niState} customer-zip={niZip} customer-client-id={niClientId} policy-number={policyNumber} agreement-access-key={agreementAccessKey} product-description={getProductDescription} source-system-code={sourceSystemCode}></c-dss-beacon-reorder>
+        <c-dss-beacon-reorder account-name={niName} customer-first-name={niFirstName} customer-last-name={niLastName} customer-street={niStreet} customer-city={niCity} customer-state={niState} customer-zip={niZip} customer-client-id={niClientId} policy-number={policyNumber} agreement-access-key={agreementAccessKey} product-description={getProductDescription} source-system-code={sourceSystemCode}></c-dss-beacon-reorder>
         <c-premium-change-inquiry-modal policy-name={policyNumber} record-id={recordId} account-id={namedInsured}></c-premium-change-inquiry-modal>
         <c-agent-status-tracker-modal></c-agent-status-tracker-modal>
         <template if:true={isLoading}>

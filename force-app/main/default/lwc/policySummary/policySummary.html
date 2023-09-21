@@ -1,0 +1,75 @@
+<template>
+    <!-- Search Field + Buttons -->
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <lightning-input class="policySearchField" type="search" label="Search Risks" placeholder="Search"
+                autocomplete="off"
+                field-level-help="You can search by risk description such as '2006 Chevrolet' and '123 Main St', or VIN."
+                disabled={isSearching} is-loading={isSearching} onkeyup={onKeyUpSearch}>
+            </lightning-input>
+        </div>
+
+        <div class="slds-col slds-grow-none">
+            <label lightning-input_input="" class="slds-form-element__label slds-no-flex"
+                style="display: block;">&nbsp;</label>
+            <lightning-button-group class="slds-col slds-grow-none">
+                <lightning-button class="policySearchSubmitBtn" variant="brand" label="Search" title="Search"
+                    onclick={onClickSearchButton} disabled={isSearching}>
+                </lightning-button>
+                <lightning-button class="policySearchClearBtn" variant="brand-outline" label="Clear Search"
+                    title="Clear Search" onclick={onClickClearSearch} disabled={isSearching}></lightning-button>
+            </lightning-button-group>
+        </div>
+    </div>
+
+    <!-- Search Results Table -->
+    <div>
+        <template if:true={isSearching}>
+            <lightning-spinner class="policySearchSpinner" alternative-text="Searching for Policies. Please wait."
+                size="small"></lightning-spinner>
+        </template>
+
+        <template if:true={searchResults}>
+            <template if:true={searchResults.length}>
+                <div>
+                    <lightning-datatable class="policySearchTable slds-table--striped" data-id="coverage-table"
+                        data={searchResults} columns={searchResultColumns} key-field="id"
+                        hide-checkbox-column="true" resize-column-disabled="true">
+                    </lightning-datatable>
+                </div>
+            </template>
+
+            <template if:false={searchResults.length}>
+                <div class="policySearchNoResults slds-text-heading_small slds-var-p-top_large slds-var-p-bottom_large"
+                    style="text-align: center;">
+                    No search results to display.</div>
+            </template>
+        </template>
+
+        <template if:true={searchError}>
+            <div class="policySearchError slds-text-heading_small slds-var-p-top_large slds-var-p-bottom_large"
+                style="text-align: center;">
+                Something went wrong; please try your search again. If this continues, please contact your normal
+                support channel.
+            </div>
+        </template>
+    </div>
+
+    <!-- Policy Rollup Counts -->
+    <template if:false={isNewSummary}>
+        <div class="slds-var-p-top_small slds-var-p-bottom_xx-small">
+            <template if:true={policySumTotals.data}>
+                <div class="policyCountsData slds-text-heading_small">
+                    {policySumTotals.data}
+                    <lightning-helptext content="Only active policies are included in these counts.">
+                    </lightning-helptext>
+                </div>
+            </template>
+            <template if:true={policySumTotals.error}>
+                <div class="policyCountsError slds-text-body_regular">
+                    Something went wrong with loading policy counts. Please contact your normal support channel.
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

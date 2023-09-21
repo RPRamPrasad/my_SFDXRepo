@@ -1,0 +1,16 @@
+{
+    "apiName": "Account",
+    "childRelationships": {},
+    "eTag": null,
+    "fields": {
+        "RecordTypeId": {
+            "displayValue": "Record Type ID",
+            "value": "sfdcAccountTypeId"
+        }
+    },
+    "id": "0011J00001A3VFoQAN",
+    "lastModifiedById": "005o0000000KEEUAA4",
+    "lastModifiedDate": "2020-02-28T05:46:17.000Z",
+    "recordTypeInfo": null,
+    "systemModstamp": "2020-02-28T05:46:17.000Z"
+}

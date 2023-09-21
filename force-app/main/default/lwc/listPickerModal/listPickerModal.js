@@ -15,7 +15,7 @@ export default class ListPickerModal extends LightningElement {
     @api title;
     @api list;
     @api pageSize;
-    @api sortedList;
+    sortedList;
 
     isLoading = false;
 
@@ -33,8 +33,18 @@ export default class ListPickerModal extends LightningElement {
 
     sortList(list) {
         return JSON.parse(JSON.stringify(list)).sort(function(a, b) {
-            return (a.label.toUpperCase() < b.label.toUpperCase()) ? -1 : 1; 
-        });
+            var nameA = a.label.toUpperCase(); // ignore upper and lowercase
+            var nameB = b.label.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+              return -1;
+            }
+            if (nameA > nameB) {
+              return 1;
+            }
+          
+            // names must be equal
+            return 0;
+          });
     }
 
     setActivePage(pageNumber) {

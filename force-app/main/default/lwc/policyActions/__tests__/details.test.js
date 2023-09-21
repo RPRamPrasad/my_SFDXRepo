@@ -34,13 +34,13 @@ describe('policyActions - details', () => {
     it('builds a Life Policy View link with agent associate id', () => {
         const url = buildLifePolicyViewLink(parms);
 
-        expect(url).toEqual('/c/ExternalLinkApp.app?linkId=68&accountId=accountRecordId&agreementIndexId=agreementIndexId&policyNumber=policyNumber&lineOfBusiness=lob&agentAssocId=agentAssociateId');
+        expect(url).toEqual('/apex/VFP_ExternalLink?LinkId=68&accountId=accountRecordId&agreementIndexId=agreementIndexId&policyNumber=policyNumber&lineOfBusiness=lob&agentAssocId=agentAssociateId');
     });
 
     it('builds a Life Policy View link without an agent associate id', () => {
         const url = buildLifePolicyViewLink(parmsNoAssociateId);
 
-        expect(url).toEqual('/c/ExternalLinkApp.app?linkId=105&accountId=accountRecordId&agreementIndexId=agreementIndexId&policyNumber=policyNumber&lineOfBusiness=lob');
+        expect(url).toEqual('/apex/VFP_ExternalLink?LinkId=105&accountId=accountRecordId&agreementIndexId=agreementIndexId&policyNumber=policyNumber&lineOfBusiness=lob');
     });
 
     it('builds a Life Mod link', () => {
@@ -52,35 +52,19 @@ describe('policyActions - details', () => {
     it('builds a Phoenix Life link', () => {
         const url = buildPhoenixLifeLink();
 
-        expect(url).toEqual('/c/ExternalLinkApp.app?linkId=192');
+        expect(url).toEqual('/apex/VFP_ExternalLink?LinkId=192');
     });
 
-    it('builds a NECHO link with agent associate id', () => {
-        parms.lob = FIRE;
+    it('builds a NECO link with agent associate id', () => {
         const url = buildNECHODetailsLink(parms);
 
-        expect(url).toEqual('/apex/VFP_ExternalLink?LinkId=285&accountId=accountRecordId&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=policyNumber&lineOfBusiness=F&agentAssocId=agentAssociateId');
+        expect(url).toEqual('/apex/VFP_ExternalLink?LinkId=9&accountId=accountRecordId&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=policyNumber&lineOfBusiness=lob&agentAssocId=agentAssociateId');
     });
 
-    it('builds a NECHO link without an agent associate id', () => {
-        parmsNoAssociateId.lob = FIRE;
+    it('builds a NECO link without an agent associate id', () => {
         const url = buildNECHODetailsLink(parmsNoAssociateId);
 
-        expect(url).toEqual('/apex/VFP_ExternalLink?LinkId=286&accountId=accountRecordId&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=policyNumber&lineOfBusiness=F');
-    });
-
-    it('calls nothing for unknown lob when building a NECHO link with agent associate id', () => {
-        parms.lob = 'X';
-        const url = buildNECHODetailsLink(parms);
-
-        expect(url).toBeFalsy();
-    });
-
-    it('calls nothing for unknown lob when building a NECHO link without an agent associate id', () => {
-        parmsNoAssociateId.lob = 'Z';
-        const url = buildNECHODetailsLink(parmsNoAssociateId);
-
-        expect(url).toEqual('');
+        expect(url).toEqual('/apex/VFP_ExternalLink?LinkId=69&accountId=accountRecordId&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=policyNumber&lineOfBusiness=lob');
     });
 
     it('builds a Policy Center link', () => {
@@ -90,43 +74,43 @@ describe('policyActions - details', () => {
     });
 
     it('returns true when agent profile is used with an undefined logged in associate id', () => {
-        const oobp = isOutOfBookPolicy(undefined, 'Agent', '1234');
+        const oobp = isOutOfBookPolicy(undefined, '2.00 Agent', '1234');
 
         expect(oobp).toEqual('TRUE');
     });
 
     it('returns true when agent profile is used with undefined agent associate id', () => {
-        const oobp = isOutOfBookPolicy('1234', 'Agent', undefined);
+        const oobp = isOutOfBookPolicy('1234', '2.00 Agent', undefined);
 
         expect(oobp).toEqual('TRUE');
     });
 
     it('returns true both the associate id of the logged in user and the agent associate id are undefined', () => {
-        const oobp = isOutOfBookPolicy(undefined, 'Agent', undefined);
+        const oobp = isOutOfBookPolicy(undefined, '2.00 Agent', undefined);
 
         expect(oobp).toEqual('TRUE');
     });
 
     it('returns false when agent profile is used with agent associate id and logged in agent associate id are equal', () => {
-        const oobp = isOutOfBookPolicy('1234', 'Agent', '1234');
+        const oobp = isOutOfBookPolicy('1234', '2.00 Agent', '1234');
 
         expect(oobp).toEqual('FALSE');
     });
 
     it('returns true when agent profile is used with agent associate id and logged in agent associate id are not equal', () => {
-        const oobp = isOutOfBookPolicy('1234', 'Agent', '4567');
+        const oobp = isOutOfBookPolicy('1234', '2.00 Agent', '4567');
 
         expect(oobp).toEqual('TRUE');
     });
 
     it('returns false when agent team member profile is used with agent associate id and logged in agent associate id are equal', () => {
-        const oobp = isOutOfBookPolicy('1234', 'ATM', '1234');
+        const oobp = isOutOfBookPolicy('1234', '2.01 Agent Team Member', '1234');
 
         expect(oobp).toEqual('FALSE');
     });
 
     it('returns true when agent team member profile is used with agent associate id and logged in agent associate id are not equal', () => {
-        const oobp = isOutOfBookPolicy('1234', 'ATM', '456');
+        const oobp = isOutOfBookPolicy('1234', '2.01 Agent Team Member', '456');
 
         expect(oobp).toEqual('TRUE');
     });
@@ -256,7 +240,7 @@ describe('policyActions - details', () => {
 
         let value = await buildDetailsLaunchout(detailsLaunchParams);
 
-        expect(value).toEqual('/c/ExternalLinkApp.app?linkId=258&intent=viewPolicy&agreementNumber=accessKey&stateAgentCode=stateAgentCode');
+        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=258&intent=viewPolicy&agreementNumber=accessKey&stateAgentCode=stateAgentCode');
     });
 
     it('buildDetailsLaunchout calls buildHagertyLink for drivers club', async() =>{
@@ -273,7 +257,7 @@ describe('policyActions - details', () => {
 
         let value = await buildDetailsLaunchout(detailsLaunchParams);
 
-        expect(value).toEqual('/c/ExternalLinkApp.app?linkId=258&intent=viewDriversClub&agreementNumber=accessKey&stateAgentCode=stateAgentCode');
+        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=258&intent=viewDriversClub&agreementNumber=accessKey&stateAgentCode=stateAgentCode');
     });
 
     it('buildDetailsLaunchout calls buildNECHODetailsLink when homeowners fire is true and source system code is LEGACY_CD', async() =>{
@@ -288,7 +272,7 @@ describe('policyActions - details', () => {
 
         let value = await buildDetailsLaunchout(detailsLaunchParams);
 
-        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=286&accountId=undefined&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=12-HO-45678&lineOfBusiness=F');
+        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=69&accountId=undefined&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=12-HO-45678&lineOfBusiness=F');
     });
 
     it('buildDetailsLaunchout calls buildNECHODetailsLink when homeowners fire is true and source system code is COMMERCIAL_MOD_CD', async() =>{
@@ -303,7 +287,7 @@ describe('policyActions - details', () => {
 
         let value = await buildDetailsLaunchout(detailsLaunchParams);
 
-        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=286&accountId=undefined&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=12-HO-45678&lineOfBusiness=F');
+        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=69&accountId=undefined&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=12-HO-45678&lineOfBusiness=F');
     });
 
     it('buildDetailsLaunchout calls buildNECHODetailsLink when homeowners fire is false and source system code is COMMERCIAL_MOD_CD', async() =>{
@@ -318,7 +302,7 @@ describe('policyActions - details', () => {
 
         let value = await buildDetailsLaunchout(detailsLaunchParams);
 
-        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=286&accountId=undefined&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=12-HO-45678&lineOfBusiness=F');
+        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=69&accountId=undefined&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=12-HO-45678&lineOfBusiness=F');
     });
 
     it('buildDetailsLaunchout calls buildPolicyCenterLink with link id 94 source system code is PERSONAL_FIRE_MOD_CD', async() =>{
@@ -368,7 +352,7 @@ describe('policyActions - details', () => {
 
         let value = await buildDetailsLaunchout(detailsLaunchParams);
 
-        expect(value).toEqual('/c/ExternalLinkApp.app?linkId=192');
+        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=192');
     });
 
     it('buildDetailsLaunchout calls buildLifePolicyViewLink when isPMRLife is true', async() =>{
@@ -379,7 +363,7 @@ describe('policyActions - details', () => {
 
         let value = await buildDetailsLaunchout(detailsLaunchParams);
 
-        expect(value).toContain('linkId=105');
+        expect(value).toContain('LinkId=105');
     });
 
     it('buildDetailsLaunchout calls buildNECHODetailsLink when isASCLife is true', async() =>{
@@ -393,7 +377,7 @@ describe('policyActions - details', () => {
 
         let value = await buildDetailsLaunchout(detailsLaunchParams);
 
-        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=284&accountId=undefined&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=undefined&lineOfBusiness=L');
+        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=69&accountId=undefined&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=undefined&lineOfBusiness=L');
     });
 
     it('buildDetailsLaunchout calls nothing for LIFE when no expected input is provided', async() =>{
@@ -416,7 +400,7 @@ describe('policyActions - details', () => {
 
         let value = await buildDetailsLaunchout(detailsLaunchParams);
 
-        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=282&accountId=undefined&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=undefined&lineOfBusiness=H');
+        expect(value).toEqual('/apex/VFP_ExternalLink?LinkId=69&accountId=undefined&agreementIndexId=agreementIndexId&clientnamelinkdisabled=Y&NechoAppName=policy&key=undefined&lineOfBusiness=H');
     });
 
     it('buildDetailsLaunchout calls nothing for unknown line of business', async() =>{

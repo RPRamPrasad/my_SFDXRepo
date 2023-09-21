@@ -204,7 +204,7 @@
                     <!-- Policy Enhance -->
                     <span style="margin-left:auto;">
 
-                        <template if:true={shouldShowEnhance}>
+                        <template if:true={isAutoOrSurety}>
                             <template if:false={isPolicyTerminated}>
                                 <template if:false={isFleet}>
                                     <template if:false={enhanceIsLoading}>
@@ -257,7 +257,7 @@
                 </div>
             </div>
 
-            <template if:true={shouldShowEnhance}>
+            <template if:true={isAutoOrSurety}>
                 <template if:false={isPolicyTerminated}>
                     <template if:false={isFleet}>
                         <template if:false={enhanceIsLoading}>

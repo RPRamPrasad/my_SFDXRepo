@@ -204,9 +204,7 @@ function shouldBeOnTechnicalErrorPage(dssReorderModal) {
 }
 
 function shouldBeOnCCCTechnicalErrorPage(dssReorderModal) {
-    
-   //const PAGE_100_BODY_DYNAMIC = dssReorderModal.getcccErrorPage100Body('0010300000QkSpgAAF'); 
-   expect(dssReorderModal.shadowRoot.querySelector('[data-id="beacon-modal"]').classList.length).toEqual(2);
+    expect(dssReorderModal.shadowRoot.querySelector('[data-id="beacon-modal"]').classList.length).toEqual(2);
    expect(dssReorderModal.shadowRoot.querySelector('[data-id="modal-backdrop"]').classList.length).toEqual(2);
    expect(dssReorderModal.shadowRoot.querySelector('[data-id=cancel-button]')).toBeTruthy();
    expect(dssReorderModal.shadowRoot.querySelector('[data-id=continue-button]')).toBeFalsy();

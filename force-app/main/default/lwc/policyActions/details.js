@@ -5,9 +5,8 @@ const {
     LEGACY_CD, COMMERCIAL_MOD_CD, LIFE_MOD_CD, PERSONAL_AUTO_MOD_CD, PERSONAL_FIRE_MOD_CD, HAGERTY_CD, HDC_POLICY_TYPE
 } = constants;
 
-const AGENT_SUB_USER_TYPE = 'Agent';
-const AGENT_TEAM_MEMBER_SUB_USER_TYPE = 'ATM';
-
+const AGENT_PROFILE = '2.00 Agent';
+const AGENT_TEAM_MEMBER_PROFILE = '2.01 Agent Team Member';
 const TRUE = 'TRUE';
 const FALSE = 'FALSE';
 
@@ -52,14 +51,14 @@ export const buildLifePolicyViewLink = (params) => {
     let detailsURL;
 
     if (params.agentAssociateId) {
-        detailsURL = '/c/ExternalLinkApp.app?linkId=68' +
+        detailsURL = '/apex/VFP_ExternalLink?LinkId=68' +
             '&accountId=' + params.accountRecordId + 
             '&agreementIndexId=' + params.agreementIndexId + 
             '&policyNumber=' + params.policyNumber + 
             '&lineOfBusiness=' + params.lob + 
             '&agentAssocId=' + params.agentAssociateId;
     } else {
-        detailsURL = '/c/ExternalLinkApp.app?linkId=105' +
+        detailsURL = '/apex/VFP_ExternalLink?LinkId=105' +
             '&accountId=' + params.accountRecordId + 
             '&agreementIndexId=' + params.agreementIndexId + 
             '&policyNumber=' + params.policyNumber + 
@@ -75,67 +74,27 @@ export const buildLifeModLink = (agreementIndexId, userId) => {
 }
 
 export const buildPhoenixLifeLink = () => {
-    return '/c/ExternalLinkApp.app?linkId=192';
+    return '/apex/VFP_ExternalLink?LinkId=192';
 }
 
 export const buildNECHODetailsLink = (params) => {
-    let detailsURL = '';
-    let linkId;
+    let detailsURL;
 
     if (params.agentAssociateId) {
-
-        switch (params.lob) {
-/*          case AUTO:
-                linkId = '9';
-                break;
-*/          case FIRE:
-                linkId = '285';
-                break;
-            case LIFE:
-                linkId = '283';
-                break;
-            case HEALTH:
-                linkId = '281';
-                break;
-            default:
-                break;
-        }
-        if (linkId) {
-            detailsURL = '/apex/VFP_ExternalLink?LinkId=' + linkId +
-                '&accountId=' + params.accountRecordId +
-                '&agreementIndexId=' + params.agreementIndexId +
-                '&clientnamelinkdisabled=Y&NechoAppName=policy' +
-                '&key=' + params.policyNumber +
-                '&lineOfBusiness=' + params.lob +
-                '&agentAssocId=' + params.agentAssociateId
-        }
-
+        detailsURL = '/apex/VFP_ExternalLink?LinkId=9' + 
+            '&accountId=' + params.accountRecordId + 
+            '&agreementIndexId=' + params.agreementIndexId + 
+            '&clientnamelinkdisabled=Y&NechoAppName=policy' +
+            '&key=' + params.policyNumber + 
+            '&lineOfBusiness=' + params.lob + 
+            '&agentAssocId=' + params.agentAssociateId;
     } else {
-
-        switch (params.lob) {
-/*          case AUTO:
-                linkId = '69';
-                break;
-*/          case FIRE:
-                linkId = '286';
-                break;
-            case LIFE:
-                linkId = '284';
-                break;
-            case HEALTH:
-                linkId = '282';
-                break;
-            default:
-                break;
-        }
-        if (linkId) {
-            detailsURL = '/apex/VFP_ExternalLink?LinkId=' + linkId +
-                '&accountId=' + params.accountRecordId +
-                '&agreementIndexId=' + params.agreementIndexId +
-                '&clientnamelinkdisabled=Y&NechoAppName=policy' +
-                '&key=' + params.policyNumber +
-                '&lineOfBusiness=' + params.lob
-        }
+        detailsURL = '/apex/VFP_ExternalLink?LinkId=69' + 
+            '&accountId=' + params.accountRecordId + 
+            '&agreementIndexId=' + params.agreementIndexId + 
+            '&clientnamelinkdisabled=Y&NechoAppName=policy' +
+            '&key=' + params.policyNumber + 
+            '&lineOfBusiness=' + params.lob
     }
 
     return detailsURL;
@@ -148,17 +107,17 @@ export const buildPolicyCenterLink = (linkId, agreementIndexId) => {
 }
 
 export const buildHagertyLink = (params, intent) => {
-    return `/c/ExternalLinkApp.app?` +
-            `linkId=258&` +
+    return `/apex/VFP_ExternalLink?` +
+            `LinkId=258&` +
             `intent=${intent}&` + 
             `agreementNumber=${params.accessKey}&` +
             `stateAgentCode=${params.stateAgentCode}`;
 }
 
-export const isOutOfBookPolicy = (agentAssociateId, loggedInSubUserType, loggedInAgentAssociateId) => {
+export const isOutOfBookPolicy = (agentAssociateId, loggedInProfile, loggedInAgentAssociateId) => {
     let oobIndicator = TRUE;
 
-    if (loggedInSubUserType === AGENT_SUB_USER_TYPE || loggedInSubUserType === AGENT_TEAM_MEMBER_SUB_USER_TYPE) {
+    if (loggedInProfile === AGENT_PROFILE || loggedInProfile === AGENT_TEAM_MEMBER_PROFILE) {
         if(agentAssociateId && loggedInAgentAssociateId && agentAssociateId === loggedInAgentAssociateId) {
             oobIndicator = FALSE;
         }

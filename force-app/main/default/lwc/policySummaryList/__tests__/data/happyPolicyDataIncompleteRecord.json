@@ -1,0 +1,29 @@
+{
+    "Servicing_Agent__c": "005o0000003JCLNAA4",
+    "NI_SecondaryRoleNameCd__c": "20",
+    "MasterDataLocationCd__c": "24",
+    "ServicingAgentExternal__c": "<a href=\"/apex/VFP_ExternalLink?LinkId=26&amp;primaryStateCode=31&amp;primaryAgentCode=3275\" target=\"_blank\">Rick Paul</a>",
+    "NI_RoleNameCd__c": "22",
+    "ProdLineCd__c": "A",
+    "Name": "131 6408-E20-31",
+    "SourceSystemIdentifier": "424149269",
+    "PlcyTypeCd__c": "0",
+    "NameInsuredId": "0012C00000h2hkXQAQ",
+    "CoCd__c": "0001",
+    "NameInsured": {
+        "ClientIdentifier__c": "JSJ541MF00S",
+        "Id": "0012C00000h2hkXQAQ",
+        "PersonEmail": "vwejo7fblxvddajea@sf.org",
+        "Name": "SHAWN F FELLNER"
+    },
+    "Status": "In Force",
+    "PolicyType": "Auto",
+    "SFDCPolicyNumberSearchKey__c": "1316408E2031",
+    "CancellationDate": "4000-12-31T00:00:00.000Z",
+    "AgreAccessKey__c": "3121316408",
+    "RenewalDate": "2022-05-20T12:00:00.000Z",
+    "AgreDisplayPartyName__c": "FELLNER, SHAWN F & CYNTHIA",
+    "AgreSourceSysCd__c": "1",
+    "Id": "0YT2C0000008QVqWAM",
+    "EffectiveDate": "2017-11-20T12:00:00.000Z"
+}

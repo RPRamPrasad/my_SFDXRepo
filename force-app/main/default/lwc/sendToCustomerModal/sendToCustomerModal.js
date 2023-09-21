@@ -11,7 +11,7 @@ export default class SendToCustomerModal extends LightningElement {
         connectedCallback()
         {
 
-            if(this.customerEmail===null || this.customerEmail=== undefined)
+            if(this.customerEmail==null)
             {
                 this.showEmptyEmailError=true;
 

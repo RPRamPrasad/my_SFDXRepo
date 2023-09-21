@@ -53,6 +53,8 @@ jest.mock(
     () => ({ default: jest.fn() }), { virtual: true }
 );
 
+jest.mock('@salesforce/customPermission/SAE_Policy_Change', () => ({ default: true }), { virtual: true });
+
 jest.mock(
     '@salesforce/apex/HA4C_PKCE.isHatsORha4cUser',
     () => ({ default: jest.fn() }), { virtual: true }
@@ -699,12 +701,15 @@ describe('policyActions - actions', () => {
         component.policyNumber = 'ZYX 99-98765';
 
         paramObj.sourceSystemCode = PERSONAL_AUTO_MOD_CD;
+        let hasSAEPolicyChangeAccess = true;
 
         await launchNewCase("caseReason", paramObj, component, true);
         await flushPromises();
 
         expect(paramObj.sourceSystemCode).toBeTruthy();
         expect(paramObj.sourceSystemCode).toStrictEqual(24);
+        expect(hasSAEPolicyChangeAccess).toBeTruthy();
+        expect(hasSAEPolicyChangeAccess).toStrictEqual(true);
         const expectedCaseParam = {
             accountRecordId: paramObj.accountRecordId,
             lob: 'Auto',

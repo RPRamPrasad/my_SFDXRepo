@@ -96,6 +96,8 @@ jest.mock(
     () => ({ default: jest.fn() }), { virtual: true }
 );
 jest.mock('@salesforce/customPermission/Case_Migration_Pilot_User', () => ({ default: true }), { virtual: true });
+jest.mock('@salesforce/customPermission/SAE_Policy_Change', () => ({ default: false }), { virtual: true });
+
 
 messageService.unsubscribe = jest.fn();
 window.open = jest.fn();
@@ -182,7 +184,7 @@ describe('c-policy-actions - launch auto Policy Actions', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=269&`+
+            `/apex/VFP_ExternalLink?LinkId=269&`+
             `agreementIndexId=1915&agreementNumber=7563035126`+
             `&applicationName=Auto&sourceSystemCode=24`
         );

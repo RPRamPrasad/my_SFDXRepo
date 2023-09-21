@@ -1,0 +1,95 @@
+.card-border {
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: lightgray;
+}
+
+.label {
+    color: #666666;
+    font-weight: bold;
+}
+
+.policyNum {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.policyNi {
+    font-weight: normal;
+    font-size: 0.8em;
+}
+
+.float-right-header {
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-right: 8pc;
+}
+
+.rollup {
+    display: inline;
+    font-weight: normal;
+}
+
+.list-header {
+    width: 100%;
+    color: gray;
+    font-size: 0.85em;
+}
+
+.list-divider {
+    color: #444444;
+    border-style: solid;
+    border-width: 1px;
+    border-top: 1px;
+}
+
+.type-column {
+    width: 6%;
+}
+
+.number-column {
+    width: 16%;
+}
+
+.risk-column {
+    width: 29%;
+    padding-left: 4.5rem;
+}
+
+.agent-column {
+    width: 4%;
+}
+
+.insured-column {
+    width: 7%;
+}
+
+.date-column {
+    width: 9%;
+}
+
+.bill-column {
+    width: 11%;
+}
+
+.claim-column {
+    width: 9%;
+}
+
+.alert-column {
+    width: 5%;
+}
+
+.action-column {
+    width: 4%;
+}
+
+:host {
+    --sds-c-checkbox-toggle-color-background-checked: #009900;
+    --sds-c-checkbox-toggle-color-background-checked-focus: #00CC00;
+    --sds-c-checkbox-toggle-color-background-checked-hover: #00CC00;
+    --sds-c-checkbox-toggle-color-background: firebrick;
+    --sds-c-checkbox-toggle-color-background-focus: red;
+    --sds-c-checkbox-toggle-color-background-hover: red;
+}

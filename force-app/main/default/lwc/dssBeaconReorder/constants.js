@@ -34,8 +34,8 @@ export const PAGE_31_BODY = '<p>A beacon has been shipped within the last 10 day
 export const PAGE_32_BODY = '<p>The customer must complete the enrollment steps in the Drive Safe & Save™ app, which includes ordering a beacon.</p>';
 export const PAGE_33_BODY = '<p>The customer is not currently enrolled in Drive Safe & Save™ Mobile that requires a beacon.</p>'; //NEEDS MMR VALIDATION
 export const PAGE_99_BODY = '<p>A technical error has occurred. Please request support below to initiate the reorder process.</p>';
-export const PAGE_100_BODY = `<p>This workflow is unavailable. To continue to process your request, please follow the beacon reorder process using the <a href="/apex/VFP_ExternalLink?LinkId=215&accountId=undefined" target="_blank" data-id="popDSSLink">Drive Safe & Save Beacon Reorder tool</a> in ECRM. Refer to procedural resources to confirm process and beacon eligibility.</p>`;
-export const PAGE_101_BODY = `<p>A beacon has been shipped in the last 10 days. Please confirm shipping status inside the Drive Safe & Save Beacon Status tool and verify the customer still needs a beacon sent. If one is needed, then follow the beacon reorder process using the <a href="/apex/VFP_ExternalLink?LinkId=215&accountId=undefined" target="_blank" data-id="popDSSLink">Drive Safe & Save Beacon Reorder tool</a> in ECRM.</p>`;
+export const PAGE_100_BODY = '<p>This workflow is unavailable. To continue to process your request launch the  Drive Safe & Save Beacon Reorder tool on the ECRM account page. Access the Customer Order History Tool and check the status of a recently ordered beacon. Follow training and KI guidance to determine beacon reorder eligibility.</p>';
+export const PAGE_101_BODY = '<p>A beacon has been shipped within the last 10 days.</p>';
 
 export const REORDER_REASONS = [
     { label: 'Customer did not receive beacon package', value: 'A-Did not receive beacon package'},

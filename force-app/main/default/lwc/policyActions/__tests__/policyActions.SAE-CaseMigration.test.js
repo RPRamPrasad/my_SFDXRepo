@@ -92,6 +92,8 @@ jest.mock(
     }])}), { virtual: true }
 );
 jest.mock('@salesforce/customPermission/Case_Migration_Pilot_User', () => ({ default: true }), { virtual: true });
+jest.mock('@salesforce/customPermission/SAE_Policy_Change', () => ({ default: true }), { virtual: true });
+
 
 messageService.unsubscribe = jest.fn();
 window.open = jest.fn();
@@ -158,7 +160,7 @@ describe('c-policy-actions - perform sae launch out', () => {
             sourceSystemCode: 24
         });
 
-        expect(window.open).toBeCalledWith('/c/ExternalLinkApp.app?linkId=269&agreementIndexId=agreementIndexId&agreementNumber=agreAccessKey&applicationName=Auto&sourceSystemCode=24');
+        expect(window.open).toBeCalledWith('/apex/VFP_ExternalLink?LinkId=269&agreementIndexId=agreementIndexId&agreementNumber=agreAccessKey&applicationName=Auto&sourceSystemCode=24');
     })
 });
 
@@ -197,7 +199,7 @@ describe('c-policy-actions - launch auto Policy Actions', () => {
         HATSorHA4CButton.click();
         await flushPromises();
 
-        expect(window.open).toHaveBeenCalledWith("/c/ExternalLinkApp.app?linkId=269&agreementIndexId=1915&agreementNumber=7563035126&applicationName=Auto&sourceSystemCode=24");
+        expect(window.open).toHaveBeenCalledWith("/apex/VFP_ExternalLink?LinkId=269&agreementIndexId=1915&agreementNumber=7563035126&applicationName=Auto&sourceSystemCode=24");
 
         const { pageReference } = getNavigateCalledWith();
 

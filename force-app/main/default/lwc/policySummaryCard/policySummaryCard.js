@@ -346,11 +346,8 @@ export default class PolicySummaryCard extends NavigationMixin(LightningElement)
     get isSuretyBond() {
         return this.policy.PolicyName?.toUpperCase().includes('SURETY BOND');
     }
-    get isHagertyDriversClub() {
-        return this.policy.PlcyTypeCd__c === 'DC';
-    }
-    get shouldShowEnhance() {
-        return (this.isAuto || this.isSuretyBond) && !this.isHagertyDriversClub;
+    get isAutoOrSurety() {
+        return this.isAuto || this.isSuretyBond;
     }
     @api
     async enhancePolicy(event) {
@@ -362,7 +359,7 @@ export default class PolicySummaryCard extends NavigationMixin(LightningElement)
             return;
         }
 
-        if (!this.shouldShowEnhance) {
+        if (!this.isAutoOrSurety) {
             return;
         }
 

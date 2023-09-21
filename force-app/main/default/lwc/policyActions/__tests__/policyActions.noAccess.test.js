@@ -72,6 +72,7 @@ jest.mock('c/checkFeatureAccess', () => {
 });
 
 jest.mock('@salesforce/customPermission/Case_Migration_Pilot_User', () => ({ default: false }), { virtual: true });
+jest.mock('@salesforce/customPermission/SAE_Policy_Change', () => ({ default: false }), { virtual: true });
 
 messageService.unsubscribe = jest.fn();
 window.open = jest.fn();
@@ -129,12 +130,14 @@ describe('c-policy-actions - no access to Policy Action buttons', () => {
         const expectedUserAccess = {
             hasPolicyTransactionAccess: false,
             hasToofLinkAccess: false,
+            // hasAutoIdCardAccess: false,
             hasAutoIdCardAccessforSubuserType: false,
             hasAutoIdCardAccessforUserCriteria: false,
             hasBOSLinkAccess: false,
             hasCOILinkAccess: false,
             isGroupPolicy: false,
             hasDSSBeaconReorderAccess: false,
+            hasSAEPolicyChangeAccess: false,
             hasPremiumChangeInquiryAccess: false,
             hasAgentStatusTrackerAccess: false,
             hasPolicyDocumentsAccess: false
@@ -142,7 +145,7 @@ describe('c-policy-actions - no access to Policy Action buttons', () => {
         const actualUserAccess = policyActionsComp.getUserAccess;
 
         expect(actualUserAccess).toBeTruthy();
-        expect(Object.keys(actualUserAccess).length).toEqual(11);
+        expect(Object.keys(actualUserAccess).length).toEqual(12);
 
         Object.keys(expectedUserAccess).forEach(expectedAccess => {
             const actualAccess = actualUserAccess[expectedAccess];

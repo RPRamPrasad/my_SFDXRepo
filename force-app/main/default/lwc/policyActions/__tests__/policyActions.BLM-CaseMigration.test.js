@@ -89,6 +89,7 @@ jest.mock('c/checkFeatureAccess', () => {
     };
 });
 
+jest.mock('@salesforce/customPermission/SAE_Policy_Change', () => ({ default: true }), { virtual: true });
 jest.mock(
     '@salesforce/apex/HA4C_PKCE.isHatsORha4cUser',
     () => ({ default: jest.fn() }), { virtual: true }

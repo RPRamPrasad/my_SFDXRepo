@@ -107,6 +107,9 @@ jest.mock('c/checkFeatureAccess', () => {
     };
 });
 
+jest.mock('@salesforce/customPermission/DSS_Beacon_Reorder', () => ({ default: true }), { virtual: true });
+jest.mock('@salesforce/customPermission/SAE_Policy_Change', () => ({ default: false }), { virtual: true });
+
 messageService.unsubscribe = jest.fn();
 window.open = jest.fn();
 
@@ -463,7 +466,7 @@ describe('c-policy-actions - launch Policy Details', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/apex/VFP_ExternalLink?LinkId=285&` +
+            `/apex/VFP_ExternalLink?LinkId=9&` +
             `accountId=001R000001mOe0CIAS&` +
             `agreementIndexId=282751018&` +
             `clientnamelinkdisabled=Y&` +
@@ -487,7 +490,7 @@ describe('c-policy-actions - launch Policy Details', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/apex/VFP_ExternalLink?LinkId=285&` +
+            `/apex/VFP_ExternalLink?LinkId=9&` +
             `accountId=001R000001mOe06IAC&` +
             `agreementIndexId=224968612&` +
             `clientnamelinkdisabled=Y&` +
@@ -533,7 +536,7 @@ describe('c-policy-actions - launch Policy Details', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=192`
+            `/apex/VFP_ExternalLink?LinkId=192`
         );
     });
 
@@ -550,7 +553,7 @@ describe('c-policy-actions - launch Policy Details', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=68&` +
+            `/apex/VFP_ExternalLink?LinkId=68&` +
             `accountId=001R000001u1pqzIAA&` +
             `agreementIndexId=439236835&` +
             `policyNumber=LF-3727-8251&` +
@@ -571,7 +574,7 @@ describe('c-policy-actions - launch Policy Details', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/apex/VFP_ExternalLink?LinkId=283&` +
+            `/apex/VFP_ExternalLink?LinkId=9&` +
             `accountId=001R000001u1pr0IAA&` +
             `agreementIndexId=389748657&` +
             `clientnamelinkdisabled=Y&` +
@@ -629,7 +632,7 @@ describe('c-policy-actions - launch Policy Details', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/apex/VFP_ExternalLink?LinkId=281&` +
+            `/apex/VFP_ExternalLink?LinkId=9&` +
             `accountId=001R000001mOe07IAC&` +
             `agreementIndexId=198861359&` +
             `clientnamelinkdisabled=Y&` +
@@ -679,7 +682,7 @@ describe('c-policy-actions - launch auto Policy Actions', () => {
 
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=9&` +
+            `/apex/VFP_ExternalLink?LinkId=9&` +
             `accountId=001R000001kro3uIAA&` +
             `agreementIndexId=1915&` +
             `clientnamelinkdisabled=Y&` +
@@ -716,7 +719,7 @@ describe('c-policy-actions - launch auto Policy Actions', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=9&` +
+            `/apex/VFP_ExternalLink?LinkId=9&` +
             `accountId=001R000001kro3uIAA&` +
             `agreementIndexId=1915&` +
             `clientnamelinkdisabled=Y&` +
@@ -751,7 +754,7 @@ describe('c-policy-actions - launch auto Policy Actions', () => {
 
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=258&` +
+            `/apex/VFP_ExternalLink?LinkId=258&` +
             `intent=changePolicy&` +
             `agreementNumber=13P8005554&` +
             `stateAgentCode=13-022F`
@@ -781,7 +784,7 @@ describe('c-policy-actions - launch auto Policy Actions', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=258&` +
+            `/apex/VFP_ExternalLink?LinkId=258&` +
             `intent=changePolicy&` +
             `agreementNumber=13P8005554&` +
             `stateAgentCode=13-022F`
@@ -811,7 +814,7 @@ describe('c-policy-actions - launch auto Policy Actions', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=258&` +
+            `/apex/VFP_ExternalLink?LinkId=258&` +
             `intent=changePolicy&` +
             `agreementNumber=13P8005554&` +
             `stateAgentCode=13-022F`
@@ -861,7 +864,7 @@ describe('c-policy-actions - launch auto Policy Actions', () => {
         policyActionsComp.shadowRoot.querySelector('[data-id="TOOF Reinstatement"]').click();
         await flushPromises();
 
-        expect(window.open).toHaveBeenCalledWith(`/c/ExternalLinkApp.app?linkId=258&intent=changePolicy&agreementNumber=13P8005554&stateAgentCode=13-022F`);
+        expect(window.open).toHaveBeenCalledWith(`/apex/VFP_ExternalLink?LinkId=258&intent=changePolicy&agreementNumber=13P8005554&stateAgentCode=13-022F`);
 
         const { pageReference } = getNavigateCalledWith();
 
@@ -889,7 +892,7 @@ describe('c-policy-actions - launch auto Policy Actions', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=210&` +
+            `/apex/VFP_ExternalLink?LinkId=210&` +
             `accountId=001R000001kro3uIAA&` +
             `companyCode=0001&` +
             `policyNumber=0117968E1903L&` +
@@ -1069,7 +1072,7 @@ describe('c-policy-actions - launch fire Policy Actions', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=9&` +
+            `/apex/VFP_ExternalLink?LinkId=9&` +
             `accountId=001R000001mOe0CIAS&` +
             `agreementIndexId=282751018&` +
             `clientnamelinkdisabled=Y&` +
@@ -1103,7 +1106,7 @@ describe('c-policy-actions - launch fire Policy Actions', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=9&` +
+            `/apex/VFP_ExternalLink?LinkId=9&` +
             `accountId=001R000001mOe0CIAS&` +
             `agreementIndexId=282751018&` +
             `clientnamelinkdisabled=Y&` +
@@ -1136,7 +1139,7 @@ describe('c-policy-actions - launch fire Policy Actions', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=210&` +
+            `/apex/VFP_ExternalLink?LinkId=210&` +
             `accountId=001R000001mOe0CIAS&` +
             `companyCode=5&` +
             `policyNumber=03CU48255&` +
@@ -1158,7 +1161,7 @@ describe('c-policy-actions - launch fire Policy Actions', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?linkId=211&` +
+            `/apex/VFP_ExternalLink?LinkId=211&` +
             `regionCode=5&` +
             `policyNumber=93K387520&` +
             `policyType=V&` +
@@ -1213,8 +1216,8 @@ describe('c-policy-actions - launch life Policy Action', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?` +
-            `linkId=9&` +
+            `/apex/VFP_ExternalLink?` +
+            `LinkId=9&` +
             `accountId=001R000001u1pqzIAA&` +
             `agreementIndexId=439236835&` +
             `clientnamelinkdisabled=Y&` +
@@ -1251,8 +1254,8 @@ describe('c-policy-actions - launch life Policy Action', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?` +
-            `linkId=9&` +
+            `/apex/VFP_ExternalLink?` +
+            `LinkId=9&` +
             `accountId=null&` +
             `agreementIndexId=439236835&` +
             `clientnamelinkdisabled=Y&` +
@@ -1288,8 +1291,8 @@ describe('c-policy-actions - launch life Policy Action', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?` +
-            `linkId=9&` +
+            `/apex/VFP_ExternalLink?` +
+            `LinkId=9&` +
             `accountId=001R000001u1pqzIAA&` +
             `agreementIndexId=439236835&` +
             `clientnamelinkdisabled=Y&` +
@@ -1345,8 +1348,8 @@ describe('c-policy-actions - launch health Policy Action', () => {
         await flushPromises();
 
         expect(window.open).toHaveBeenCalledWith(
-            `/c/ExternalLinkApp.app?` +
-            `linkId=9&` +
+            `/apex/VFP_ExternalLink?` +
+            `LinkId=9&` +
             `accountId=001R000001mOe07IAC&` +
             `agreementIndexId=198861359&` +
             `clientnamelinkdisabled=Y&` +

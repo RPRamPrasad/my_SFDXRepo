@@ -1,0 +1,12 @@
+
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Policy Summary LWC</masterLabel>
+    <description>Policy Summary LWC for ECRM 3.0 Account and Household pages. Includes Risk Search utility and policy rollup counts for Insurance Policy.</description>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+</LightningComponentBundle>

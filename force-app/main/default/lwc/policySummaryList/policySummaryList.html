@@ -1,0 +1,193 @@
+<template>
+    <div class="card-outline slds-m-bottom_small">
+        <!-- icon -->
+        <c-policy-summary-lob-icon 
+            lob={policy.PolicyType} 
+            source-code={policy.AgreSourceSysCd__c}
+            class="slds-m-right_small slds-m-left_x-small icon-width"
+        ></c-policy-summary-lob-icon>
+
+        <!-- pol num and desc -->
+        <div class="card-title">
+            <div class="clip-overflow">
+                <span title={policy.PolicyName} data-id="list-item-desc">{policyDescription}</span>
+            </div>
+            <div class="pol-num-parent">
+                <a 
+                    onclick={navigateToPolicy} 
+                    data-id="launch-policy"
+                    class="pol-num"
+                    title={policy.Name}>
+                    {policy.Name}
+                </a>
+                <lightning-button-icon 
+                    data-id='copyButton' 
+                    icon-name="utility:copy_to_clipboard" 
+                    variant="bare"
+                    alternative-text="Copy" 
+                    title="Copy Policy Number" 
+                    onclick={copyPolicyNumber} 
+                    size="small">
+                </lightning-button-icon>
+            </div>
+            <div class="slds-m-top_xx-small">
+                <template if:true={policyStatusNotInForceOrTerm}>
+                    <lightning-badge data-id="policy-status" label={policy.Status} title={policyStatusHelpText}></lightning-badge>
+                </template>
+            </div>
+        </div>
+
+        <!-- risks column -->
+        <div class="risk-box clip-overflow">
+
+            <template if:true={checkForRisks}>
+
+                <!-- multiple risks -->
+                <template if:true={multipleRisks}>
+                    <span data-id="multi-risk-label">Multiple Risks... </span><span class="risk-show-all">({risks.length})
+                        <c-policy-summary-risk-hover policy={policy} risks={risks} class="slds-m-left_x-small"></c-policy-summary-risk-hover>
+                    </span>
+                </template>
+
+                <!-- single risk -->
+                <template if:false={multipleRisks}>
+                    <span title={firstRiskDescription} data-id="single-risk-desc">{firstRiskDescriptionTrunc}</span>
+                </template>
+
+            </template>
+            <template if:false={checkForRisks}>
+
+                <!-- no risks -->
+                <span class="no-risks" data-id="no-risks">No risks</span>
+                
+            </template>
+        </div>
+
+        <!-- agent icon -->
+        <div class="icon-column">
+            <c-policy-summary-field-hover icon-name="utility:user" popover-title="Servicing Agent" popover-body={servicingAgent} data-id="agent-icon"></c-policy-summary-field-hover>
+        </div>
+
+        <!-- insureds icon -->
+        <div class="icon-column">
+            <c-policy-summary-field-hover icon-name="utility:people" popover-title={insuredTitle} popover-body={policy.AgreDisplayPartyName__c} data-id="insured-icon"></c-policy-summary-field-hover>
+        </div>
+
+        <!-- Date column -->
+        <div class="date-column">
+            <span data-id="inception">{inceptionDate}</span>
+            <br/>
+            <span class={renewTermClass} data-id="renew-term">{renewTermDate}</span>
+        </div>
+
+        <!-- Billing links -->
+        <div class={billingColumnClass}>
+            <template if:true={policy.BillingPolicyAccounts__r}>
+                <template if:true={hasOneOrTwoBills} for:each={policy.BillingPolicyAccounts__r} for:item="billAccount">
+                    <a onclick={navigateToBill} data-id={billAccount.BillingAccountID__c} key={billAccount.BillingAccountID__r.AccountNumber__c}>{billAccount.BillingAccountID__r.AccountNumber__c}</a>
+                    <br key={billAccount.BillingAccountID__r.AccountNumber__c}/>
+                </template>
+                <template if:false={hasOneOrTwoBills}>
+                    <span data-id="multi-billing">Multiple ({policy.BillingPolicyAccounts__r.length})</span>
+                    <lightning-helptext content="Please select Billing tab above to view all billing accounts"></lightning-helptext>
+                </template>
+            </template>
+        </div>
+
+        <!-- Claim links -->
+        <div class={claimColumnClass} data-id="claims-section">
+            <template if:true={policy.Claims}>
+                <template if:true={hasOneOrTwoClaims} for:each={policy.Claims} for:item="claim">
+                    <a onclick={navigateToClaim} data-id={claim.Id} key={claim.Id}>{claim.Name}</a>
+                    <br key={claim.Id}/>
+                </template>
+                <template if:false={hasOneOrTwoClaims}>
+                    <span data-id="multi-claim">Multiple ({policy.Claims.length})</span>
+                    <lightning-helptext content="Please select Claims tab above to view all claims"></lightning-helptext>
+                </template>
+            </template>
+        </div>
+
+        <!-- alerts -->
+        <div class="indicator-box">
+            <c-policy-summary-alert 
+                if:true={alerts.length} 
+                alerts={alerts} 
+                is-household={isHousehold} 
+                account-list={accountList} 
+                account-page-record-id={accountPageRecordId} 
+                data-id="policy-alert">
+            </c-policy-summary-alert>
+        </div>
+
+        <!-- actions -->
+        <div class="card-actions">
+            <lightning-button-menu 
+                slot="actions" 
+                alternative-text="Policy Actions" 
+                icon-size="small"
+                onselect={handleOnSelect}
+                menu-alignment="right"
+                class="slds-m-right_x-small"
+                data-id="list-item-actions"
+            >
+                <template for:each={policyActions} for:item="action">
+                    <lightning-menu-item value={action} label={action} key={action.id} data-id={action} disabled={isSavingRecord}></lightning-menu-item>
+                </template>
+            </lightning-button-menu>
+        </div>
+
+    </div>
+
+    <c-send-to-customer-modal if:true={showSendModal} is-modal-open={showSendModal} customer-name={accountContext.name} customer-email={accountContext.email} onclosemodal={onCloseModal} onsendconfirmation={onSendEmail}></c-send-to-customer-modal>
+
+    <!-- risk modal for policy actions -->
+    <template if:true={showRiskModal}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01" class="slds-modal slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container risk-modal" data-id="risk-modal">
+                <button class="slds-button slds-button_icon slds-modal__close" onclick={closeRiskModal} data-id="close-modal-button">
+                    <lightning-icon icon-name="utility:close" variant="inverse" size="small"><label>Close</label></lightning-icon>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Select a vehicle</h1>
+                    <p class="slds-m-top_x-small">
+                        Select a vehicle to initiate the policy change.
+                    </p>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <div class="slds-grid slds-grid_align-center">
+                        <div class="slds-col">
+                            <template for:each={risks} for:item="risk">
+                                <div class="centered" key={risk.Id}>
+                                    <template if:true={isLegacyMultiCar}>
+                                        <button
+                                            title={risk.riskNumDesc} 
+                                            onclick={handleModalSelect} 
+                                            data-id={risk.Id} 
+                                            class="slds-button slds-button_neutral slds-button_stretch slds-m-bottom_small">
+                                            {risk.riskNumDesc}
+                                        </button>
+                                    </template>
+                                    <template if:false={isLegacyMultiCar}>
+                                        <button
+                                            title={risk.Description__c} 
+                                            onclick={handleModalSelect} 
+                                            data-id={risk.Id} 
+                                            class="slds-button slds-button_neutral slds-button_stretch slds-m-bottom_small">
+                                            {risk.Description__c}
+                                        </button>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={closeRiskModal}>Cancel</button>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+</template>

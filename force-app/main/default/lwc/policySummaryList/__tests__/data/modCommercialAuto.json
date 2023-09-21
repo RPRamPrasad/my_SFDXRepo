@@ -1,0 +1,65 @@
+{
+    "Servicing_Agent__c": "0053v000001EYMiAAO",
+    "NI_SecondaryRoleNameCd__c": "20",
+    "ServicingAgentExternal__c": "<a href=\"/apex/VFP_ExternalLink?LinkId=26&amp;primaryStateCode=13&amp;primaryAgentCode=8475\" target=\"_blank\"> SFO Sterling</a>",
+    "NI_RoleNameCd__c": "18",
+    "ProdLineCd__c": "A",
+    "Name": "E621302-C01-13",
+    "Servicing_Agent__r": {
+        "Associate_ID__c": "BDVHYB31DAL",
+        "Id": "0053v000001EYMiAAO",
+        "Name": "13-8475 SFO Sterling, IL",
+        "State_Agent_Code__c": "13-8475"
+    },
+    "PolicyDescription": "Commercial Auto : \nVehicle#001 :Truck/Van 2015 INTL 4300M7 in Illinois\nVehicle#003 :Truck/Van 2012 MERCEDES 2500 in Illinois\nVehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois",
+    "SourceSystemIdentifier": "424059611",
+    "NameInsuredId": "0012C00000h2hkaQAA",
+    "CoCd__c": "0001",
+    "NameInsured": {
+        "ClientIdentifier__c": "G0KD96CW001",
+        "Id": "0012C00000h2hkaQAA",
+        "PersonEmail": "vcqeavmasim7zlsx@sf.org",
+        "Name": "ADAN RAMIREZ"
+    },
+    "Status": "In Force",
+    "PolicyType": "Auto",
+    "SFDCPolicyNumberSearchKey__c": "E621302C0113",
+    "CancellationDate": "4000-12-31T00:00:00.000Z",
+    "AgreAccessKey__c": "131E621302",
+    "RenewalDate": "2022-03-01T12:00:00.000Z",
+    "AgreDisplayPartyName__c": "RAMIREZ, ADAN",
+    "InsurancePolicyAssets": [
+        {
+            "Description__c": "Vehicle#001 :Truck/Van 2015 INTL 4300M7 in Illinois",
+            "RiskNumber__c": "001",
+            "Id": "0YW2C0000004E6nWAE",
+            "RiskStatusText__c": "In Force",
+            "VIN_Address_Cov_Amt__c": "3HAMMMMN5FL626024"
+        },
+        {
+            "Description__c": "Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois",
+            "RiskNumber__c": "004",
+            "Id": "0YW2C0000004E6pWAE",
+            "RiskStatusText__c": "In Force",
+            "VIN_Address_Cov_Amt__c": "1HTMMAAN3CH178385"
+        },
+        {
+            "Description__c": "Vehicle#003 :Truck/Van 2012 MERCEDES 2500 in Illinois",
+            "RiskNumber__c": "003",
+            "Id": "0YW2C0000004E6oWAE",
+            "RiskStatusText__c": "In Force",
+            "VIN_Address_Cov_Amt__c": "WD3PF4CC9C5892258"
+        },
+        {
+            "Description__c": "Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois",
+            "RiskNumber__c": "004",
+            "Id": "0YW2C0000004E6pWAE",
+            "RiskStatusText__c": "In Force",
+            "VIN_Address_Cov_Amt__c": "1HTMMAAN3CH178385"
+        }
+    ],
+    "AgreSourceSysCd__c": "15",
+    "PolicyName": "Commercial Auto",
+    "Id": "0YT2C0000008QWBWA2",
+    "EffectiveDate": "2018-03-01T12:00:00.000Z"
+}

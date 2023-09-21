@@ -1,0 +1,60 @@
+{
+    "Servicing_Agent__c": "005o0000003JCc4AAG",
+    "MasterDataLocationCd__c": "18",
+    "ServicingAgentExternal__c": "<a href=\"/apex/VFP_ExternalLink?LinkId=26&amp;primaryStateCode=14&amp;primaryAgentCode=6363\" target=\"_blank\">Dan Blackley</a>",
+    "NI_RoleNameCd__c": "18",
+    "ProdLineCd__c": "F",
+    "Name": "14-CV-Y582-5",
+    "Servicing_Agent__r": {
+        "Associate_ID__c": "KRLYT3JX000",
+        "Id": "005o0000003JCc4AAG",
+        "Name": "Dan Blackley, QG6L, 14-6363",
+        "State_Agent_Code__c": "14-6363"
+    },
+    "PolicyDescription": "Homeowners Policy : 167 YORKSHIRE BLVD W",
+    "SourceSystemIdentifier": "429006271",
+    "PlcyTypeCd__c": "V",
+    "NameInsuredId": "0012C00000h2hkVQAQ",
+    "CoCd__c": "0005",
+    "NameInsured": {
+        "ClientIdentifier__c": "SPRB41KV00L",
+        "Id": "0012C00000h2hkVQAQ",
+        "PersonEmail": "wlxjbvvhb255cp@sf.org",
+        "Name": "KENNETH STRAIN"
+    },
+    "Status": "In Force",
+    "PolicyType": "Fire",
+    "SFDCPolicyNumberSearchKey__c": "14CVY5825",
+    "CancellationDate": "4000-12-31T00:00:00.000Z",
+    "Claims": [
+        {
+            "Id": "0Zk2C0000008OISSA2",
+            "Name": "6140R950R"
+        },
+        {
+            "Id": "0Zk2C0000008OITSA2",
+            "Name": "7570P850T"
+        },
+        {
+            "Id": "0Zk2C0000008OIUSA2",
+            "Name": "3160S950T"
+        }
+    ],
+    "AgreAccessKey__c": "181014Y5820CV5",
+    "RenewalDate": "2022-03-19T12:00:00.000Z",
+    "AgreDisplayPartyName__c": "STRAIN, KENNETH & KATHLEEN",
+    "InsurancePolicyAssets": [
+        {
+            "Description__c": "167 YORKSHIRE BLVD W",
+            "RiskNumber__c": "0001",
+            "Id": "0YW2C0000004E5RWAU",
+            "RiskStatusText__c": "In Force",
+            "VIN_Address_Cov_Amt__c": "INDIANAPOLIS IN 462294236",
+            "AssetName": "167 YORKSHIRE BLVD W"
+        }
+    ],
+    "AgreSourceSysCd__c": "1",
+    "PolicyName": "Homeowners Policy",
+    "Id": "0YT2C0000008QVeWAM",
+    "EffectiveDate": "2018-03-19T12:00:00.000Z"
+}

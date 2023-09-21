@@ -40,10 +40,12 @@ import UNFORMATTED_POLICY_NUMBER from '@salesforce/schema/InsurancePolicy.SFDCPo
 //user fields
 import USER_ID from '@salesforce/user/Id';
 import SERVICING_AGENT_ASSOC_ID from '@salesforce/schema/User.Servicing_Agent_Associate_ID__c';
+import PROFILE_NAME from '@salesforce/schema/User.Profile.Name';
 import USER_CRITERIA from '@salesforce/schema/User.UserCriteriaList__c';
 import SUBUSER_TYPE from '@salesforce/schema/User.SubUserType__c';
 
 //access imports
+import hasSAEPolicyChangeAccess from '@salesforce/customPermission/SAE_Policy_Change';
 import { getFeatureAccessMetadataBySubuserType,getFeatureAccessMetadataByUserCriteria } from 'c/checkFeatureAccess';
 import {
     buildDetailsLaunchout,
@@ -171,6 +173,7 @@ export default class PolicyActions extends NavigationMixin(LightningElement) {
     userAccess = {
         hasPolicyTransactionAccess: false,
         hasToofLinkAccess: false,
+        // hasAutoIdCardAccess: false,
         hasAutoIdCardAccessforSubuserType: false,
         hasAutoIdCardAccessforUserCriteria: false,
         hasBOSLinkAccess: false,
@@ -179,7 +182,8 @@ export default class PolicyActions extends NavigationMixin(LightningElement) {
         hasDSSBeaconReorderAccess: false,
         hasPremiumChangeInquiryAccess: false,
         hasAgentStatusTrackerAccess: false,
-        hasPolicyDocumentsAccess: false
+        hasPolicyDocumentsAccess: false,
+        hasSAEPolicyChangeAccess: false
     };
 
     plmActivationStatus = {}
@@ -258,6 +262,8 @@ export default class PolicyActions extends NavigationMixin(LightningElement) {
 
             if (!this.waitingForRisk) {
                 await this.makeDescriptionPromise();
+                this.userAccess.hasSAEPolicyChangeAccess = hasSAEPolicyChangeAccess;
+              //  this.userAccess.hasPremiumChangeInquiryAccess = hasPremiumChangeInquiryAccess;
                 await Promise.all(this.makePrimaryPromises());
             }
         } else if (result.error) {
@@ -269,6 +275,7 @@ export default class PolicyActions extends NavigationMixin(LightningElement) {
     @wire(getRecord, {
         recordId: USER_ID,
         fields: [
+            PROFILE_NAME,
             SERVICING_AGENT_ASSOC_ID,
             USER_CRITERIA,
             SUBUSER_TYPE
@@ -278,6 +285,7 @@ export default class PolicyActions extends NavigationMixin(LightningElement) {
     getUserRecordData(result) {
         if (result.data) {
             this.loggedInAgentAssociateId = getFieldValue(result.data, SERVICING_AGENT_ASSOC_ID);
+            this.loggedInProfile = getFieldValue(result.data, PROFILE_NAME);
             this.loggedInUserCriteria = getFieldValue(result.data, USER_CRITERIA); //added by shruti
             this.loggedInSubuser = getFieldValue(result.data, SUBUSER_TYPE); //added by shruti
         }
@@ -395,6 +403,9 @@ export default class PolicyActions extends NavigationMixin(LightningElement) {
         const toofLinkPromise = getFeatureAccessMetadataBySubuserType('PolicyActions_ToofPolicy')
             .then(data => { this.handleAccessAssignment(data, 'hasToofLinkAccess') });
 
+        /*const autoIdCardPromise = getFeatureAccessMetadataBySubuserType('PolicyActions_AutoIDCard')
+            .then( data => { this.userAccess.hasAutoIdCardAccess = data && data.read ? data.read : false; });
+        */
         const autoIdCardforSubuserTypePromise = getFeatureAccessMetadataBySubuserType('PolicyActions_AutoIDCard')
             .then(data => { this.handleAccessAssignment(data, 'hasAutoIdCardAccessforSubuserType') });
         const autoIdCardforUserCriteriaPromise = getFeatureAccessMetadataByUserCriteria('PolicyActions_AutoIDCard')
@@ -427,6 +438,7 @@ export default class PolicyActions extends NavigationMixin(LightningElement) {
             groupPromise,
             policyTransactionPromise,
             toofLinkPromise,
+            //autoIdCardPromise,
             autoIdCardforSubuserTypePromise,
             autoIdCardforUserCriteriaPromise,
             BOSPromise,
@@ -476,7 +488,7 @@ export default class PolicyActions extends NavigationMixin(LightningElement) {
             lob: this.lob,
             encodedDescription: this.encodedDescription,
             agentAssociateId: this.agentAssociateId,
-            outOfBook: isOutOfBookPolicy(this.agentAssociateId, this.loggedInSubuser, this.loggedInAgentAssociateId),
+            outOfBook: isOutOfBookPolicy(this.agentAssociateId, this.loggedInProfile, this.loggedInAgentAssociateId),
             accessKey: this.agreementAccessKey,
             isStatusTerminated: this.isStatusTerminated,
             isMultiCarAuto: this.isMultiCarAuto,
@@ -517,6 +529,8 @@ export default class PolicyActions extends NavigationMixin(LightningElement) {
                     this.riskDescription = message.riskDescription;
 
                     await this.makeDescriptionPromise();
+                    this.userAccess.hasSAEPolicyChangeAccess = hasSAEPolicyChangeAccess;
+                    // this.userAccess.hasPremiumChangeInquiryAccess = hasPremiumChangeInquiryAccess;
                     await Promise.all(this.makePrimaryPromises());
 
                     this.isLoading = false;

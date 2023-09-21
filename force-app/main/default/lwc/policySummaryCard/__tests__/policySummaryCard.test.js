@@ -40,7 +40,6 @@ const autoLegacyMultiCar = require('./data/happyMultiCarAutoPolicy.json');
 const autoModMultiCar = require('./data/modAutoMultiCarPolicy.json');
 const autoModCommercial = require('./data/modCommercialAuto.json');
 const autoAntique = require('./data/antiqueAuto.json');
-const autoHDC = require('./data/hagertyDriversClubAuto.json');
 const autoModSingleRisk = require('./data/autoModSingleRisk.json');
 const fleetPolicy = require('./data/fleetPolicy.json');
 const homeownersPolicy = require('./data/happyFirePolicyData.json');
@@ -100,6 +99,7 @@ jest.mock(
     '@salesforce/apex/InsurancePolicyController.getAccountData',
     () => ({ default: jest.fn() }), { virtual: true }
 );
+jest.mock('@salesforce/customPermission/SAE_Policy_Change', () => ({ default: false }), { virtual: true });
 jest.mock("@salesforce/customPermission/PolicySummary_SupportAccess", () => ({ default: true }), { virtual: true });
 jest.mock("@salesforce/customPermission/PolicySummary_EarlyAccess", () => ({ default: false }), { virtual: true });
 
@@ -2017,7 +2017,7 @@ describe('c-policy-summary-card', () => {
 
         await flushPromises();
         expect(logException).not.toHaveBeenCalled();
-        expect(window.open).toHaveBeenCalledWith('/c/ExternalLinkApp.app?linkId=258&intent=changePolicy&agreementNumber=131E621302&stateAgentCode=13-8475');
+        expect(window.open).toHaveBeenCalledWith('/apex/VFP_ExternalLink?LinkId=258&intent=changePolicy&agreementNumber=131E621302&stateAgentCode=13-8475');
         expect(createPolicyTransactionCase).toHaveBeenCalledWith({
             "inputData": {
                 "accountRecordId": "0012C00000h2hkaQAA",
@@ -2076,7 +2076,7 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
 
         await flushPromises();
         expect(logException).not.toHaveBeenCalled();
-        expect(window.open).toHaveBeenCalledWith('/c/ExternalLinkApp.app?linkId=258&intent=changePolicy&agreementNumber=131E621302&stateAgentCode=13-8475');
+        expect(window.open).toHaveBeenCalledWith('/apex/VFP_ExternalLink?LinkId=258&intent=changePolicy&agreementNumber=131E621302&stateAgentCode=13-8475');
         expect(createPolicyTransactionCase).toHaveBeenCalledWith({
             "inputData": {
                 "accountRecordId": "0012C00000h2hkaQAA",
@@ -2137,7 +2137,7 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
 
         await flushPromises();
         expect(logException).not.toHaveBeenCalled();
-        expect(window.open).toHaveBeenCalledWith('/c/ExternalLinkApp.app?linkId=258&intent=changePolicy&agreementNumber=131E621302&stateAgentCode=13-8475');
+        expect(window.open).toHaveBeenCalledWith('/apex/VFP_ExternalLink?LinkId=258&intent=changePolicy&agreementNumber=131E621302&stateAgentCode=13-8475');
         expect(createPolicyTransactionCase).toHaveBeenCalledWith({
             "inputData": {
                 "accountRecordId": "0012C00000h2hkaQAA",
@@ -2201,7 +2201,7 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
         await flushPromises();
 
         expect(logException).not.toHaveBeenCalled();
-        expect(window.open).not.toHaveBeenCalledWith('/c/ExternalLinkApp.app?linkId=9&accountId=0012C00000h2hkVQAQ&agreementIndexId=429006271&clientnamelinkdisabled=Y&NechoAppName=policy&key=14-CV-Y582-5&lineOfBusiness=F&agentAssocId=KRLYT3JX000');
+        expect(window.open).not.toHaveBeenCalledWith('/apex/VFP_ExternalLink?LinkId=9&accountId=0012C00000h2hkVQAQ&agreementIndexId=429006271&clientnamelinkdisabled=Y&NechoAppName=policy&key=14-CV-Y582-5&lineOfBusiness=F&agentAssocId=KRLYT3JX000');
         expect(createPolicyTransactionCase).toHaveBeenCalledWith({
             "inputData": {
                 "accountRecordId": "001R000001mOe0CIAS",
@@ -2268,7 +2268,7 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
         await flushPromises();
 
         expect(logException).not.toHaveBeenCalled();
-        expect(window.open).toHaveBeenCalledWith('/c/ExternalLinkApp.app?linkId=9&accountId=PrimaryParticipantAccountId&agreementIndexId=341448257&clientnamelinkdisabled=Y&NechoAppName=main toc&key=LF-3348-1872&lineOfBusiness=L&agentAssocId=ZKYH31YS000');
+        expect(window.open).toHaveBeenCalledWith('/apex/VFP_ExternalLink?LinkId=9&accountId=PrimaryParticipantAccountId&agreementIndexId=341448257&clientnamelinkdisabled=Y&NechoAppName=main toc&key=LF-3348-1872&lineOfBusiness=L&agentAssocId=ZKYH31YS000');
         expect(createPolicyTransactionCase).toHaveBeenCalledWith({
             "inputData": {
                 "accountRecordId": "0012C00000h2hkYQAQ",
@@ -2342,7 +2342,7 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
         await flushPromises();
 
         expect(logException).not.toHaveBeenCalled();
-        expect(window.open).toHaveBeenCalledWith('/c/ExternalLinkApp.app?linkId=9&accountId=PrimaryParticipantAccountId&agreementIndexId=341448257&clientnamelinkdisabled=Y&NechoAppName=main toc&key=LF-3348-1872&lineOfBusiness=L&agentAssocId=ZKYH31YS000');
+        expect(window.open).toHaveBeenCalledWith('/apex/VFP_ExternalLink?LinkId=9&accountId=PrimaryParticipantAccountId&agreementIndexId=341448257&clientnamelinkdisabled=Y&NechoAppName=main toc&key=LF-3348-1872&lineOfBusiness=L&agentAssocId=ZKYH31YS000');
         expect(createPolicyTransactionCase).toHaveBeenCalledWith({
             "inputData": {
                 "accountRecordId": "PrimaryParticipantAccountId",
@@ -2402,7 +2402,7 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
         await flushPromises();
 
         expect(logException).not.toHaveBeenCalled();
-        expect(window.open).toHaveBeenCalledWith('/c/ExternalLinkApp.app?linkId=9&accountId=0012C00000h2hkYQAQ&agreementIndexId=341448257&clientnamelinkdisabled=Y&NechoAppName=main toc&key=LF-3348-1872&lineOfBusiness=L&agentAssocId=ZKYH31YS000');
+        expect(window.open).toHaveBeenCalledWith('/apex/VFP_ExternalLink?LinkId=9&accountId=0012C00000h2hkYQAQ&agreementIndexId=341448257&clientnamelinkdisabled=Y&NechoAppName=main toc&key=LF-3348-1872&lineOfBusiness=L&agentAssocId=ZKYH31YS000');
         expect(createPolicyTransactionCase).toHaveBeenCalledWith({
             "inputData": {
                 "accountRecordId": "0012C00000h2hkYQAQ",
@@ -2487,7 +2487,7 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
         await flushPromises();
 
         expect(logException).not.toHaveBeenCalled();
-        expect(window.open).toHaveBeenCalledWith('/c/ExternalLinkApp.app?linkId=9&accountId=0012C00000h2hkYQAQ&agreementIndexId=341448258&clientnamelinkdisabled=Y&NechoAppName=main toc&key=XXXXXXX 0039&lineOfBusiness=H&agentAssocId=ZKYH31YS000');
+        expect(window.open).toHaveBeenCalledWith('/apex/VFP_ExternalLink?LinkId=9&accountId=0012C00000h2hkYQAQ&agreementIndexId=341448258&clientnamelinkdisabled=Y&NechoAppName=main toc&key=XXXXXXX 0039&lineOfBusiness=H&agentAssocId=ZKYH31YS000');
         expect(createPolicyTransactionCase).toHaveBeenCalledWith({
             "inputData": {
                 "accountRecordId": "0012C00000h2hkYQAQ",
@@ -2543,7 +2543,7 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
 
         await flushPromises();
         expect(logException).not.toHaveBeenCalled();
-        expect(window.open).toHaveBeenCalledWith('/c/ExternalLinkApp.app?linkId=9&accountId=0012C00000h2hkXQAQ&agreementIndexId=424149269&clientnamelinkdisabled=Y&NechoAppName=policy&key=131 6408-E20-31&lineOfBusiness=A&agentAssocId=P4XSN1YS000');
+        expect(window.open).toHaveBeenCalledWith('/apex/VFP_ExternalLink?LinkId=9&accountId=0012C00000h2hkXQAQ&agreementIndexId=424149269&clientnamelinkdisabled=Y&NechoAppName=policy&key=131 6408-E20-31&lineOfBusiness=A&agentAssocId=P4XSN1YS000');
         expect(createPolicyTransactionCase).toHaveBeenCalledWith({
             "inputData": {
                 "accountRecordId": "0012C00000h2hkXQAQ",
@@ -2797,7 +2797,7 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
         await flushPromises();
         expect(logException).not.toHaveBeenCalled();
         expect(createPolicyTransactionCase).not.toHaveBeenCalled();
-        expect(window.open).toHaveBeenCalledWith('/c/ExternalLinkApp.app?linkId=210&accountId=0012C00000h2hkXQAQ&companyCode=0001&policyNumber=1316408E2031&lineOfBusiness=A');
+        expect(window.open).toHaveBeenCalledWith('/apex/VFP_ExternalLink?LinkId=210&accountId=0012C00000h2hkXQAQ&companyCode=0001&policyNumber=1316408E2031&lineOfBusiness=A');
         assertActions(logClickCardActionBos);
     });
     it('should click COI for fire', async () => {
@@ -2831,7 +2831,7 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
         await flushPromises();
         expect(logException).not.toHaveBeenCalled();
         expect(createPolicyTransactionCase).not.toHaveBeenCalled();
-        expect(window.open).toHaveBeenCalledWith('/c/ExternalLinkApp.app?linkId=211&regionCode=18&policyNumber=14CVY5825&policyType=V&lineOfBusiness=F');
+        expect(window.open).toHaveBeenCalledWith('/apex/VFP_ExternalLink?LinkId=211&regionCode=18&policyNumber=14CVY5825&policyType=V&lineOfBusiness=F');
 
         assertActions(logClickCardActionCoi);
     });
@@ -2866,7 +2866,7 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
         await flushPromises();
         expect(logException).not.toHaveBeenCalled();
         expect(createPolicyTransactionCase).not.toHaveBeenCalled();
-        expect(window.open).toHaveBeenCalledWith('/c/ExternalLinkApp.app?linkId=264&clientId=JSJ541MF00S');
+        expect(window.open).toHaveBeenCalledWith('/apex/VFP_ExternalLink?LinkId=264&clientId=JSJ541MF00S');
 
         assertActions(logClickCardActionCoi);
     });
@@ -3405,41 +3405,6 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
         expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=loading-spinner]')).toBeFalsy();
 
         expect(getAccountData).not.toHaveBeenCalled()
-    });
-    it('should not render enhanced button for Hagerty Drivers Club', async () => {
-        getGroupPolicyStatus.mockResolvedValueOnce(false);
-        callout.mockResolvedValueOnce(dvl200);
-
-        policySummaryCardComp.policy = autoHDC;
-        policySummaryCardComp.userAccess = {};
-        policySummaryCardComp.plmActivationStatus = {};
-        policySummaryCardComp.accountPageRecordId = {};
-        policySummaryCardComp.isHousehold = {};
-        policySummaryCardComp.accountList = {};
-        policySummaryCardComp.loggedInSubuser = {};
-        document.body.appendChild(policySummaryCardComp);
-
-        await flushPromises();
-
-        expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=launch-policy]').textContent).toEqual(autoHDC.Name);
-        expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=list-item-desc]').textContent).toEqual(autoHDC.PolicyName);
-        expect(logException).not.toHaveBeenCalled();
-
-        expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=enhance-button]')).toBeFalsy();
-
-        await flushPromises();
-
-        expect(callout).toHaveBeenCalledTimes(0);
-        expect(logException).not.toHaveBeenCalled();
-        expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=loading-spinner]')).toBeFalsy();
-
-        policySummaryCardComp.enhancePolicy();
-
-        await flushPromises();
-
-        expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=loading-spinner]')).toBeFalsy();
-        expect(logException).not.toHaveBeenCalled();
-        expect(callout).toHaveBeenCalledTimes(0);
     });
 
     it('should query account for missing driver names', async () => {

@@ -1,0 +1,106 @@
+{
+    "apiName" : "User",
+    "childRelationships" : { },
+    "eTag" : "b66098ff6ddfda1eb8192843c3e61c48",
+    "fields" : {
+      "AboutMe" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "City" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "ClicktoDialPreference__c" : {
+        "displayValue" : "1-With area code and phone number",
+        "value" : "11"
+      },
+      "CompanyName" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "Country" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "Email" : {
+        "displayValue" : null,
+        "value" : "luke.smith.jiku@statefarm.com"
+      },
+      "Fax" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "FirstName" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "Flag_DoNotProcess__c" : {
+        "displayValue" : null,
+        "value" : false
+      },
+      "Flag_IsCallCenterIdUpdateRequired__c" : {
+        "displayValue" : null,
+        "value" : false
+      },
+      "IsPrimaryUser__c" : {
+        "displayValue" : null,
+        "value" : true
+      },
+      "LastName" : {
+        "displayValue" : null,
+        "value" : "System"
+      },
+      "Manager" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "ManagerId" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "MiddleName" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "MobilePhone" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "Phone" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "PostalCode" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "State" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "Street" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "SubUserType__c" : {
+        "fieldApiName": "SubUserType__c",
+        "objectApiName": "User"
+      },
+      "Suffix" : {
+        "displayValue" : null,
+        "value" : null
+      },
+      "Title" : {
+        "displayValue" : null,
+        "value" : null
+      }
+    },
+    "id" : "00546000000KmegAAC",
+    "lastModifiedById" : "00546000000KmegAAC",
+    "lastModifiedDate" : "2017-12-02T08:47:55.000Z",
+    "recordTypeId" : null,
+    "recordTypeInfo" : null,
+    "systemModstamp" : "2019-08-27T00:57:26.000Z",
+    "weakEtag" : 1566867446000
+  }

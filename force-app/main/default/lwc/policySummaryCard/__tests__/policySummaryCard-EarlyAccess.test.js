@@ -39,6 +39,7 @@ jest.mock(
         })
     }), { virtual: true }
 );
+jest.mock('@salesforce/customPermission/SAE_Policy_Change', () => ({ default: false }), { virtual: true });
 jest.mock("@salesforce/customPermission/PolicySummary_SupportAccess", () => ({ default: false }), { virtual: true });
 jest.mock("@salesforce/customPermission/PolicySummary_EarlyAccess", () => ({ default: true }), { virtual: true });
 

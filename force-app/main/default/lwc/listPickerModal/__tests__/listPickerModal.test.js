@@ -5,7 +5,6 @@ const TITLE = 'ListPickerTest';
 const PAGE_SIZE = 3;
 
 const items = require('./data/items.json');
-const duplicateItems = require('./data/duplicateItems.json');
 
 describe('List Picker Modal Component', () => {
 
@@ -50,67 +49,6 @@ function flushPromises() {
 
 
     });
-
-    it('List Picker Modal Duplicate Items Path Loaded', async () => {
-
-        listPickerModalInstance.list = duplicateItems;
-        document.body.appendChild(listPickerModalInstance);
-        await flushPromises();
-        // Verify Page Title
-        let titleField = listPickerModalInstance.shadowRoot.querySelector('[data-id="title"]');
-        expect(titleField.textContent).toEqual(TITLE);
-
-        // Verify the first link is loaded, this will be more throughly tested when focusing on pagination.
-        const itemList = listPickerModalInstance.shadowRoot.querySelector('[data-id="itemList"]');
-        const itemListButtons = itemList.querySelectorAll('lightning-button');
-        expect(itemListButtons.length).toEqual(PAGE_SIZE);
-        expect(itemListButtons[0].label).toEqual("Kirk");
-
-
-    });
-
-    it('List Picker options testing', async () => {
-        let a = {"Value": "1", "label": "A"};
-        let b = {"Value": "2", "label": "B"};
-        let c = {"Value": "3", "label": "a"};
-
-        listPickerModalInstance.list = [b, a];
-        document.body.appendChild(listPickerModalInstance);
-        expect(listPickerModalInstance.sortedList).toEqual([a, b]);
-
-        listPickerModalInstance.list = [a, b];
-        document.body.appendChild(listPickerModalInstance);
-        expect(listPickerModalInstance.sortedList).toEqual([a, b]);
-
-        listPickerModalInstance.list = [c, a];
-        document.body.appendChild(listPickerModalInstance);
-        expect(listPickerModalInstance.sortedList).toEqual([c, a]);
-
-        listPickerModalInstance.list = [a, c];
-        document.body.appendChild(listPickerModalInstance);
-        expect(listPickerModalInstance.sortedList).toEqual([a, c]);
-
-        listPickerModalInstance.list = [b, c];
-        document.body.appendChild(listPickerModalInstance);
-        expect(listPickerModalInstance.sortedList).toEqual([c, b]);
-
-        listPickerModalInstance.list = [c, b];
-        document.body.appendChild(listPickerModalInstance);
-        expect(listPickerModalInstance.sortedList).toEqual([c, b]);
-
-        listPickerModalInstance.list = [a, b, c];
-        document.body.appendChild(listPickerModalInstance);
-        expect(listPickerModalInstance.sortedList).toEqual([a, c, b]);
-
-        listPickerModalInstance.list = [b, a, c];
-        document.body.appendChild(listPickerModalInstance);
-        expect(listPickerModalInstance.sortedList).toEqual([a, c, b]);
-
-        listPickerModalInstance.list = [c, b, a];
-        document.body.appendChild(listPickerModalInstance);
-        expect(listPickerModalInstance.sortedList).toEqual([c, a, b]);
-    });
-
 
     it('List Picker Modal Click a Link', async () => {
 

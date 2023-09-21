@@ -162,7 +162,7 @@ export const buildActionsList = async(userAccess, params) => {
 export const launchWebNecho = (nechoAppName, linkParams) => {
     if (linkParams.agentAssociateId) {
         window.open(
-            `/c/ExternalLinkApp.app?linkId=9&accountId=${linkParams.accountRecordId}` +
+            `/apex/VFP_ExternalLink?LinkId=9&accountId=${linkParams.accountRecordId}` +
             `&agreementIndexId=${linkParams.agreementIndexId}` +
             `&clientnamelinkdisabled=Y&NechoAppName=${nechoAppName}` +
             `&key=${linkParams.policyNumber}` +
@@ -171,7 +171,7 @@ export const launchWebNecho = (nechoAppName, linkParams) => {
         );
     } else {
         window.open(
-            `/c/ExternalLinkApp.app?linkId=69&accountId=${linkParams.accountRecordId}` +
+            `/apex/VFP_ExternalLink?LinkId=69&accountId=${linkParams.accountRecordId}` +
             `&agreementIndexId=${linkParams.agreementIndexId}` +
             `&clientnamelinkdisabled=Y&NechoAppName=${nechoAppName}` +
             `&key=${linkParams.policyNumber}` +
@@ -183,7 +183,7 @@ export const launchWebNecho = (nechoAppName, linkParams) => {
 export const launchAutoPolicyAction = (apvLinkParams) => {
     if (apvLinkParams.sourceSystemCode === PERSONAL_AUTO_MOD_CD) {
         window.open(
-            `/c/ExternalLinkApp.app?linkId=269` +
+            `/apex/VFP_ExternalLink?LinkId=269` +
             `&agreementIndexId=${apvLinkParams.agreementIndexId}` +
             `&agreementNumber=${apvLinkParams.agreAccessKey}` +
             `&applicationName=Auto` +
@@ -191,8 +191,8 @@ export const launchAutoPolicyAction = (apvLinkParams) => {
         );
     } else if (apvLinkParams.sourceSystemCode === HAGERTY_CD) {
         window.open(
-            `/c/ExternalLinkApp.app?` +
-            `linkId=258&` +
+            `/apex/VFP_ExternalLink?` +
+            `LinkId=258&` +
             `intent=changePolicy&` +
             `agreementNumber=${apvLinkParams.agreAccessKey}&` +
             `stateAgentCode=${apvLinkParams.stateAgentCode}`
@@ -202,13 +202,13 @@ export const launchAutoPolicyAction = (apvLinkParams) => {
         if (apvLinkParams.agentAssociateId) {
             const formattedStateAgentCode = removeSpacesDashes(apvLinkParams.stateAgentCode); //apvLinkParams.stateAgentCode.replaceAll(' ', '').replaceAll('-', '');
             window.open(
-                `/c/ExternalLinkApp.app?linkId=21&Key=${apvLinkParams.lob + formattedPolicyNumber + apvLinkParams.riskNumber}` +
+                `/apex/VFP_ExternalLink?LinkId=21&Key=${apvLinkParams.lob + formattedPolicyNumber + apvLinkParams.riskNumber}` +
                 `&absclient=${apvLinkParams.accountClientId}` +
                 `&StateAgentCode=${formattedStateAgentCode}`
             );
         } else {
             window.open(
-                `/c/ExternalLinkApp.app?linkId=101&Key=${apvLinkParams.lob + formattedPolicyNumber + apvLinkParams.riskNumber}` +
+                `/apex/VFP_ExternalLink?LinkId=101&Key=${apvLinkParams.lob + formattedPolicyNumber + apvLinkParams.riskNumber}` +
                 `&absclient=${apvLinkParams.accountClientId}`
             );
         }
@@ -224,7 +224,7 @@ export const launchAutoPolicyAction = (apvLinkParams) => {
 export const launchFirePolicyAction = (fpvParamObject) => {
     if (fpvParamObject.sourceSystemCode === PERSONAL_FIRE_MOD_CD) {
         window.open(
-            `/c/ExternalLinkApp.app?linkId=96` +
+            `/apex/VFP_ExternalLink?LinkId=96` +
             `&agreementIndexId=${fpvParamObject.agreementIndexId}` +
             `&intent=changePolicy`
         );
@@ -265,7 +265,7 @@ export const launchEmailAutoIDCard = async(accountContext, policyNumber, compone
 
 export const launchBillingOnlineSystem = (accountRecordId, companyCode, policyNumber, lob) => {
     window.open(
-        `/c/ExternalLinkApp.app?linkId=210&accountId=${accountRecordId}` +
+        `/apex/VFP_ExternalLink?LinkId=210&accountId=${accountRecordId}` +
         `&companyCode=${companyCode}` +
         `&policyNumber=${policyNumber.replace(/-|\s/g, "")}` +
         `&lineOfBusiness=${lob}`
@@ -276,7 +276,7 @@ export const launchCertificateOfInsurance = (masterDataLocationCode, policyNumbe
 
     if ( lob === FIRE && policyTypeCode === CONDO_POLICY_TYPE) {
     window.open(
-        `/c/ExternalLinkApp.app?linkId=211` +
+        `/apex/VFP_ExternalLink?LinkId=211` +
         `&regionCode=${masterDataLocationCode}` +
         `&policyNumber=${policyNumber.replace(/-|\s/g, "")}` +
         `&policyType=${policyTypeCode}` +
@@ -284,7 +284,7 @@ export const launchCertificateOfInsurance = (masterDataLocationCode, policyNumbe
     );
     } else {
         window.open(
-            `/c/ExternalLinkApp.app?linkId=264` +
+            `/apex/VFP_ExternalLink?LinkId=264` +
             `&clientId=${clientId}`
         );
     }

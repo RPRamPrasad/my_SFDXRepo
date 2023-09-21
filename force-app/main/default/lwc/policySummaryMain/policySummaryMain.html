@@ -1,0 +1,163 @@
+<template>
+    <!-- LOB Rollup, Policy Summary Search -->
+    <div class="slds-grid slds-m-bottom_small">
+        <div class="slds-col slds-size_1-of-4 rollup">
+            <div class="slds-m-left_medium slds-m-top_medium">
+                <template for:each={policiesByLob} for:item="lob">
+                    <c-policy-summary-lob-icon lob={lob.lob} key={lob.lob}></c-policy-summary-lob-icon><span key={lob.lob} class="slds-m-right_medium slds-m-left_xx-small"><strong>{lob.length}</strong></span>
+                </template>
+            </div>
+        </div>
+        <div class="slds-col">
+            <!-- Policy Summary Search -->
+            <c-policy-summary record-id={recordId} is-new-summary></c-policy-summary>
+        </div>
+    </div>
+
+    <div class="slds-var-p-around_small card-border">
+        
+        <!-- Summary Buttons: View selector, filter list, Status switch -->
+        <span class="slds-grid slds-m-bottom_x-small">
+
+            <!-- View Selectors and Filter buttons -->
+            <span class="slds-m-right_small">
+                <lightning-button-group>
+                    <lightning-button-icon-stateful data-id="card-view-button"
+                        icon-name="utility:ad_set"
+                        selected={policyCardView}
+                        alternative-text="Policy Grid"
+                        onclick={showPolicyCard}
+                        variant="border-filled">
+                    </lightning-button-icon-stateful>
+                    <lightning-button-icon-stateful data-id="list-view-button"
+                        icon-name="utility:list"
+                        selected={policyListView}
+                        alternative-text="Policy List"
+                        onclick={showPolicyList}
+                        variant="border-filled">
+                    </lightning-button-icon-stateful>
+                </lightning-button-group>
+            </span>
+
+            <!-- Status Toggle -->
+            <span class="slds-m-right_small">
+                <lightning-input data-id="toggle-status"
+                    type="toggle"
+                    checked
+                    onchange={toggleStatus}
+                    message-toggle-active="Active"
+                    message-toggle-inactive="Inactive">
+                </lightning-input>
+            </span>
+
+            <template if:true={showingActive}>
+                <template if:true={policyCardView}>
+                    <span>
+                        <lightning-button
+                            variant="brand"
+                            label="Show More Details"
+                            title="Show More Details"
+                            disabled={disableEnhance}
+                            onclick={enhanceAllPolicies}
+                            data-id="enhanceAllButton"
+                            icon-name="utility:sparkles">
+                        </lightning-button>
+                    </span>
+                    <lightning-helptext content="Show more details for all applicable policies." class="slds-m-top_xxx-small slds-p-top_xxx-small"></lightning-helptext>
+                </template>
+            </template>
+        </span>
+
+        <!-- Summary Body -->
+        <div onalertclick={handleAlertClick}>
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading" size="large" data-id="loading-spinner"></lightning-spinner>
+            </template>
+            <template if:false={isLoading}>
+
+                <lightning-accordion
+                    allow-multiple-sections-open
+                    active-section-name={activeSections} data-id="active-sections"
+                >
+                    <!-- Expand/Collapse Buttons -->
+                    <template if:true={policyCardView}>
+                        <lightning-button variant="base" label="Expand" title="Expand" onclick={handleExpand} class="slds-m-right_medium" data-id="handle-expand"></lightning-button>
+                        <lightning-button variant="base" label="Collapse" title="Collapse" onclick={handleCollapse} data-id="handle-collapse"></lightning-button>
+                    </template>
+                    <template if:true={policyListView}>
+                        <div class="slds-grid list-header">
+                            <div class="slds-p-left_small type-column"><br/>Type</div>
+                            <div class="slds-p-left_large number-column"><br/>Number</div>
+                            <div class="risk-column"><br/>Risks</div>
+                            <div class="agent-column"><br/>Agent</div>
+                            <div class="insured-column"><br/>Insureds</div>
+                            <div class="date-column">Inception<br/><template if:true={showingActive}>Renewal</template><template if:false={showingActive}>Termination</template></div>
+                            <div class="bill-column"><br/>Billing accounts</div>
+                            <div class="claim-column"><br/>Open Claims</div>
+                            <div class="slds-p-left_xx-small alert-column"><br/>Alerts</div>
+                            <div class="action-column"><br/>Actions</div>
+                        </div>
+                        <div class="list-divider slds-m-bottom_small"></div>
+                    </template>
+
+                    <template for:each={policiesByLob} for:item="policyLob">
+                        <template if:true={policyLob.length}>
+
+                                <!-- Policy List View -->
+                                <template if:true={policyListView}>
+                                    <template for:each={policyLob.policies} for:item="policy">
+                                        <c-policy-summary-list data-id="policy-list"
+                                            policy={policy} 
+                                            user-access={userAccess} 
+                                            plm-activation-status={plmActivationStatus}
+                                            logged-in-subuser={loggedInSubuser}
+                                            account-page-record-id={recordId}
+                                            is-household={isHousehold}
+                                            account-list={accountList}
+                                            key={policy.Id}>
+                                        </c-policy-summary-list>
+                                    </template>
+                                </template>
+
+                                <!-- Policy Card View -->
+                                <template if:true={policyCardView}>
+                                    <lightning-accordion-section key={policyLob.lob} name={policyLob.lob} label={policyLob.lob} data-id="policy-lob">
+                                        <div class="slds-grid slds-wrap slds-gutters_x-small">
+                                            <template for:each={policyLob.policies} for:item="policy">
+                                                <div class="slds-col slds-size_1-of-2" key={policy.Id}>
+                                                    <c-policy-summary-card data-id="policy"
+                                                        policy={policy} 
+                                                        user-access={userAccess} 
+                                                        plm-activation-status={plmActivationStatus} 
+                                                        logged-in-subuser={loggedInSubuser}
+                                                        account-page-record-id={recordId}
+                                                        is-household={isHousehold}
+                                                        account-list={accountList}>
+                                                    </c-policy-summary-card>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </lightning-accordion-section>
+                                </template>
+
+                        </template>
+                    </template>
+
+                </lightning-accordion>
+
+                <!-- no policies -->
+                <template if:false={policiesByStatus.length}>
+
+                    <div class="slds-align_absolute-center slds-m-bottom_medium">
+                        <lightning-icon icon-name="utility:search" size="large"></lightning-icon>
+                    </div>
+                    <div class="slds-text-heading_small slds-align_absolute-center slds-m-bottom_large">
+                        <span data-id="no-policies">No policies to display with the selected status</span>
+                        <lightning-helptext class="slds-m-left_xx-small" content="Policies are selected with the toggle above. Switch the toggle to see if other policies exist."></lightning-helptext>
+                    </div>
+
+                </template>
+            </template>
+        </div>
+    </div>
+</template>

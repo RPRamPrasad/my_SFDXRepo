@@ -1,5 +1,6 @@
 import { LightningElement, api } from 'lwc';
-import logAgentStatusTrackerOpen from '@salesforce/apex/DssBeaconReorderController.logAgentStatusTrackerOpen';
+import logAgentStatusTrackerOpen from '@salesforce/apex/PremiumChangeController.logAgentStatusTrackerOpen';
+
 
 export default class AgentStatusTracker extends LightningElement {
     @api isModalOpen;  

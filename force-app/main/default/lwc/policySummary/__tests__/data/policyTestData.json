@@ -1,0 +1,370 @@
+{
+    "policies": [
+        {
+            "Id": "0YT2a000000H5gyGAC",
+            "PolicyType": "Auto",
+            "Status": "In Force"
+        },
+        {
+            "Id": "0YT2a000000gxxPGAQ",
+            "PolicyType": "Fire",
+            "Status": "Suspended"
+        },
+        {
+            "Id": "salesforceId3",
+            "PolicyType": "Fire",
+            "Status": "Terminated"
+        },
+        {
+            "Id": "0YT2a000001ZQs3GAG",
+            "PolicyType": "Life",
+            "Status": "Proposed"
+        },
+        {
+            "Id": "0YT2a000000cLOvGAM",
+            "PolicyType": "Health",
+            "Status": "In Force"
+        },
+        {
+            "Id": "salesforceId6",
+            "PolicyType": "Bank",
+            "Status": "Terminated"
+        },
+        {
+            "Id": "salesforceId7",
+            "PolicyType": "Auto",
+            "Status": "In Force"
+        }
+    ],
+    "policiesForSearch": [
+        {
+            "AgreSourceSysCd__c": "1",
+            "EffectiveDate": "1995-10-24T12:00:00.000+0000",
+            "Id": "0YT2a000000H5gyGAC",
+            "Name": "033 4478-D24-43R",
+            "PolicyDescription": "Fleet:\n1999 Jeep Wrangler Sport Wg\n2001 Park Flatbed Trl\n2006 Chevrolet Cargo Van\n2006 Ford Box Van\n2007 Chevrolet Silv Hd Pick Up\n2007 Ford Econoline Box Van\n2008 Ford E350 Box Van\n2009 Ford E350 Van\n2010 Ford E350 Crgo Van\n2010 Ford F250 Pickup\n2012 Ford Econoline Box Trk\n2013 Ford E350 Crgo Van\n2013 Ford E350 Util Trk\n2014 Ford E350 Util Trk\n2015 Chevrolet 3500 Fltbdtrk\n2015 Chevrolet 3500 Pickup\n2015 Chevrolet Express Crgo Van\n2015 Ford F150 Pickup\n2016 Ram 2500 Crgo Van\n2018 Ford Transit Box Trk\n2018 Lexus Rx350 Sport Wg\n2019 Ford T350 Util Trk\nNonowned Auto",
+            "PolicyName": "Fleet",
+            "PolicyType": "Auto",
+            "RenewalDate": "2020-10-24T12:00:00.000+0000",
+            "Servicing_Agent__c": "005o0000003JBxaAAG",
+            "SFDCPolicyNumberSearchKey__c": "0334478D2443R",
+            "Status": "In Force",
+            "InsurancePolicyAssets": [
+                {
+                    "AssetName": "1999 Ford Utility Truck",
+                    "Id": "0YW2a0000009skmGAA",
+                    "VIN__c": "1FDWW3654XEE03257"
+                },
+                {
+                    "AssetName": "2000 Ramplit Dump Trl",
+                    "Id": "0YW2a0000009sknGAA",
+                    "VIN__c": "132HD1223Y1003775"
+                },
+                {
+                    "AssetName": "Nonowned Auto",
+                    "Id": "0YW2a0000009slCGAQ",
+                    "VIN__c": null
+                },
+                {
+                    "AssetName": "2019 Ford T350 Util Trk",
+                    "Id": "0YW2a0000009slBGAQ",
+                    "VIN__c": "1FDBW5PM9KKL76970"
+                },
+                {
+                    "AssetName": "2000 Ford Flatbed Truck",
+                    "Id": "0YW2a0000009skoGAA",
+                    "VIN__c": "1FDXW47FXYEX23540"
+                },
+                {
+                    "AssetName": "2001 Park Flatbed Trl",
+                    "Id": "0YW2a0000009skpGAA",
+                    "VIN__c": "13ZHC202411005215"
+                },
+                {
+                    "AssetName": "1999 Jeep Wrangler Sport Wg",
+                    "Id": "0YW2a0000009skqGAA",
+                    "VIN__c": "1J4FY49S8XP933073"
+                },
+                {
+                    "AssetName": "2006 Chevrolet Cargo Van",
+                    "Id": "0YW2a0000009skrGAA",
+                    "VIN__c": "1GCGG29V061468513"
+                },
+                {
+                    "AssetName": "2007 Chevrolet Silv Hd Pick Up",
+                    "Id": "0YW2a0000009sksGAA",
+                    "VIN__c": "1GBJC39U47E370145"
+                },
+                {
+                    "AssetName": "2008 Ford E350 Box Van",
+                    "Id": "0YW2a0000009sktGAA",
+                    "VIN__c": "1FDSE35L88DF29842"
+                },
+                {
+                    "AssetName": "2006 Ford Box Van",
+                    "Id": "0YW2a0000009skuGAA",
+                    "VIN__c": "1FDSE35L26HF46514"
+                },
+                {
+                    "AssetName": "2007 Ford Econoline Box Van",
+                    "Id": "0YW2a0000009skvGAA",
+                    "VIN__c": "1FDSE35L87DF33100"
+                },
+                {
+                    "AssetName": "2009 Ford E350 Van",
+                    "Id": "0YW2a0000009skwGAA",
+                    "VIN__c": "1FDSW35LX9DF39495"
+                },
+                {
+                    "AssetName": "2010 Ford E350 Crgo Van",
+                    "Id": "0YW2a0000009skxGAA",
+                    "VIN__c": "1FDSE3FL74DL63481"
+                },
+                {
+                    "AssetName": "2013 Ford E350 Crgo Van",
+                    "Id": "0YW2a0000009skyGAA",
+                    "VIN__c": "1FDWE3FL1DDF99659"
+                },
+                {
+                    "AssetName": "2015 Lexus Rx 350 Sport Wg",
+                    "Id": "0YW2a0000009skzGAA",
+                    "VIN__c": "2T2ZK1BA2FC593562"
+                },
+                {
+                    "AssetName": "2015 Chevrolet 3500 Fltbdtrk",
+                    "Id": "0YW2a0000009sl0GAA",
+                    "VIN__c": "1GB4CYCG6FF509679"
+                },
+                {
+                    "AssetName": "2015 Chevrolet 3500 Pickup",
+                    "Id": "0YW2a0000009sl1GAA",
+                    "VIN__c": "1GC5CYCG5FZ677635"
+                },
+                {
+                    "AssetName": "2015 Ford F150 Pickup",
+                    "Id": "0YW2a0000009sl2GAA",
+                    "VIN__c": "1FTEW1EG6FKE69395"
+                },
+                {
+                    "AssetName": "2016 Ram 2500 Crgo Van",
+                    "Id": "0YW2a0000009sl3GAA",
+                    "VIN__c": "3C6TRVDGXGE546160"
+                },
+                {
+                    "AssetName": "2012 Ford Econoline Box Trk",
+                    "Id": "0YW2a0000009sl4GAA",
+                    "VIN__c": "1FDSE3FLXCDL92181"
+                },
+                {
+                    "AssetName": "2015 Chevrolet Express Crgo Van",
+                    "Id": "0YW2a0000009sl5GAA",
+                    "VIN__c": "1GCWGFCF6F1527441"
+                },
+                {
+                    "AssetName": "2018 Lexus Rx350 Sport Wg",
+                    "Id": "0YW2a0000009sl6GAA",
+                    "VIN__c": "2T2ZZMCA3JC823565"
+                },
+                {
+                    "AssetName": "2018 Ford Transit Box Trk",
+                    "Id": "0YW2a0000009sl7GAA",
+                    "VIN__c": "1FDBW5PM7JKF44882"
+                },
+                {
+                    "AssetName": "2014 Ford E350 Util Trk",
+                    "Id": "0YW2a0000009sl8GAA",
+                    "VIN__c": "1FDWE3FL1EDF33047"
+                },
+                {
+                    "AssetName": "2010 Ford F250 Pickup",
+                    "Id": "0YW2a0000009sl9GAA",
+                    "VIN__c": "1FTSW2A57AEL90576"
+                },
+                {
+                    "AssetName": "2013 Ford E350 Util Trk",
+                    "Id": "0YW2a0000009slAGAQ",
+                    "VIN__c": "1FDWE3FL1DDL63722"
+                }
+            ]
+        },
+        {
+            "AgreSourceSysCd__c": "26",
+            "EffectiveDate": "2000-08-17T12:00:00.000+0000",
+            "Id": "0YT2a000000gxxPGAQ",
+            "Name": "58-NM-2870-9",
+            "PolicyDescription": "Condominium Unitowners Policy: 4242 N Capistrano Unit 141",
+            "PolicyName": "Condominium Unitowners Policy",
+            "PolicyType": "Fire",
+            "RenewalDate": "2020-08-17T12:00:00.000+0000",
+            "Servicing_Agent__c": "005o0000003JBxaAAG",
+            "SFDCPolicyNumberSearchKey__c": "58NM28709",
+            "Status": "In Force",
+            "InsurancePolicyAssets": [
+                {
+                    "AssetName": "4242 N Capistrano Unit 141",
+                    "Id": "0YW2a000000Wy14GAC",
+                    "VIN__c": null
+                }
+            ]
+        },
+        {
+            "AgreSourceSysCd__c": "1",
+            "EffectiveDate": "2019-09-25T12:00:00.000+0000",
+            "Id": "0YT2a000001ZQs3GAG",
+            "Name": "LF-3883-6648",
+            "PolicyDescription": "Select 10: Mc Farland, Jerry Lee",
+            "PolicyName": "Select 10",
+            "PolicyType": "Life",
+            "RenewalDate": null,
+            "Servicing_Agent__c": "005o0000003JBxaAAG",
+            "SFDCPolicyNumberSearchKey__c": "LF38836648",
+            "Status": "In Force",
+            "InsurancePolicyAssets": [
+                {
+                    "AssetName": "Mc Farland, Jerry Lee",
+                    "Id": "0YW2a000001HaO0GAK",
+                    "VIN__c": null
+                }
+            ]
+        },
+        {
+            "AgreSourceSysCd__c": "1",
+            "EffectiveDate": "2012-03-26T12:00:00.000+0000",
+            "Id": "0YT2a000000cLOvGAM",
+            "Name": "XXXXXXX 4408",
+            "PolicyDescription": "Long Term Care: Mcfarland,Sally",
+            "PolicyName": "Long Term Care",
+            "PolicyType": "Health",
+            "RenewalDate": "2020-03-26T12:00:00.000+0000",
+            "Servicing_Agent__c": "005o0000003JBxaAAG",
+            "SFDCPolicyNumberSearchKey__c": null,
+            "Status": "In Force",
+            "InsurancePolicyAssets": [
+                {
+                    "AssetName": "Mcfarland,Sally",
+                    "Id": "0YW2a000000Tfd8GAC",
+                    "VIN__c": null
+                }
+            ]
+        }
+    ],
+    "policiesForLegacyVsMod": [
+        {
+            "AgreSourceSysCd__c": "1",
+            "EffectiveDate": "2012-03-26T12:00:00.000+0000",
+            "Id": "0YT2a000000cLOvGAM",
+            "Name": "Legacy1",
+            "PolicyDescription": "PolicyDescription",
+            "PolicyName": "PolicyName",
+            "PolicyType": "Other",
+            "RenewalDate": "2020-03-26T12:00:00.000+0000",
+            "Servicing_Agent__c": "",
+            "SFDCPolicyNumberSearchKey__c": "SFDCPolicyNumberSearchKey__c",
+            "Status": "In Force",
+            "InsurancePolicyAssets": [
+                {
+                    "AssetName": "All",
+                    "Id": "0YW2a000000Tfd8GAC",
+                    "VIN__c": null
+                }
+            ]
+        },
+        {
+            "AgreSourceSysCd__c": "3",
+            "EffectiveDate": "2012-03-26T12:00:00.000+0000",
+            "Id": "0YT2a000000cLOvGAM",
+            "Name": "Legacy3",
+            "PolicyDescription": "PolicyDescription",
+            "PolicyName": "PolicyName",
+            "PolicyType": "Other",
+            "RenewalDate": "2020-03-26T12:00:00.000+0000",
+            "Servicing_Agent__c": "",
+            "SFDCPolicyNumberSearchKey__c": "SFDCPolicyNumberSearchKey__c",
+            "Status": "In Force",
+            "InsurancePolicyAssets": [
+                {
+                    "AssetName": "All",
+                    "Id": "0YW2a000000Tfd8GAC",
+                    "VIN__c": null
+                }
+            ]
+        },
+        {
+            "AgreSourceSysCd__c": "7",
+            "EffectiveDate": "2012-03-26T12:00:00.000+0000",
+            "Id": "0YT2a000000cLOvGAM",
+            "Name": "Legacy7",
+            "PolicyDescription": "PolicyDescription",
+            "PolicyName": "PolicyName",
+            "PolicyType": "Other",
+            "RenewalDate": "2020-03-26T12:00:00.000+0000",
+            "Servicing_Agent__c": "",
+            "SFDCPolicyNumberSearchKey__c": "SFDCPolicyNumberSearchKey__c",
+            "Status": "In Force",
+            "InsurancePolicyAssets": [
+                {
+                    "AssetName": "All",
+                    "Id": "0YW2a000000Tfd8GAC",
+                    "VIN__c": null
+                }
+            ]
+        },
+        {
+            "AgreSourceSysCd__c": "8",
+            "EffectiveDate": "2012-03-26T12:00:00.000+0000",
+            "Id": "0YT2a000000cLOvGAM",
+            "Name": "Legacy8",
+            "PolicyDescription": "PolicyDescription",
+            "PolicyName": "PolicyName",
+            "PolicyType": "Other",
+            "RenewalDate": "2020-03-26T12:00:00.000+0000",
+            "Servicing_Agent__c": "",
+            "SFDCPolicyNumberSearchKey__c": "SFDCPolicyNumberSearchKey__c",
+            "Status": "In Force",
+            "InsurancePolicyAssets": [
+                {
+                    "AssetName": "All",
+                    "Id": "0YW2a000000Tfd8GAC",
+                    "VIN__c": null
+                }
+            ]
+        },
+        {
+            "AgreSourceSysCd__c": "28",
+            "EffectiveDate": "2012-03-26T12:00:00.000+0000",
+            "Id": "0YT2a000000cLOvGAM",
+            "Name": "Mod28",
+            "PolicyDescription": "PolicyDescription",
+            "PolicyName": "PolicyName",
+            "PolicyType": "Other",
+            "RenewalDate": "2020-03-26T12:00:00.000+0000",
+            "Servicing_Agent__c": "",
+            "SFDCPolicyNumberSearchKey__c": "SFDCPolicyNumberSearchKey__c",
+            "Status": "In Force",
+            "InsurancePolicyAssets": [
+                {
+                    "AssetName": "All",
+                    "Id": "0YW2a000000Tfd8GAC",
+                    "VIN__c": null
+                }
+            ]
+        },
+        {
+            "AgreSourceSysCd__c": "28",
+            "EffectiveDate": "2012-03-26T12:00:00.000+0000",
+            "Id": "0YT2a000000cLOvGAM",
+            "Name": "NoIPA",
+            "PolicyDescription": "PolicyDescription",
+            "PolicyName": "PolicyName",
+            "PolicyType": "Other",
+            "RenewalDate": "2020-03-26T12:00:00.000+0000",
+            "Servicing_Agent__c": "",
+            "SFDCPolicyNumberSearchKey__c": "SFDCPolicyNumberSearchKey__c",
+            "Status": "In Force"
+        }
+    ],
+    "rollupTexts": {
+        "error": "Something went wrong with loading policy counts. Please contact your normal support channel.",
+        "happyPath": "Active Policies: Auto (2) Fire (1) Life (1) Health (1)"
+    }
+}

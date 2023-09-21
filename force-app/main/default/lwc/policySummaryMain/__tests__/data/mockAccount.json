@@ -1,0 +1,114 @@
+
+{
+    "apiName": "Account",
+    "childRelationships": {},
+    "eTag": null,
+    "fields": {
+        "AboutMe" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "City" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "ClicktoDialPreference__c" : {
+            "displayValue" : "1-With area code and phone number",
+            "value" : "11"
+          },
+          "CompanyName" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "Country" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "Email" : {
+            "displayValue" : null,
+            "value" : "luke.smith.jiku@statefarm.com"
+          },
+          "Fax" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "FirstName" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "Flag_DoNotProcess__c" : {
+            "displayValue" : null,
+            "value" : false
+          },
+          "Flag_IsCallCenterIdUpdateRequired__c" : {
+            "displayValue" : null,
+            "value" : false
+          },
+          "IsPrimaryUser__c" : {
+            "displayValue" : null,
+            "value" : true
+          },
+          "LastName" : {
+            "displayValue" : null,
+            "value" : "System"
+          },
+          "Manager" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "ManagerId" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "MiddleName" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "MobilePhone" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "Phone" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "PostalCode" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "State" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "Street" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "SubUserType__c" : {
+            "fieldApiName": "SubUserType__c",
+            "objectApiName": "User"
+          },
+          "Suffix" : {
+            "displayValue" : null,
+            "value" : null
+          },
+          "Title" : {
+            "displayValue" : null,
+            "value" : null
+          },
+        "ClientIdentifier__c":{
+            "displayValue": "Client ID",
+            "value": "clientId"
+
+        },
+        "RecordTypeId": {
+            "displayValue": "Record Type ID",
+            "value": "sfdcAccountTypeId"
+        }
+    },
+    "id": "0011J00001A3VFoQAN",
+    "lastModifiedById": "005o0000000KEEUAA4",
+    "lastModifiedDate": "2020-02-28T05:46:17.000Z",
+    "recordTypeInfo": null,
+    "systemModstamp": "2020-02-28T05:46:17.000Z"
+}

@@ -1,7 +1,5 @@
 import { LightningElement, api, wire } from 'lwc';
 import { getPageByPageId, getPageByErrorCode } from './modalBodies';
-
-
 import { DSS_INACTIVE_ERROR_CODE, NO_ENROLLMENT_DATE_ERROR_CODE, INCORRECT_PRODUCT_CODE_ERROR_CODE, BEACON_SHIPPED_ERROR_CODE,CCC_BEACON_SHIPPED_ERROR_CODE, REORDER_REASONS,REORDER_REASONS_CCC,TECHNICAL_ERROR_CODE,CCC_TECHNICAL_ERROR_CODE} from './constants';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import {
@@ -30,7 +28,6 @@ export default class DssBeaconReorder extends LightningElement {
     @api agreementAccessKey;
     @api productDescription;
     @api sourceSystemCode;
-    @api accountId;
     
     _currentPageNumber = null;
     previousPageNumber = null;
@@ -49,23 +46,11 @@ export default class DssBeaconReorder extends LightningElement {
     loggedInSubUserType;
     submissionObject = {};
     isSaving = false;
-    
     // data fetch variables
     dataHasReturned;
     _mrsfData = {};
     _dvApiData = {};
     shipmentOrderStatus;
-    
-     getCustomePageBody(accountRecordId,pageNumber){
-        let htmlBody="";
-
-        if (pageNumber === 100  ){
-            htmlBody = `<p>This workflow is unavailable. To continue to process your request, please follow the beacon reorder process using the <a href="/apex/VFP_ExternalLink?LinkId=215&accountId=${accountRecordId}" target="_blank" data-id="popDSSLink">Drive Safe & Save Beacon Reorder tool</a> in ECRM. Refer to procedural resources to confirm process and beacon eligibility.</p>`;
-        } else if (pageNumber === 101){
-            htmlBody = `<p>A beacon has been shipped in the last 10 days. Please confirm shipping status inside the Drive Safe & Save Beacon Status tool and verify the customer still needs a beacon sent. If one is needed, then follow the beacon reorder process using the <a href="/apex/VFP_ExternalLink?LinkId=215&accountId=${accountRecordId}" target="_blank" data-id="popDSSLink">Drive Safe & Save Beacon Reorder tool</a> in ECRM.</p>` ;
-        }
-        return htmlBody;
-     }
 
     // @api decorator is only needed until connections are in place to set this value properly
     get mrsfData() { return this._mrsfData }
@@ -89,7 +74,6 @@ export default class DssBeaconReorder extends LightningElement {
     messageContext;
 
     subscribeToDSScaseMessageChannel() {
-        //this.cccErrorPage100Body = this.getcccErrorPage100Body("clientid");
         this.dsscaseSubscription = subscribe(
             this.messageContext,
             dssTelematicsData,
@@ -135,20 +119,11 @@ export default class DssBeaconReorder extends LightningElement {
         }
     }
 
-      
-
-      
-
     get currentPageNumber() { return this._currentPageNumber }
     set currentPageNumber(value) {
         const pageDetails = getPageByPageId(value);
         this._currentPageNumber = value;
         this.currentBodyText = pageDetails.bodyHTML;
-        //custom logic for dynamic html
-        if (value === 100 || value === 101 ){
-            this.currentBodyText = this.getCustomePageBody(this.accountId,value);
-        } 
-
         this.shouldShowPreviousButton = pageDetails.showPrevious;
         this.shouldShowContinueButton = pageDetails.showContinue;
         this.shouldShowSubmitButton = pageDetails.showSubmit;
@@ -410,8 +385,4 @@ export default class DssBeaconReorder extends LightningElement {
     disconnectedCallback() {
         this.unsubscribeToDSSCaseMessageChannel();
     }
-
-
-
-
 }

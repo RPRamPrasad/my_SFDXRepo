@@ -1,0 +1,137 @@
+.card-outline {
+    padding: 5px;
+    border-width: 1px;
+    border-radius: 4px;
+    width: 100%;
+    display: flex;
+    border-style: solid;
+    border-color: lightgray;
+    min-height: 56px;
+    align-items: center;
+}
+
+.incept-renew-box {
+    font-size: 0.9em;
+    display: block;
+}
+
+.field-label {
+    font-size: 0.9em;
+    display: block;
+}
+
+.bg-red {
+    color: red;
+}
+
+.bg-green {
+    color: green;
+}
+
+.grey-bg {
+    background-color: #f3f2f2;
+}
+
+.no-risks {
+    color: #a0a1a1;
+    font-weight: normal;
+}
+
+.label-width {
+    min-width: 12.5%;
+}
+
+.long-field-width {
+    min-width: 35%;
+}
+
+.flex-display {
+    display: flex;
+    width: 44%;
+}
+
+.text-red {
+    color: red;
+}
+
+.bolded {
+    font-weight: bold;
+}
+
+.icon-width {
+    width: 4%;
+}
+
+.card-title {
+    width: 15%;
+    display: block;
+    font-size: 1em;
+}
+
+.risk-box {
+    width: 30%;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.icon-column {
+    width: 5%;
+}
+
+.date-column {
+    width: 10%;
+}
+
+.billing-column {
+    width: 11%;
+}
+
+.claim-column {
+    width: 8%;
+}
+
+.indicator-box {
+    width: 6%;
+    display: flex;
+    justify-content: center;
+}
+
+.card-actions {
+    width: 4%;
+    float: right;
+    margin-right: 0;
+}
+
+.risk-show-all {
+    font-weight: normal;
+    font-size: 0.85em;
+}
+
+.risk-modal {
+    width: 40%;
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    min-width: 250px;
+}
+
+.clip-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.pol-num-parent {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    max-width: 100%;
+}
+
+.pol-num {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

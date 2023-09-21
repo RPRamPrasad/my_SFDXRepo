@@ -1,0 +1,63 @@
+{
+    "Servicing_Agent__c": "005o0000003JFHsAAO",
+    "NI_SecondaryRoleNameCd__c": "20",
+    "MasterDataLocationCd__c": "08",
+    "ServicingAgentExternal__c": "<a href=\"/apex/VFP_ExternalLink?LinkId=26&amp;primaryStateCode=43&amp;primaryAgentCode=1226\" target=\"_blank\">Jimmie Bergman</a>",
+    "NI_RoleNameCd__c": "18",
+    "ProdLineCd__c": "A",
+    "Name": "459 9923-B01-43",
+    "Servicing_Agent__r": {
+        "Associate_ID__c": "PL1H35CZXAK",
+        "Id": "005o0000003JFHsAAO",
+        "Name": "Jimmie Bergman, R6R5, 43-1226",
+        "State_Agent_Code__c": "43-1226"
+    },
+    "PolicyDescription": "Multiple Vehicle : \n2014 FORD F150 PICKUP\n2017 FORD EDGE SPORT WG",
+    "SourceSystemIdentifier": "474596043",
+    "PlcyTypeCd__c": "0",
+    "NameInsuredId": "0012C00000h2hkcQAA",
+    "CoCd__c": "0001",
+    "NameInsured": {
+        "ClientIdentifier__c": "22XN18LNRGE",
+        "Id": "0012C00000h2hkcQAA",
+        "PersonEmail": "dflg.ajqlh53468ux@sf.org",
+        "Name": "LUKE G HATCH"
+    },
+    "Status": "In Force",
+    "PolicyType": "Auto",
+    "SFDCPolicyNumberSearchKey__c": "4599923B0143",
+    "CancellationDate": "4000-12-31T00:00:00.000Z",
+    "BillingPolicyAccounts__r": [
+        {
+            "BillingAccountID__c": "a3Q2C000000wOPJUA2",
+            "BillingAccountID__r": {
+                "PastDueIndicator__c": false,
+                "BillDueDate__c": "2022-01-28",
+                "AccountNumber__c": "1297809108",
+                "Id": "a3Q2C000000wOPJUA2",
+                "Status__c": "BILLED",
+                "CalculatedCurrentAmountDue__c": 156.53,
+                "PastDueAmount__c": 0,
+                "SourceSystem__c": "SFPP"
+            },
+            "Id": "a4Q2C000000aCrSUAU"
+        }
+    ],
+    "AgreAccessKey__c": "4334599923",
+    "RenewalDate": "2022-08-01T12:00:00.000Z",
+    "AgreDisplayPartyName__c": "HATCH, LUKE G & ASHLEY L",
+    "InsurancePolicyAssets": [
+        {
+            "Description__c": "2017 FORD EDGE SPORT WG",
+            "RiskNumber__c": "001",
+            "Id": "0YW2C0000004E6wWAE",
+            "RiskStatusText__c": "In Force",
+            "VIN_Address_Cov_Amt__c": "2FMPK3J93HBR70869",
+            "AssetName": "2017 FORD EDGE SPORT WG"
+        }
+    ],
+    "AgreSourceSysCd__c": "1",
+    "PolicyName": "Multiple Vehicle",
+    "Id": "0YT2C0000008QWIWA2",
+    "EffectiveDate": "2020-08-01T12:00:00.000Z"
+}
