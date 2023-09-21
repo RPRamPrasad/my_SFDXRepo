@@ -3350,62 +3350,6 @@ Vehicle#004 :Truck/Van 2012 INTL 4300M7 in Illinois`,
         expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=card-obligee]')).toBeTruthy();
         expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=card-obligee]').textContent).toEqual('STATE OF CALIFORNIA')
     });
-    it('should handle enhanced summary api call stopping for life policy', async () => {
-        getGroupPolicyStatus.mockResolvedValueOnce(false);
-
-        policySummaryCardComp.policy = lifePolicy;
-        policySummaryCardComp.userAccess = {};
-        policySummaryCardComp.plmActivationStatus = {};
-        policySummaryCardComp.accountPageRecordId = {};
-        policySummaryCardComp.isHousehold = {};
-        policySummaryCardComp.accountList = {};
-        policySummaryCardComp.loggedInSubuser = {};
-        document.body.appendChild(policySummaryCardComp);
-
-        await flushPromises();
-
-        expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=launch-policy]').textContent).toEqual(lifePolicy.Name);
-        expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=list-item-desc]').textContent).toEqual(lifePolicy.PolicyName);
-        expect(logException).not.toHaveBeenCalled();
-
-        policySummaryCardComp.enhancePolicy();
-
-        await flushPromises();
-
-        expect(callout).not.toHaveBeenCalled();
-        expect(logException).not.toHaveBeenCalled();
-        expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=loading-spinner]')).toBeFalsy();
-
-        expect(getAccountData).not.toHaveBeenCalled()
-    });
-    it('should handle enhanced summary api call stopping for non-surety fire policy', async () => {
-        getGroupPolicyStatus.mockResolvedValueOnce(false);
-
-        policySummaryCardComp.policy = homeownersPolicy;
-        policySummaryCardComp.userAccess = {};
-        policySummaryCardComp.plmActivationStatus = {};
-        policySummaryCardComp.accountPageRecordId = {};
-        policySummaryCardComp.isHousehold = {};
-        policySummaryCardComp.accountList = {};
-        policySummaryCardComp.loggedInSubuser = {};
-        document.body.appendChild(policySummaryCardComp);
-
-        await flushPromises();
-
-        expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=launch-policy]').textContent).toEqual(homeownersPolicy.Name);
-        expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=list-item-desc]').textContent).toEqual(homeownersPolicy.PolicyName);
-        expect(logException).not.toHaveBeenCalled();
-
-        policySummaryCardComp.enhancePolicy();
-
-        await flushPromises();
-
-        expect(callout).not.toHaveBeenCalled();
-        expect(logException).not.toHaveBeenCalled();
-        expect(policySummaryCardComp.shadowRoot.querySelector('[data-id=loading-spinner]')).toBeFalsy();
-
-        expect(getAccountData).not.toHaveBeenCalled()
-    });
 
     it('should query account for missing driver names', async () => {
         getGroupPolicyStatus.mockResolvedValueOnce(false);

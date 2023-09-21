@@ -52,5 +52,9 @@
                 <div class="larger-font" data-id="no-risk-selected">Select a risk below to view available actions</div>
             </div>
         </template>
-    </lightning-card>
+    </lightning-card>  
+    <template if:true={loadFrame}>
+        <iframe title='iframe' height="0" width="100%" class="slds-hide" src="/apex/HA4CPKCE"
+        sandbox="allow-modals allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"></iframe>
+    </template>
 </template>
