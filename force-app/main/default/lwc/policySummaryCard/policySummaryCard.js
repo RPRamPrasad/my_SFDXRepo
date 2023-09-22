@@ -301,7 +301,7 @@ export default class PolicySummaryCard extends NavigationMixin(LightningElement)
     }
 
     disconnectedCallback() {
-        this.unsubscribeToRiskMessageChannel();
+        window.removeEventListener('message', this.vfMessageListener);
     }
 
     async handleAuthResponse(event) {
